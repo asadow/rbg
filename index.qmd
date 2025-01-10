@@ -1,0 +1,46 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = ">")
+library(tidyverse)
+library(glue)
+library(DiagrammeR)
+```
+
+# Preface {.unnumbered}
+
+![Book cover: Read about the [painter "Bob Ross"](https://en.wikipedia.org/wiki/Bob_Ross)](cover.jpg)
+
+## Why *This* Book?
+
+```{r echo=FALSE}
+library(DiagrammeR)
+
+grViz("
+  digraph {
+    // Global node style
+    node [style = filled, shape = box] 
+
+    // Define colors for specific nodes
+    'Unorganized approach' [fillcolor = lightblue]
+    'Messy files & code' [fillcolor = yellow]
+    'Invalid code' [fillcolor = orange]
+    'Invalid output' [fillcolor = yellow]
+    Frustration [fillcolor = red]
+
+    // Define edges
+    'Unorganized approach' -> 'Messy files & code'
+    'Messy files & code' -> 'Invalid code'
+    'Invalid code' -> 'Invalid output' -> Frustration -> 'Invalid code'
+  }
+")
+
+```
+
+I taught my spouse how to program in R (she had no previous knowledge despite completing a degree in Statistics). She, like many of us, was often frustrated while learning. I emphasized the kindness and generosity of the R community who write free books and provide support on forums. But as I started recommending books alongside our personal lessons, I noticed there wasn't a book meant for a specific audience: a complete beginner wishing not only to turn their analysis into a report, but to do it in a way that avoids future frustration.
+
+Simply put, this book is meant for beginners who wish to immediately apply best practices to their own projects.
+
+## For the Love of R
+
+Without a code- and project-oriented data science course, many beginner analysts know only mathematical or methodological knowledge and how to start a program. They are bound to write invalid code. The resulting invalid output is especially demotivating for analysts, as their task is to analyse the data. They may have been exposed to R in a Statistics courses, but these courses typically focus on methods and potentially mathematics; not work-flow, project-management, and coding. Furthermore, Statistics has a reputation for being hard, especially on those who are learning the subject only because it is required in a non-mathematical program.
+
+As a result, R has two completely different reputations. Among students in Statistics courses, it is often despised. Among those who use the tool for work, it is usually *loved*. The difference may be caused by students paying to learn R, and employees being paid. But employees also realize, once they use R day-to-day, that there is an amazing community of others who help each other. This book is also meant to play a small part in that community.

@@ -1,0 +1,40 @@
+project:
+  type: book
+  
+number-depth: 1
+
+book:
+  title: "How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects"
+  author: "Adam Sadowski"
+  date: today
+  page-navigation: true
+  page-footer: 
+    # border: false
+    # background: light
+    left: "Copyright 2025, Adam Sadowski" 
+    right:
+      - icon: github
+        # href: https://github.com/asadow
+      # - icon: twitter 
+      #   href: https://twitter.com/ 
+  chapters:
+    - index.qmd
+    - 01-writing-reports.qmd
+    - 02-file-naming.qmd
+    - 03-opening-data.qmd
+    - 04-understanding-tidyverse.qmd
+    - 05-strings.qmd
+    - 06-avoiding-repetition.qmd
+    - 10-next-steps.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+  epub:
+    cover-image: cover.jpg
+
