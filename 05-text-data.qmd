@@ -1,4 +1,4 @@
-# Strings
+# Prepare for Text Data {#sec-text-data}
 
 ## Patterns and Regular Expressions (regexes)
 
@@ -19,7 +19,7 @@ Why learn this language? When do you need a language for describing patterns in 
 
 ## Motivation
 
-The first definition under heading "Character Classes" is
+The first definition under heading "Character Classes" in the [regex cheatsheet](https://rstudio.github.io/cheatsheets/regex.pdf) is
 
 ```         
 [[:digit:]] or \\d  Digits; [0-9]
@@ -31,7 +31,7 @@ When do we need patterns? Let's say we want to make sure each row in the `date` 
 
 The pattern for digits is `"[[:digit:]]"` or `"\\d"`. Now we need a pattern for "8 times". We also cannot simply write 8, as we want to avoid representing the character 8. We now look for the abstract pattern representing "times": or, in other words, "occurences". On the bottom right, this pattern will be under the grey heading "Quantifiers".
 
-The 4th defintion is
+The 4th definition is
 
 ```         
 {n}  Matches exactly n times
@@ -81,7 +81,7 @@ To extract the reference, we must refer to it by number. We need to use a number
 replacement <- "\\1"
 ```
 
-We now use our pattern and replacement in the function `str_replace`:
+We now use our pattern and replacement in the function `str_replace()`:
 
 ```{r}
 month <- "2022-13-01" |> str_replace(pattern, replacement)
@@ -111,12 +111,7 @@ df |> filter(month > 12)
 
 ```
 
-There are no rows where month is greater than 12. Notice how the `mutate` is on a separate line after the pump `|>`. This is so that the `mutate` can fit on one line as opposed to the less easily readable version below.
-
-```{r}
-df <- df |> mutate(month = date |> str_replace("\\d{4}-(\\d{2})-\\d{2}", "\\1") |> as.numeric())
-
-```
+There are no rows where month is greater than 12.
 
 ## Understanding Representations
 
@@ -152,7 +147,7 @@ When we place these sequences in strings, the output is not an error.
 "\\"
 ```
 
-Further, we can see what each sequence represents by using the function `writeLines`:
+Further, we can see what each sequence represents by using the function `writeLines()`:
 
 ```{r}
 "\"" |> writeLines()

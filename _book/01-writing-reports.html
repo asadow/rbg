@@ -153,8 +153,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-opening-the-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Opening the Data</span></span></a>
+  <a href="./03-opening-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Opening Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -232,7 +232,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Data work will involve the preparation of data and data reports. In fact, you may want to report on the preparation of data. Since the code that prepares a report can also prepare the data, you could work in a way that both gets the job done and reports on getting it done. That’s a win-win!</p>
 <p>Reports are great client-facing examples of your work (and how you work if you report on data preparation). Before employment, they can be presented to potential employers. After employment, they can be presented to your collaborators during data preparation; maybe there will be decisions that need to be made about the data, and the best way to show why decisions are needed will be through a report.</p>
-<p>For these reasons, this book starts with the fundamentals of writing reports. The files that make reports are called .qmd files. To start a .qmd file, open RStudio. In the top menu, click File then New File and finally “Quarto Document…”. When you see the pop-up, name the file what you like. Then, in the file, select all (shortcut Cmd-A or Cntrl-A) and hit delete. Knit (i.e.&nbsp;prepare) the document by the shortcut Cmd-Shift-K (or Cntrl-Shift-K). You will see a document that is empty. That is because we have no lines. Let’s get started by writing lines then!</p>
+<p>For these reasons, this book starts with the fundamentals of writing reports. The files that make reports are called .qmd files. To start a .qmd file, open RStudio. In the top menu, click File then New File and finally “Quarto Document…”. When you see the pop-up, name the file what you like. Then, in the file, select all (shortcut <code>command-A</code> or <code>Ctrl-A</code>) and hit <code>Delete</code>. Render (i.e.&nbsp;prepare) the document by the shortcut <code>command-Shift-K</code> (or <code>Ctrl-Shift-K</code>). You will see a document that is empty. That is because we have no lines. Let’s get started by writing lines then!</p>
 <section id="lines-and-lists" class="level2">
 <h2 class="anchored" data-anchor-id="lines-and-lists">Lines and Lists</h2>
 <p>On your left in Rstudio (what is called the code source), you have numbers like below that represent lines of text or code:</p>
@@ -308,8 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2
 3</code></pre>
 <p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;3&nbsp;will&nbsp;show&nbsp;in&nbsp;your&nbsp;document&nbsp;as:</em></sub></p>
-<p>This report was made on 2025-01-10.</p>
-<p>–</p>
+<p>This report was made on 2025-01-11.</p>
 <!-- To see an Rmd document within R, go to R's menu: Tools - Global Options; select R Markdown from the left, find the line "Show output preview in: " and select Viewer -->
 <!-- Explain why this is not greyed out: ` -->
 </section>
@@ -338,11 +337,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-01-10"</code></pre>
+<pre><code>[1] "2025-01-11"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-01-10"</code></pre>
+<pre><code>[1] "2025-01-11"</code></pre>
 </div>
 </div>
 <p>When declaring code with chunks (multiple back-ticks), the document will show both the code and the result of the code and this can be customized. When declaring code with single back-ticks, the document will show only the result of the code and this cannot be customized.</p>
@@ -369,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1] means the first element in the first container of the result of the processed code</code></pre>
 <p>When first learning R, the best way to understand errors is usually not through R’s error messages. The best way is by paying close attention to the code and every little detail: misspelling, capitalization, and punctuation.</p>
 <p>For this reason we want to practice good strategies of writing code. Writing involves naming our own objects and functions. But before that, we should also name our files using a good strategy. For a quick guide on naming files, <a href="https://style.tidyverse.org/files.html">click here</a>.</p>
-<!-- ## Explain to look at Render box for knit errors -->
+<!-- ## Explain to look at Render box for render errors -->
 </section>
 <section id="links" class="level2">
 <h2 class="anchored" data-anchor-id="links">Links</h2>
@@ -385,8 +384,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="keyboard-shortcuts">Keyboard Shortcuts</h2>
 <p>Remember, if you are using Windows, use</p>
 <ul>
-<li><code>ctrl</code> instead of <code>command</code></li>
-<li><code>alt</code> instead of <code>option</code></li>
+<li><code>Ctrl</code> instead of <code>command</code></li>
+<li><code>Alt</code> instead of <code>option</code></li>
 </ul>
 <p><strong>Shortcuts:</strong></p>
 <ul>

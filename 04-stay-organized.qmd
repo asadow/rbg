@@ -1,6 +1,6 @@
-# Avoiding Repetition
+# Review (to Stay Organized)
 
-Let's say we need to read data in again, and we have named your files as per the chapter on File Naming. To summarize, the file names have phrases with words separated by -, and multiple phrases are separated by \_.
+Let's say we need to read data in again, and we have named your files as per @sec-name-files. To summarize, the file names have phrases with words separated by -, and multiple phrases are separated by \_.
 
 Instead of copy-pasting the same code we used the previous time, we can avoid this repetition with a function. We can create this function by assigning `function()` to an object, and entering the inputs inside the `()` like so:
 
@@ -28,11 +28,11 @@ That is a lot for one name to represent. Hence it is more prudent to separate th
 
 CONTINUE HERE
 
-Although we could place all the code needed to read in data inside our function and name the function `read_csv_in_df`, this is not a good idea. First, it is inconsistent with the popular function `read_csv`, which has more than two arguments, the first of which is a file path.
+Although we could place all the code needed to read in data inside our function and name the function `read_csv_in_df()`, this is not a good idea. First, it is inconsistent with the popular function `read_csv()`, which has more than two arguments, the first of which is a file path.
 
 With only two arguments, our function has the form `function(n_phrases, names_phrases){code}`. The code it will execute is in curly brackets `{}`. Although curly brackets were not needed in `function(x, y) x + y`, it will be needed here as the code will have multiple lines.
 
-Although we could place all the code needed to read in data inside and name the function `read_csv_in_df`, then we would be acting without much care.
+Although we could place all the code needed to read in data inside and name the function `read_csv_in_df()`, then we would be acting without much care.
 
 ```{r}
 read_csv_in_df <- function(n_phrases, names_phrases){

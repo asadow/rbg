@@ -1,4 +1,4 @@
-# Next Steps for This Guide
+# What's Possible
 
 - How to make your work reproducible using "R projects"
 - How to mask or randomize data in order ot make it public

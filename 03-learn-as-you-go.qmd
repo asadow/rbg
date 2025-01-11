@@ -1,6 +1,4 @@
-# Opening Data
-
-We can open our containers or "nests" in `data` using the function `unnest` from the package `tidyr`.
+# Learn (As You Go) {#sec-learn-as-you-go}
 
 ```{r}
 #| echo: false
@@ -10,43 +8,19 @@ library(tidyverse)
 df <- read_rds(here::here("df.rds"))
 ```
 
-```{r unnest-data}
-library(tidyr)
-df <- unnest(df, data)
-df
-```
+## Find Functions
 
-This data looks clean but looks can be deceiving. Remember that we set the `df` object to be `as_tibble`? A tibble is not only a table in R, but a cleaner kind of table. It shows only 10 rows, and as many columns that can comfortably be displayed. The sizing of the table surrounds the data, like the header (top line) `# A tibble: 24 x 9` tells you how many rows (24) and columns (9) there are. The footer (bottom line) tells you what is missing from the display.
+How would you discover functions for your specific needs?
 
-Even though this data is small (24 rows by 9 columns can be evaluated using our eyes), it is always best to practice techniques that are generalizable to both small and large data.
+### Books
 
-## Checking Data
-
-The simplest way to start evaluating data is to check that the values under each column meet expectations. Since we created the first 4 columns using our file names, we can be sure that these 4 columns are clean.
-
-For the next column, `continent`, we expect values to be continents, capitalized, and spelled correctly. Instead of reading each line with our eyes, we can read each line with our computers. Or a combination of the two. That is exactly how we will start. We will check all unique (i.e. distinct) values under the continent column using `distinct`. It produces a tibble with only the distinct rows for the column(s) you choose.
-
-```{r}
-distinct(df, continent)
-```
-
-These unique values are perfect. Which means every value is perfect, as these unique values represent them. But what if they were not capitalized, for example? That is in fact the case with our country column: the values are not capitalized because the values came from our file-naming, and it is good practice not to capitalize when file-naming. To capitalize the values in a column, you can use a function called `str_to_title`.
-
-```{r}
-str_to_title(df$country)
-
-df
-```
-
-## Finding Functions
-
-How would you know which function to use if I did not tell you?
+There are many great books on R that will expose you to functions. But, if you learn best by doing, the most effective technical book will be the one designed toward your specific task.
 
 ### Large-Language-Models
 
-No explanation needed.
+The hottest new method is to simply ask LLM's.
 
-### Google
+### Search Engines
 
 Google is a great search engine that most R programmers use when learning the R language. If we search "r capitalize first letter" we see, on `r Sys.Date()`, the following paragraph as the first result:
 
@@ -70,7 +44,7 @@ Knowing how to make an example is the majority of the work involved in asking a 
 
 #### Creating Minimally Reproducible Examples
 
-If your question involves data frames, you need to learn how to build a data frame before asking your question on Stack Overflow. To build a data frame, you can use the `tibble` function from package `tibble`.
+If your question involves data frames, you need to learn how to build a data frame before asking your question on Stack Overflow. To build a data frame, you can use the `tibble()` function from package `tibble`.
 
 If you have 2 numeric columns, like in
 
@@ -150,23 +124,21 @@ tibble(x = c(1, 2), mean_y = c(2.5, 2))
 #> 2     2    2
 ```
 
-## Finding Function Documentation for Understanding Functions
+## Understand Functions
 
-Once you've found a function (or usually, a set of functions) recommended to you by Google's search results, or by R users on Stack Overflow, it would be wise to understand how the function(s) work; specifically, the inputs and outputs.
+Once you've found a function (or usually, a set of functions) recommended to you, it would be wise to understand how the function(s) work; specifically, the inputs and outputs.
 
-Both Google and Stack Overflow can be overwhelming. Google gives a variety of websites. Which do you choose? A question on Stack Overflow can receive multiple answers, with each using different approaches and functions. Again, which do you choose?
+### Large-Language-Models
 
-Let's start with Google then.
+LLM's can explain function inputs and outputs as they are trained on public online knowledge.
 
-### Google
+### Search Engines
 
-Remember, after searching "r capitalize first letter" we saw the following paragraph as the first result:
+Search engines will give a variety of websites. Remember, after googling "r capitalize first letter" we saw the following paragraph as the first result:
 
 > Convert First letter of every word to Uppercase in R Programming – str_to_title() Function. str_to_title() Function in R Language is used to convert the first letter of every word of a string to Uppercase and the rest of the letters are converted to lower case.
 
-This paragraph is from a website called [GeeksforGeeks](https://www.geeksforgeeks.org/convert-first-letter-of-every-word-to-uppercase-in-r-programming-str_to_title-function)
-
-I would not recommend to use this website. That is, after searching "r capitalize first letter" and seeing the the above paragraph, I would not recommend to visit the website to understand the function. And for multiple reasons.
+This paragraph is from a website called [GeeksforGeeks](https://www.geeksforgeeks.org/convert-first-letter-of-every-word-to-uppercase-in-r-programming-str_to_title-function). I would not recommend using this website to understand the function. And for multiple reasons.
 
 1.  You are not familiar with the format of the website.
 2.  You will find yourself on multiple websites when you need to discover and learn about multiple functions.
@@ -188,7 +160,7 @@ The *Arguments* tell us more about the inputs in case the *Usage* is not enough.
 
 ### Stack Overflow
 
-Another way of understanding functions is to be presented with answers from others on Stack Overflow. These answers don't need to be answers to the questions you have posted on Stack Overflow; they can be answers to questions posted by others.
+Another way to understand functions is to be presented with answers from others on Stack Overflow. These answers don't need to be answers to the questions you have posted on Stack Overflow; they can be answers to questions posted by others.
 
 For example, here is a question dated from 2019: https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th
 
@@ -198,9 +170,7 @@ Notice how the answer using `tidyr` is far more simple; it is one line of code. 
 
 It is possible to add comments to the answers on Stack Overflow, with further questions about the functions if there is something you don't understand. Fortunately the `tidyverse` functions are well documented because of their standardized webpages, and because of multiple, free books on using them for specific tasks.
 
-### Books
-
-There are many books describing `tidyverse` functions. Finding a good book is a strong alternative to using Google or Stack Overflow toward understanding functions. A book can hold your hand throughout each step and provide a narrative. It can also be designed toward a specific task, just as this one is designed toward getting you started as quickly and comfortably as possible.
+<!-- Even by looking around the tidyverse.org website, we can easily find more  functions. [https://www.tidyverse.org/packages/](https://www.tidyverse.org/packages/) describes the most useful packages. Reading the descriptions tell us the purpose of the packages. It is not important to know the names of these packages, but it is useful to understand what they each provide.  -->
 
 <!-- ```{r} -->
 

@@ -1,0 +1,381 @@
+# Start (Organized)
+
+## Name Files {#name-files}
+
+```{r}
+#| echo: false
+library(purrr)
+```
+
+Now that we have covered how to write lines, we can start writing lines about the data, right? Not yet. Let's make sure our files have the best names possible as that will help in later writing about the data.
+
+:::{.callout-note}
+File naming is useful even if you only have one file of data. Apart from its clarity, it prepares you for the future possibility of having multiples files of data. Data sent to an analyst is often updated and re-sent, at which time you may want to keep records of the old and new.
+:::
+
+**Definitions:**
+
+1.  `_` is called underscore.
+2.  `-` is called dash.
+
+Use `_` as a separator, that is, to separate different characteristics of the file. Use `-` to separate parts within characteristics. For example,
+
+```         
+lesson-1_on-qmd_2022-02-18.qmd
+```
+
+If you have related files that you want to systematically process, then be systematic with the order of characteristics. For example,
+
+```         
+lesson-1_on-qmd_2022-02-18.qmd
+lesson-2_on-qmd_2022-02-19.qmd
+lesson-3_on-qmd_2022-02-20.qmd
+lesson-1_on-python_2022-02-20.qmd
+```
+
+Consider how these files will look when ordered alphabetically in your operating system's file manager (File Explorer on Window's or Finder on Mac) if that is important to you. The above files will be ordered like so:
+
+```         
+lesson-1_on-qmd_2022-02-18.qmd
+lesson-1_on-ruby_2022-02-20.qmd
+lesson-2_on-qmd_2022-02-19.qmd
+lesson-3_on-qmd_2022-02-20.qmd
+```
+
+If the order of characteristics start with the most general, then the alphabetic ordering will be more appropriate:
+
+```         
+on-qmd_lesson-1_2022-02-18.qmd
+on-qmd_lesson-2_2022-02-19.qmd
+on-qmd_lesson-3_2022-02-20.qmd
+on-ruby_lesson-1_2022-02-20.qmd
+```
+
+Consistency helps you visually process the files you see on your file explorer. It also helps when telling your computer how to process the files. We named the files using separators so that numeric information can be represented. That is, the phrase before the first `_` is the first characteristic, the phrase before the second `_` is the second characteristic and so on.
+
+To process the file names in a way that splits these characteristics, we can use a function `str_split` from an R package called stringr. File names are strings. Strings are character elements that cannot directly be treated numerically (they need to be converted into numeric elements first for that).
+
+To use a function from a package, we first install the package by running
+
+```{r install-stringr, eval = FALSE}
+install.packages("stringr")
+```
+
+Delete this line once you are done, as you will have no need to rerun (re-process) it.
+
+We use a colon (the symbol `:`) twice to use a function from a package. If you write
+
+```{r show-stringr::, eval = FALSE}
+stringr::
+
+```
+
+you will see a drop-down menu of all the functions from stringr. `str` stands for string. Many function names start with `str_`. The drop-down menu from writing `stringr::` adjusts when you add `str_`. For every function whose name starts with `str_`, the general purpose is the processing of strings. Similar to our file names above, the general part of the name comes first, then the `_`, and then the more specific purpose.
+
+There are a few exceptions; some functions in stringr do not start with `str_`. But most start with `str_` because `str_` makes it clear what the function will process. This is important as we can avoid the need to write out `stringr::`. We avoid this by loading the package: making the function names in the package available. To load the package, run the following
+
+```{r show-library}
+library(stringr)
+```
+
+Now when we only write `str_`, we still get a drop-down menu. To use a `str_` function, we need some input strings.
+
+## Bring Files Into R
+
+Let's get our consistent file names into R. We will use a function called `file.choose()`. 
+
+:::{.callout-note}
+When referring to a function, `()` makes it crystal clear that the object has arguments, or in other words, inputs. `()` means either 
+
+1. the function is used with its default arguments, or
+2. the function is just being referred to in text, as above.
+:::
+
+`file.choose()` causes a pop-up that allows you to interactively search your computer files. If you are using Windows, this pop-up may unfortunately pop-up behind RStudio. You will need to Alt-Tab to find the pop-up. Once you see the pop-up, find the folder with your files and double click on (any) one of the files. The function will print the file path (the computer's representation of where the file exists). Below we assign the file path to the object `file_path`.
+
+```{r file-paths, eval = FALSE}
+file_path <- file.choose()
+```
+
+```{r here, echo = FALSE}
+file_path <- here::here("data", "raw")
+```
+
+We will now use a function `path_dir()` from the package fs. `path_dir()` will get the path of the directory from the file path. We will assign the result to the object `directory_path`.
+
+```{r dir-path}
+library(fs)
+directory_path <- path_dir(file_path)
+```
+
+To get a list of .csv files in this directory, we will use a `list.files()` function. This function has what are called two arguments. The first is the path to the folder that contains our files. The second is the pattern that is unique to the files we want.
+
+```{r files}
+files <- list.files(directory_path, pattern = "csv")
+files
+```
+
+Now we use `str_split()` which will split our strings. For example,
+
+```{r split-files}
+str_split(files, "_")
+```
+
+This result is what is called a list. A list can contain anything. The \[\[1\]\] and \[\[2\]\] represent the first and second element of the list. The \[1\] indicates that the element to its very right is the first element.
+
+To also separate the file type (.qmd) at the end, preceded by the period, we can adjust our function to separate by `_` as well as `.`.
+
+```{r split-files-wrong}
+str_split(files, "_.")
+
+```
+
+What happened? This is not what we want, and it is because `.` is a special (i.e. meta) character. Special characters mean more to R than the literal symbol itself. The special character `.` represents any character. Hence we told `str_split()` to use `_.` as a separator which meant that `_A` was used as the first separator, and `_2` as the second separator. We need to use different special characters to overcome this challenge: `[` and `]`. These square brackets can be used to surround the distinct characters that `str_split` will use as separators: `[_.]` will tell `str_split()` to use either a `_` or a literal `.` as the separator.
+
+```{r split-files-right}
+str_split(files, "[_.]")
+```
+
+We can have a cleaner result using `str_split_fixed()`. It is called "fixed" as we can fix the number of splits or pieces. We will split our strings into 4 pieces.
+
+```{r split-files-fixed}
+str_split_fixed(files, "[_.]", 4)
+```
+
+This result is what is called a matrix. Let's assign it to the object m.
+
+```{r as-matrix}
+m <- str_split_fixed(files, "[_.]", 4)
+```
+
+Now we can see the matrix just by processing
+
+```{r print-matrix}
+m
+```
+
+Let's add informative names to the columns of the matrix. To do this, we use a function called `colnames()`. This function will be placed on the left of `<-` as it is a replacement function. We replace the null (i.e. undefined) column names of our matrix with our list of characteristics.
+
+```{r assign-names}
+colnames(m) <- c("source", "country", "date", "file_type")
+m
+```
+
+Let's create an object named df with a function called `as_tibble()` from the package `tibble`. What is a tibble? It is an R word for table. Remember to install tibble before running
+
+```{r tibble}
+library(tibble)
+df <- as_tibble(m)
+df
+```
+
+<!-- Let's add a column called `file_path` that is a combination of our directory path, a forward slash (the symbol `\`), and the original strings (the object `files`). We create this combination using a function called `glue` from the package `glue`. Inside `glue`'s quotation marks, objects can be referenced when placed inside curly brackets like so `{object_name}`. -->
+
+<!-- ```{r glue} -->
+
+<!-- library(glue) -->
+
+<!-- file_paths <- glue("{directory_path}/{files}") -->
+
+<!-- file_paths -->
+
+<!-- ``` -->
+
+We now need the file path for each of our files. To list the files in our directory, use the function `dir_ls()`. Assign the result to object `file_paths`.
+
+```{r}
+file_paths <- dir_ls(directory_path)
+```
+
+We will now change our tibble so that there is a new column called `file_path` that contains our `file_paths`. To do this, we will use a function from the package `dplyr` (pronounced "data plier"). The function we will use is named after another word for change: `mutate()`. This function has two arguments. The first is the tibble. The second is the name of the new column, an equal sign, and the values we want in that column.
+
+```{r}
+#| message: false
+library(dplyr)
+df <- mutate(df, file_path = file_paths)
+```
+
+## Bring Data Into R
+
+We can read in the data related to each file with the help of the `file_path` column. Not only that, we can read in the data so that it is organized inside our tibble. In each row of our tibble, we will add each file's data hidden in a little box or "nest". These nests will go under a column called `data`.
+
+To change our tibble so that there is a new column, we will again use `mutate()`. The first argument is the tibble, just like above. The second is the name of the new column (`data`), an equal sign, and the values we want in that column.
+
+Since the values in this column will be data sets, we need to put these data sets in containers. Where we see `"csv"` `r nrow(df)` times under `file_type` in our tibble, we will see `"<S3: spec_tbl_df>"` `r nrow(df)` times under `data`. The `<` and `>` mean container. The `S3: spec_tbl_df` means data frame (another word for data set).
+
+We need to use a special function inside `mutate()` when creating our `data` column so that the values of the `data` column are containers. This special function is called `map()` from the package `purrr`. `purrr` is pronounced like a cat's purr (the low vibrating sound of happiness) and it refers to purposeful programming with R.
+
+The result of `map()` will always be containers. The number of containers will always be the same as the length of the first argument to `map()`. The second argument of `map()` is the function that will be applied to the first argument. To create the `data` column, the first argument will be the `file_path`, and the second argument will be a custom read function.
+
+The read function below, `read_csv_c()`, uses a function called `read_csv()` from the package `readr`. `read_csv()` reads .csv files and determines what kind of columns are in the data (e.g. numeric or character). We will decide the kind of columns ourselves, so we need to prevent the function from doing so. `col_types` is the argument inside of `read_csv()` with a `.default`. We need to set the `.default` to be `"c"`. `"c"` stands for character. Character is a safe default as it is the original format of the .csv data.
+
+```{r read-custom}
+library(readr)
+
+read_csv_c <- function(csv_file_path) read_csv(csv_file_path, col_types = c(.default = "c"))
+```
+
+Now we use our new function to read in our data.
+
+```{r read, message = FALSE}
+df <- mutate(df, data = map(file_path, read_csv_c))
+df
+```
+
+We no longer need the `file_path` column so we will select it to be removed by using the `select()` function.
+
+```{r select-remove}
+df <- select(df, - file_path)
+```
+
+We can open our containers or "nests" in `data` using the function `unnest()` from the package `tidyr`.
+
+```{r unnest-data}
+library(tidyr)
+df <- unnest(df, data)
+df
+```
+
+This data looks clean but looks can be deceiving. Remember that we set the `df` object to be a tibble with `as_tibble()`? A tibble is not only a table in R, but a cleaner kind of table. It shows only 10 rows, and as many columns that can comfortably be displayed. The sizing of the table surrounds the data, like the header (top line) `# A tibble: 24 x 9` tells you how many rows (24) and columns (9) there are. The footer (bottom line) tells you what is missing from the display.
+
+Even though this data is small (24 rows by 9 columns can be evaluated using our eyes), it is always best to practice techniques that are generalizable to both small and large data. Let's check the data with code.
+
+## Check Data
+
+The simplest way to start evaluating data is to check that the values under each column meet expectations. Since we created the first 4 columns using our file names, we can be sure that these 4 columns are clean. For the next column, `continent`, we expect values to be continents, capitalized, and spelled correctly. Instead of reading each line with our eyes, we can read each line with our computers. Or a combination of the two. That is exactly how we will start.
+
+```{r}
+unique(df$continent)
+```
+
+These unique values are perfect. Which means every value is perfect, as these unique values represent them. But what if they were not capitalized, for example? That is in fact the case with our country column: the values are not capitalized because the values came from our file-naming, and it is good practice not to capitalize when file-naming. 
+
+```{r}
+unique(df$country)
+```
+
+## Clean Data
+
+To capitalize the values in a column, you can use a function called `str_to_title()`.
+
+```{r}
+df <- mutate(df, country = str_to_title(country))
+df
+```
+
+It would be quite the task for this book to cover every method of checking and cleaning data. The next best is to describe what to do next in the remaining chapter and how to discover data validating and cleaning methods in the following @sec-learn-as-you-go. The most difficult data to clean is text data. Please see @sec-text-data to prepare for it.
+
+## Remove Data
+
+### `filter()`
+
+If we decide, after cleaning, that we don't need parts of the data, should we remove files or edit the raw data? It's often a better idea to keep a record of changes, with both code and comments. For example, to remove all but data on Asia, we can use `filter()`.
+
+```{r}
+## Analysis is only on Asia
+df_filtered <- filter(df, continent == "Asia")
+df_filtered
+```
+### `distinct()`
+
+We can keep only unique (i.e. distinct) values under the a column using `distinct()`. It produces a tibble with only the distinct rows for the column(s) you choose. The argument `.keep_all`, if set to `TRUE`, keeps all columns. This can be seen in the help page: `?distinct`. 
+
+```{r}
+distinct(select(df, country, continent), continent, .keep_all = TRUE)
+```
+
+## Code Concisely
+
+We can write the above in a more readable way using a special symbol.
+
+```{r}
+df |> 
+  select(country, continent) |> 
+  distinct(continent, .keep_all = TRUE)
+```
+How did that work?
+
+### `|>` and `%>%`
+
+`|>` and `%>%` are called pipes and are used like so: `left_side |> right_side()`. They send the left side to the right side. The `|>` is newer and recommended because, where as the left side is an input, the right side is a function, and `|>` enforces the `()` after the function name. Since `|>` enforces an explicit and safer style, let's stick with it.
+
+The other property to remember is that the pipe holds mathematical priority before brackets and exponents. So if you know BEDMASS, then you also know BE`|>`DMASS.
+
+```{r}
+sqrt(5) 
+```
+
+is the same as
+
+```{r}
+5 |> sqrt()
+```
+
+But
+
+```{r}
+5 * 5 |> sqrt()
+```
+
+is not the same as
+
+```{r}
+(5 * 5) |> sqrt()
+```
+
+For a more relevant example,
+
+```{r}
+df <- mutate(df, year = as.numeric(year))
+```
+
+is the same as
+
+```{r}
+df <- df |> mutate(year = as.numeric(year))
+```
+
+which is the same as
+
+```{r}
+df <- df |> mutate(year = year |> as.numeric())
+```
+
+The `|>` is most useful to group together steps that accomplish a goal, e.g., summarizing data.
+
+### `summarize()`
+
+A few more functions allow for concise writing. `summarize()` is used to calculate a summary statistic. 
+
+```{r}
+## Find the max year per country
+df |> summarize(max_year = max(year), .by = country) 
+```
+It's a short form for a number of other functions:
+
+```{r}
+## Find the max year per country
+df |> 
+  group_by(country) |> 
+  mutate(max_year = max(year)) |> 
+  distinct(country, max_year)
+```
+
+We have not covered `group_by()` but we can see how it groups the data for the function(s) that follow it. Notice how the above data has a group.
+
+#### `count()`
+
+The last short form we will cover is `count()`. Instead of
+
+```{r}
+df |> summarize(n = n(), .by = country) 
+```
+you can write
+
+```{r}
+df |> count(country)
+```
+
+```{r export, echo = FALSE}
+write_rds(df, here::here("df.rds"))
+```

@@ -7,9 +7,9 @@ library(DiagrammeR)
 
 # Preface {.unnumbered}
 
-![Book cover: Read about the [painter "Bob Ross"](https://en.wikipedia.org/wiki/Bob_Ross)](cover.jpg)
+I taught my spouse how to program in R (she had no previous knowledge despite completing a degree in Statistics). She, like many of us, was often frustrated while learning. I emphasized the kindness and generosity of the R community who write free books and provide support on forums. But as I started recommending books alongside our personal lessons, I noticed there wasn't a book meant for a specific audience: a complete beginner wishing not only to turn their analysis into a report, but to do it in a way that avoids future frustration.
 
-## Why *This* Book?
+Simply put, this book is meant for beginners who wish to immediately apply best practices to their own projects.
 
 ```{r echo=FALSE}
 library(DiagrammeR)
@@ -34,10 +34,6 @@ grViz("
 ")
 
 ```
-
-I taught my spouse how to program in R (she had no previous knowledge despite completing a degree in Statistics). She, like many of us, was often frustrated while learning. I emphasized the kindness and generosity of the R community who write free books and provide support on forums. But as I started recommending books alongside our personal lessons, I noticed there wasn't a book meant for a specific audience: a complete beginner wishing not only to turn their analysis into a report, but to do it in a way that avoids future frustration.
-
-Simply put, this book is meant for beginners who wish to immediately apply best practices to their own projects.
 
 ## For the Love of R
 

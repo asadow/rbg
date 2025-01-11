@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Beginner’s Guide and Best Practices - 3&nbsp; Develop (As You Go)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-stay-organized.html" rel="next">
+<link href="./02-start-organized.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-learn-as-you-go.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Develop (As You Go)</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R Beginner’s Guide and Best Practices</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-record-each-step.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Record (Each Step)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-start-organized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Start (Organized)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-learn-as-you-go.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Develop (As You Go)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-stay-organized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-text-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./whats-possible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">What’s Possible</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#find-functions" id="toc-find-functions" class="nav-link active" data-scroll-target="#find-functions">Find Functions</a>
+  <ul class="collapse">
+  <li><a href="#books" id="toc-books" class="nav-link" data-scroll-target="#books">Books</a></li>
+  <li><a href="#large-language-models" id="toc-large-language-models" class="nav-link" data-scroll-target="#large-language-models">Large-Language-Models</a></li>
+  <li><a href="#search-engines" id="toc-search-engines" class="nav-link" data-scroll-target="#search-engines">Search Engines</a></li>
+  <li><a href="#stack-overflow" id="toc-stack-overflow" class="nav-link" data-scroll-target="#stack-overflow">Stack Overflow</a></li>
+  </ul></li>
+  <li><a href="#understand-functions" id="toc-understand-functions" class="nav-link" data-scroll-target="#understand-functions">Understand Functions</a>
+  <ul class="collapse">
+  <li><a href="#large-language-models-1" id="toc-large-language-models-1" class="nav-link" data-scroll-target="#large-language-models-1">Large-Language-Models</a></li>
+  <li><a href="#search-engines-1" id="toc-search-engines-1" class="nav-link" data-scroll-target="#search-engines-1">Search Engines</a></li>
+  <li><a href="#stack-overflow-1" id="toc-stack-overflow-1" class="nav-link" data-scroll-target="#stack-overflow-1">Stack Overflow</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-learn-as-you-go" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Develop (As You Go)</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="find-functions" class="level2">
+<h2 class="anchored" data-anchor-id="find-functions">Find Functions</h2>
+<p>How would you discover functions for your specific needs?</p>
+<section id="books" class="level3">
+<h3 class="anchored" data-anchor-id="books">Books</h3>
+<p>There are many great books on R that will expose you to functions. But, if you learn best by doing, the most effective technical book will be the one designed toward your specific task.</p>
+</section>
+<section id="large-language-models" class="level3">
+<h3 class="anchored" data-anchor-id="large-language-models">Large-Language-Models</h3>
+<p>The hottest new method is to simply ask LLM’s.</p>
+</section>
+<section id="search-engines" class="level3">
+<h3 class="anchored" data-anchor-id="search-engines">Search Engines</h3>
+<p>Google is a great search engine that most R programmers use when learning the R language. If we search “r capitalize first letter” we see, on 2025-01-11, the following paragraph as the first result:</p>
+<blockquote class="blockquote">
+<p>Convert First letter of every word to Uppercase in R Programming – str_to_title() Function. str_to_title() Function in R Language is used to convert the first letter of every word of a string to Uppercase and the rest of the letters are converted to lower case.</p>
+</blockquote>
+<p>The trick is to, within Google, always write <code>r</code> before a question or the desired command, like <code>how to capitalize first letter</code> or simply <code>capitalize first letter</code>.</p>
+<p>This is a simple example. Most of the time it can be difficult to write in English what you want. This will come with time and practice. At first you may find that the Google search results have nothing to do with what you need. That is a sign to re-word your search, or, if you’ve already re-worded your search, it may be a sign that there is no dedicated function for what you need, or that a different approach is needed. It’s rare that there will be no dedicated function so long as your goal is simple. You may find that it is effective to break down what you’re doing into simple steps, and then search for how to do <em>those</em> steps, as opposed to Googling something long and complicated, involving many steps.</p>
+</section>
+<section id="stack-overflow" class="level3">
+<h3 class="anchored" data-anchor-id="stack-overflow">Stack Overflow</h3>
+<p>Speaking of breaking down something complicated so that a search engine like Google can understand it, this is also necessary for others to understand it. For learning R, allowing others to understand your challenge or need is valuable as the R community is not only willing, but also quickly able to help. R users mainly help each other through <a href="stackoverflow.com">Stack Overflow</a>. It is a website that easily allows users to ask or answer questions with code, have their code formatted (look nice), and receive feedback.</p>
+<p>The main draw of Stack Overflow is that the person asking the question has one main responsibility, and that is to produce what is called a minimally reproducible example: an example that can be used (reproduced) by someone else seeing the question, and that does not have unnecessary detail irrelevant to the question (minimal).</p>
+<p>Describe example</p>
+<p><a href="https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th">EXAMPLE HERE</a></p>
+<p>Knowing how to make an example is the majority of the work involved in asking a question on Stack Overflow.</p>
+<section id="creating-minimally-reproducible-examples" class="level4">
+<h4 class="anchored" data-anchor-id="creating-minimally-reproducible-examples">Creating Minimally Reproducible Examples</h4>
+<p>If your question involves data frames, you need to learn how to build a data frame before asking your question on Stack Overflow. To build a data frame, you can use the <code>tibble()</code> function from package <code>tibble</code>.</p>
+<p>If you have 2 numeric columns, like in</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+    year lifeExp
+   &lt;dbl&gt; &lt;chr&gt;  
+ 1  1952 28.801 
+ 2  1957 30.332 
+ 3  1962 31.997 
+ 4  1967 34.02  
+ 5  1972 36.088 
+ 6  1977 38.438 
+ 7  1952 68.75  
+ 8  1957 69.96  
+ 9  1962 71.3   
+10  1967 72.13  
+11  1972 72.88  
+12  1977 74.21  </code></pre>
+</div>
+</div>
+<p>then the first part of your minimal example might look this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+      x     y
+  &lt;dbl&gt; &lt;dbl&gt;
+1     1     3
+2     2     4
+3     1     2
+4     2     2</code></pre>
+</div>
+</div>
+<p>And if what you’re trying to achieve is</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+   year mean_lifeExp
+  &lt;dbl&gt;        &lt;dbl&gt;
+1  1952         48.8
+2  1957         50.1
+3  1962         51.6
+4  1967         53.1
+5  1972         54.5
+6  1977         56.3</code></pre>
+</div>
+</div>
+<p>then the second part of your minimal example might look like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+      x mean_y
+  &lt;dbl&gt;  &lt;dbl&gt;
+1     1    2.5
+2     2    2  </code></pre>
+</div>
+</div>
+<p>To summarize, your entire question on Stack Overflow could look like this:</p>
+<pre><code>How can I transform the first tibble into the second tibble with a function?
+library(tibble)
+tibble(x = c(1, 2, 1, 2), y = c(3, 4, 2, 2))
+tibble(x = c(1, 2), mean_y = c(2.5, 2))</code></pre>
+<p>To make your question even better, you can format your code by using the <code>reprex</code> function from the reprex package. The curly brackets are needed to tell reprex that you have multiple lines of code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reprex)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">reprex</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(tibble)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally your question looks friendly:</p>
+<pre><code>How can I transform the first tibble into the second tibble with a function?</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 2</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       x     y</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1     3</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2     4</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     1     2</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     2     2</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       x mean_y</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1    2.5</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2    2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="understand-functions" class="level2">
+<h2 class="anchored" data-anchor-id="understand-functions">Understand Functions</h2>
+<p>Once you’ve found a function (or usually, a set of functions) recommended to you, it would be wise to understand how the function(s) work; specifically, the inputs and outputs.</p>
+<section id="large-language-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="large-language-models-1">Large-Language-Models</h3>
+<p>LLM’s can explain function inputs and outputs as they are trained on public online knowledge.</p>
+</section>
+<section id="search-engines-1" class="level3">
+<h3 class="anchored" data-anchor-id="search-engines-1">Search Engines</h3>
+<p>Search engines will give a variety of websites. Remember, after googling “r capitalize first letter” we saw the following paragraph as the first result:</p>
+<blockquote class="blockquote">
+<p>Convert First letter of every word to Uppercase in R Programming – str_to_title() Function. str_to_title() Function in R Language is used to convert the first letter of every word of a string to Uppercase and the rest of the letters are converted to lower case.</p>
+</blockquote>
+<p>This paragraph is from a website called <a href="https://www.geeksforgeeks.org/convert-first-letter-of-every-word-to-uppercase-in-r-programming-str_to_title-function">GeeksforGeeks</a>. I would not recommend using this website to understand the function. And for multiple reasons.</p>
+<ol type="1">
+<li>You are not familiar with the format of the website.</li>
+<li>You will find yourself on multiple websites when you need to discover and learn about multiple functions.</li>
+<li>You will then have to navigate the formats of these websites.</li>
+<li>Many things can get in the way of reading the instructions, like pop-ups to sign up for the website’s email list, advertisements for completely unrelated products (everything you need to learn R is FREE), and recommended articles to distract you.</li>
+</ol>
+<p>It is more effective to use a single, standardized resource when learning about functions. Thankfully, R has a few.</p>
+<p>After reading the above paragraph and learning that the function we need may be <code>str_to_title()</code>, we can now Google search “r str_to_title” instead of “r capitalize first letter”. Again, Google shows multiple websites, but we are looking for one that is standardized. <a href="tidyverse.org">tidyverse.org</a> is one of those websites, so we click the result that has “tidyverse.org” in the website address This brings us to this page: <a href="https://stringr.tidyverse.org/reference/case.html" class="uri">https://stringr.tidyverse.org/reference/case.html</a></p>
+<p>As standard, there are multiple sections to the webpage describing a function: <em>Usage</em>, <em>Arguments</em> and <em>Examples.</em> <em>Usage</em> shows the format of the inputs to the function. Any input with an <code>=</code> beside it has a default value. A default value usually indicates that most users will not need to change the value.</p>
+<p>The <em>Usage</em> <code>str_to_title(string, locale = "en")</code> tells us that</p>
+<ol type="1">
+<li><code>string</code> should be an object containing some string(s) or a string itself. It has no default value; we must provide one.</li>
+<li><code>locale</code> has the default value <code>"en"</code>.</li>
+</ol>
+<p>The <em>Arguments</em> tell us more about the inputs in case the <em>Usage</em> is not enough. When first learning R, <em>Arguments</em> can be overwhelming; you might quickly find yourself not understanding the words contained therein, and having to continuously look up definitions (or more function documentation) in order to understand.</p>
+</section>
+<section id="stack-overflow-1" class="level3">
+<h3 class="anchored" data-anchor-id="stack-overflow-1">Stack Overflow</h3>
+<p>Another way to understand functions is to be presented with answers from others on Stack Overflow. These answers don’t need to be answers to the questions you have posted on Stack Overflow; they can be answers to questions posted by others.</p>
+<p>For example, here is a question dated from 2019: https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th</p>
+<p>There are three separate answers that have up votes (positive feedback represented by the digit on the top left of an answer): 1 using the <code>data.table</code> package; 1 using <code>base R</code> (R without packages); and 1 using <code>tidyr</code>.</p>
+<p>Notice how the answer using <code>tidyr</code> is far more simple; it is one line of code. This word <code>tidy</code> keeps popping up, and for good reason: the functions in this package and more broadly in the <code>tidyverse</code> (the tidy universe) are designed to make coding short and simple.</p>
+<p>It is possible to add comments to the answers on Stack Overflow, with further questions about the functions if there is something you don’t understand. Fortunately the <code>tidyverse</code> functions are well documented because of their standardized webpages, and because of multiple, free books on using them for specific tasks.</p>
+<!-- Even by looking around the tidyverse.org website, we can easily find more  functions. [https://www.tidyverse.org/packages/](https://www.tidyverse.org/packages/) describes the most useful packages. Reading the descriptions tell us the purpose of the packages. It is not important to know the names of these packages, but it is useful to understand what they each provide.  -->
+<!-- ```{r} -->
+<!-- df |> pull(year) |> unique -->
+<!-- df$lifeExp[1] <- "blah" -->
+<!-- df |> mutate(lifeExp = as.numeric(lifeExp)) -->
+<!-- # if the string contains letters, then as.numeric will turn these strings into missing values or in other words NAs -->
+<!-- df |> filter(is.na(as.numeric(lifeExp))) -->
+<!-- ``` -->
+<!-- This code now looks a lot more complicated due to what are called special characters. Both [ and \\ are special characters: characters that mean something to your computer program more than the literal symbol itself. The square brackets surround the characters that str_split will use as separators. The \\\\ avoids the . from being treated as a special character; we want the literal . to be used as separator by str_split. (There are two \\ because a \\ is also a special character, and we want R to run \\.). -->
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-start-organized.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Start (Organized)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-stay-organized.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Copyright 2025, Adam Sadowski</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+      <i class="bi bi-github" role="img">
+</i> 
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

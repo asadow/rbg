@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects - 3&nbsp; Opening Data</title>
+<title>How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects - 1&nbsp; Recording Progress</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-finding-functions.html" rel="next">
-<link href="./02-naming-files.html" rel="prev">
+<link href="./02-naming-files.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-opening-data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Opening Data</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-recording-progress.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Recording Progress</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-recording-progress.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-recording-progress.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Recording Progress</span></span></a>
   </div>
 </li>
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-opening-data.html" class="sidebar-item-text sidebar-link active">
+  <a href="./03-opening-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Opening Data</span></span></a>
   </div>
 </li>
@@ -203,7 +203,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#checking-data" id="toc-checking-data" class="nav-link active" data-scroll-target="#checking-data">Checking Data</a></li>
+  <li><a href="#lines-and-lists" id="toc-lines-and-lists" class="nav-link active" data-scroll-target="#lines-and-lists">Lines and Lists</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
+  <ul class="collapse">
+  <li><a href="#declaring-with-single-back-ticks" id="toc-declaring-with-single-back-ticks" class="nav-link" data-scroll-target="#declaring-with-single-back-ticks">Declaring With Single Back-Ticks</a></li>
+  <li><a href="#declaring-with-multiple-back-ticks" id="toc-declaring-with-multiple-back-ticks" class="nav-link" data-scroll-target="#declaring-with-multiple-back-ticks">Declaring With Multiple Back-Ticks</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  <li><a href="#errors" id="toc-errors" class="nav-link" data-scroll-target="#errors">Errors</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
+  <li><a href="#keyboard-shortcuts" id="toc-keyboard-shortcuts" class="nav-link" data-scroll-target="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
   </ul>
 </nav>
     </div>
@@ -212,7 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Opening Data</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Recording Progress</span></h1>
 </div>
 
 
@@ -227,72 +236,171 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>We can open our containers or “nests” in <code>data</code> using the function <code>unnest()</code> from the package <code>tidyr</code>.</p>
+<p>Data work will involve the preparation of data and data reports. In fact, you may want to report on the preparation of data. Since the code that prepares a report can also prepare the data, you could work in a way that both gets the job done and reports on getting it done. That’s a win-win!</p>
+<p>Reports are great client-facing examples of your work (and how you work if you report on data preparation). Before employment, they can be presented to potential employers. After employment, they can be presented to your collaborators during data preparation; maybe there will be decisions that need to be made about the data, and the best way to show why decisions are needed will be through a report.</p>
+<p>For these reasons, this book starts with the fundamentals of writing reports. The files that make reports are called .qmd files. To start a .qmd file, open RStudio. In the top menu, click File then New File and finally “Quarto Document…”. When you see the pop-up, name the file what you like. Then, in the file, select all (shortcut <code>command-A</code> or <code>Ctrl-A</code>) and hit <code>Delete</code>. Render (i.e.&nbsp;prepare) the document by the shortcut <code>command-Shift-K</code> (or <code>Ctrl-Shift-K</code>). You will see a document that is empty. That is because we have no lines. Let’s get started by writing lines then!</p>
+<section id="lines-and-lists" class="level2">
+<h2 class="anchored" data-anchor-id="lines-and-lists">Lines and Lists</h2>
+<p>On your left in Rstudio (what is called the code source), you have numbers like below that represent lines of text or code:</p>
+<pre><code>1   Some text
+2
+3
+4
+5</code></pre>
+<p>A list in text can be made by first skipping a line, and then starting the next line with numbers followed by a period (.) which is then followed by a space, or by using a hyphen (-) followed by a space:</p>
+<pre><code>1   Some text
+2
+3   1. Start of my list
+4
+5</code></pre>
+<p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;5&nbsp;will&nbsp;show&nbsp;in&nbsp;your&nbsp;document&nbsp;as:</em></sub></p>
+<p>Some text</p>
+<ol type="1">
+<li>Start of my list</li>
+</ol>
+<p>–</p>
+<p>To create a list within a list, indent twice before using -. Hit tab to indent.</p>
+<pre><code>1   Some text
+2
+3   1. Start of my list
+4           - List within my list
+5</code></pre>
+<p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;5&nbsp;will&nbsp;show&nbsp;in&nbsp;your&nbsp;document&nbsp;as:</em></sub></p>
+<p>Some text</p>
+<ol type="1">
+<li>Start of my list
+<ul>
+<li>List within my list</li>
+</ul></li>
+</ol>
+<p>–</p>
+<p>A list is broken if there is an empty line and a subsequent line that is not indented twice.</p>
+<pre><code>1   Some text
+2
+3   1. Start of my list
+4           - List within my list
+5
+6   This line breaks the list
+7           - Some line indented twice in my code source</code></pre>
+<p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;7&nbsp;will&nbsp;show&nbsp;in&nbsp;your&nbsp;document&nbsp;as:</em></sub></p>
+<p>Some text</p>
+<ol type="1">
+<li>Start of my list
+<ul>
+<li>List within my list</li>
+</ul></li>
+</ol>
+<p>This line breaks the list - Some line indented twice in my code source</p>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
+<p>Code cannot be written on lines like text. For example</p>
+<pre><code>1   some_code
+2   
+3</code></pre>
+<p>will not work. Code has to be declared in one of two ways.</p>
+<section id="declaring-with-single-back-ticks" class="level3">
+<h3 class="anchored" data-anchor-id="declaring-with-single-back-ticks">Declaring With Single Back-Ticks</h3>
+<p>You can insert code into your document using a single back-tick (the ` symbol) before and after:</p>
+<pre><code>1   Here's `some_code` to be shown.
+2   
+3   </code></pre>
+<p>To run, R code needs an <code>r</code> after the first back-tick:</p>
+<pre><code>1   Here's `r some_code` to be processed.
+2   
+3   </code></pre>
+<p>For example, the date can be added to a line of your document using</p>
+<pre><code>1   This report was made on `r Sys.Date()`.
+2
+3</code></pre>
+<p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;3&nbsp;will&nbsp;show&nbsp;in&nbsp;your&nbsp;document&nbsp;as:</em></sub></p>
+<p>This report was made on 2025-01-11.</p>
+<!-- To see an Rmd document within R, go to R's menu: Tools - Global Options; select R Markdown from the left, find the line "Show output preview in: " and select Viewer -->
+<!-- Explain why this is not greyed out: ` -->
+</section>
+<section id="declaring-with-multiple-back-ticks" class="level3">
+<h3 class="anchored" data-anchor-id="declaring-with-multiple-back-ticks">Declaring With Multiple Back-Ticks</h3>
+<p>You can insert multiple lines of code into your document using multiple back-ticks before and after:</p>
+<pre><code>10    ```{r}
+11    some_code
+12    some_more_code
+14    ```</code></pre>
+<p>The <code>```{r}</code> starts the R code chunk and the <code>```</code> ends the chunk.</p>
+<p>The primary purpose of a code chunk is to contain multiple lines of code. We will get an error when preparing our document if we try to declare with single back-ticks like here:</p>
+<pre><code>10    `r  
+11  
+12    Sys.Date()
+13
+14    Sys.Date()
+15
+16    `</code></pre>
+<p>Instead we must write this as:</p>
+<pre><code>10    ```{r}
+11    Sys.Date()
+12    Sys.Date()
+13    ```</code></pre>
+<p>The following will be the result of the above chunk in our document:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">unnest</span>(df, data)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 9
-   source    country     date  file_type continent year  lifeExp pop   gdpPercap
-   &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    
- 1 gapminder afghanistan 2022… csv       Asia      1952  28.801  8425… 779.4453…
- 2 gapminder afghanistan 2022… csv       Asia      1957  30.332  9240… 820.8530…
- 3 gapminder afghanistan 2022… csv       Asia      1962  31.997  1026… 853.10071
- 4 gapminder afghanistan 2022… csv       Asia      1967  34.02   1153… 836.1971…
- 5 gapminder afghanistan 2022… csv       Asia      1972  36.088  1307… 739.9811…
- 6 gapminder afghanistan 2022… csv       Asia      1977  38.438  1488… 786.11336
- 7 gapminder afghanistan 2022… csv       Asia      1982  39.854  1288… 978.0114…
- 8 gapminder afghanistan 2022… csv       Asia      1987  40.822  1386… 852.3959…
- 9 gapminder afghanistan 2022… csv       Asia      1992  41.674  1631… 649.3413…
-10 gapminder afghanistan 2022… csv       Asia      1997  41.763  2222… 635.3413…
-# ℹ 14 more rows</code></pre>
+<pre><code>[1] "2025-01-11"</code></pre>
 </div>
-</div>
-<p>This data looks clean but looks can be deceiving. Remember that we set the <code>df</code> object to be a tibble with <code>as_tibble()</code>? A tibble is not only a table in R, but a cleaner kind of table. It shows only 10 rows, and as many columns that can comfortably be displayed. The sizing of the table surrounds the data, like the header (top line) <code># A tibble: 24 x 9</code> tells you how many rows (24) and columns (9) there are. The footer (bottom line) tells you what is missing from the display.</p>
-<p>Even though this data is small (24 rows by 9 columns can be evaluated using our eyes), it is always best to practice techniques that are generalizable to both small and large data.</p>
-<section id="checking-data" class="level2">
-<h2 class="anchored" data-anchor-id="checking-data">Checking Data</h2>
-<p>The simplest way to start evaluating data is to check that the values under each column meet expectations. Since we created the first 4 columns using our file names, we can be sure that these 4 columns are clean.</p>
-<p>For the next column, <code>continent</code>, we expect values to be continents, capitalized, and spelled correctly. Instead of reading each line with our eyes, we can read each line with our computers. Or a combination of the two. That is exactly how we will start. We will check all unique (i.e.&nbsp;distinct) values under the continent column using <code>distinct()</code>. It produces a tibble with only the distinct rows for the column(s) you choose.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distinct</span>(df, continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 1
-  continent
-  &lt;chr&gt;    
-1 Asia     
-2 Americas </code></pre>
+<pre><code>[1] "2025-01-11"</code></pre>
 </div>
 </div>
-<p>These unique values are perfect. Which means every value is perfect, as these unique values represent them. But what if they were not capitalized, for example? That is in fact the case with our country column: the values are not capitalized because the values came from our file-naming, and it is good practice not to capitalize when file-naming. To capitalize the values in a column, you can use a function called <code>str_to_title()</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(df<span class="sc">$</span>country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan"
- [6] "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan"
-[11] "Afghanistan" "Afghanistan" "Canada"      "Canada"      "Canada"     
-[16] "Canada"      "Canada"      "Canada"      "Canada"      "Canada"     
-[21] "Canada"      "Canada"      "Canada"      "Canada"     </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 9
-   source    country     date  file_type continent year  lifeExp pop   gdpPercap
-   &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    
- 1 gapminder afghanistan 2022… csv       Asia      1952  28.801  8425… 779.4453…
- 2 gapminder afghanistan 2022… csv       Asia      1957  30.332  9240… 820.8530…
- 3 gapminder afghanistan 2022… csv       Asia      1962  31.997  1026… 853.10071
- 4 gapminder afghanistan 2022… csv       Asia      1967  34.02   1153… 836.1971…
- 5 gapminder afghanistan 2022… csv       Asia      1972  36.088  1307… 739.9811…
- 6 gapminder afghanistan 2022… csv       Asia      1977  38.438  1488… 786.11336
- 7 gapminder afghanistan 2022… csv       Asia      1982  39.854  1288… 978.0114…
- 8 gapminder afghanistan 2022… csv       Asia      1987  40.822  1386… 852.3959…
- 9 gapminder afghanistan 2022… csv       Asia      1992  41.674  1631… 649.3413…
-10 gapminder afghanistan 2022… csv       Asia      1997  41.763  2222… 635.3413…
-# ℹ 14 more rows</code></pre>
-</div>
-</div>
+<p>When declaring code with chunks (multiple back-ticks), the document will show both the code and the result of the code and this can be customized. When declaring code with single back-ticks, the document will show only the result of the code and this cannot be customized.</p>
+<p>Since the back-ticks take effort to write, there is a shortcut to writing an empty code chunk: <code>command-Shift-I</code> on Mac or <code>ctrl-Shift-I</code> on Windows.</p>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>To summarize, compared to declaring code with single back-ticks,</p>
+<ul>
+<li>Chunks can contain multiple lines.</li>
+<li>Chunks can show both the code and the result of the code. This is great for showing your work or explaining your code to readers. This flexible property lets you decide whether the chunk shows the code and the result, only one of the two, or neither.</li>
+</ul>
+</section>
+</section>
+<section id="errors" class="level2">
+<h2 class="anchored" data-anchor-id="errors">Errors</h2>
+<p>When code is not written correctly, errors and probably some frustration will follow. R errors are not known for being <em>friendly</em>; they are not kind enough to tell you what is wrong in a way that is easy to understand. When there is an error, you will see it in red text within the Console, which is a box on the bottom left quarter of RStudio (its default layout). The Console is where the code is processed and the result printed.</p>
+<p>There are symbols we need to know to understand the Console:</p>
+<pre><code>&gt; means the line of code processed
++ means a line of code continuing from the last line
+[1] means the first element of the result of the processed code
+[n] means the n'th element of the result of the processed code
+[[1]]
+[1] means the first element in the first container of the result of the processed code</code></pre>
+<p>When first learning R, the best way to understand errors is usually not through R’s error messages. The best way is by paying close attention to the code and every little detail: misspelling, capitalization, and punctuation.</p>
+<p>For this reason we want to practice good strategies of writing code. Writing involves naming our own objects and functions. But before that, we should also name our files using a good strategy. For a quick guide on naming files, <a href="https://style.tidyverse.org/files.html">click here</a>.</p>
+<!-- ## Explain to look at Render box for render errors -->
+</section>
+<section id="links" class="level2">
+<h2 class="anchored" data-anchor-id="links">Links</h2>
+<p>To add a clickable link that sends the user to a website, place the website address within inequality symbols &lt; … &gt;. For example: <code>&lt;http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf</code>&gt; gives us <a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf" class="uri">http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf</a></p>
+<p>To make this a hyperlink, that is, a shorter, clickable link, write the clickable text (the text you want to the reader to see) in square brackets and the website address in round brackets like so <code>[text-seen-by-reader](link)</code>. For example</p>
+<pre><code>1   [File Naming Presentation by Jenny Bryan](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf)
+2
+3</code></pre>
+<p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;3&nbsp;will&nbsp;show&nbsp;as:</em></sub></p>
+<p><a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf">File Naming Presentation by Jenny Bryan</a></p>
+</section>
+<section id="keyboard-shortcuts" class="level2">
+<h2 class="anchored" data-anchor-id="keyboard-shortcuts">Keyboard Shortcuts</h2>
+<p>Remember, if you are using Windows, use</p>
+<ul>
+<li><code>Ctrl</code> instead of <code>command</code></li>
+<li><code>Alt</code> instead of <code>option</code></li>
+</ul>
+<p><strong>Shortcuts:</strong></p>
+<ul>
+<li><code>command-Z</code>: Undo (go back)</li>
+<li><code>command-shift-Z</code>: Redo (go forward)</li>
+<li><code>command-Enter</code>: Process line of code where <code>|</code> is blinking (consistently appearing and disappearing)</li>
+<li><code>command-option-C</code>: Process current chunk</li>
+<li><code>option-shift-arrow_key</code>: Highlight all to the direction of the arrow</li>
+</ul>
 
 
 </section>
@@ -533,13 +641,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02-naming-files.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming Files</span></span>
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-finding-functions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding Functions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-naming-files.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming Files</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

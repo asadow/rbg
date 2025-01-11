@@ -4,9 +4,7 @@ project:
 number-depth: 1
 
 book:
-  title: "How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects"
-  author: "Adam Sadowski"
-  date: today
+  title: "R Beginner's Guide (Best Practices)"
   page-navigation: true
   page-footer: 
     # border: false
@@ -19,14 +17,13 @@ book:
       #   href: https://twitter.com/ 
   chapters:
     - index.qmd
-    - 01-writing-reports.qmd
-    - 02-file-naming.qmd
-    - 03-opening-data.qmd
-    - 04-understanding-tidyverse.qmd
-    - 05-strings.qmd
-    - 06-avoiding-repetition.qmd
-    - 10-next-steps.qmd
-    - references.qmd
+    - 01-record-each-step.qmd
+    - 02-start-organized.qmd
+    - 03-learn-as-you-go.qmd
+    - 04-stay-organized.qmd
+  appendices:
+    - 05-text-data.qmd
+    - whats-possible.qmd
 
 bibliography: references.bib
 

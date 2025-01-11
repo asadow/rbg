@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects - 4&nbsp; Understanding Tidyverse Functions</title>
+<title>How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects - 5&nbsp; Understanding Tidyverse Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./05-strings.html" rel="next">
-<link href="./03-opening-data.html" rel="prev">
+<link href="./03-finding-functions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-understanding-tidyverse.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Tidyverse Functions</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-understanding-tidyverse.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Tidyverse Functions</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -141,14 +141,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-writing-reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Writing Reports</span></span></a>
+  <a href="./01-recording-progress.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Recording Progress</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-file-naming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">File Naming</span></span></a>
+  <a href="./02-naming-files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -159,26 +159,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03-finding-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding Functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./04-understanding-tidyverse.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Tidyverse Functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Tidyverse Functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Strings</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Strings</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-avoiding-repetition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Avoiding Repetition</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Avoiding Repetition</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-next-steps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Next Steps for This Guide</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Next Steps for This Guide</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -197,8 +203,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link active" data-scroll-target="#mutate"><code>mutate</code></a></li>
-  <li><a href="#pumping-with" id="toc-pumping-with" class="nav-link" data-scroll-target="#pumping-with">Pumping with <code>%&gt;%</code></a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link active" data-scroll-target="#mutate"><code>mutate()</code></a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><code>select()</code></a></li>
+  <li><a href="#pumping-with-or-the-older" id="toc-pumping-with-or-the-older" class="nav-link" data-scroll-target="#pumping-with-or-the-older">Pumping with <code>|&gt;</code> or the older <code>%&gt;%</code></a></li>
   <li><a href="#grouping-with-group" id="toc-grouping-with-group" class="nav-link" data-scroll-target="#grouping-with-group">Grouping with <code>group</code></a></li>
   </ul>
 </nav>
@@ -208,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Tidyverse Functions</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Tidyverse Functions</span></h1>
 </div>
 
 
@@ -223,75 +230,117 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>So far we used <code>mutate</code> from <code>dplyr</code>, <code>unnest</code> from <code>tidyr</code>, <code>read_csv</code> from <code>readr</code>, <code>map</code> from <code>purrr</code>, <code>as_tibble</code> from <code>tibble</code>, and <code>str_to_title</code> from <code>stringr</code>. Since we are using so many <code>tidyverse</code> packages, we can simply load them all via <code>library(tidyverse)</code>.</p>
+<p>So far we used <code>mutate()</code> from <code>dplyr</code>, <code>unnest()</code> from <code>tidyr</code>, <code>read_csv()</code> from <code>readr</code>, <code>map()</code> from <code>purrr</code>, <code>as_tibble()</code> from <code>tibble</code>, and <code>str_to_title()</code> from <code>stringr</code>. Since we are using so many <code>tidyverse</code> packages, we can simply load them all via <code>library(tidyverse)</code>.</p>
 <!-- Even by looking around the tidyverse.org website, we can easily find more  functions. [https://www.tidyverse.org/packages/](https://www.tidyverse.org/packages/) describes the most useful packages. Reading the descriptions tell us the purpose of the packages. It is not important to know the names of these packages, but it is useful to understand what they each provide.  -->
 <section id="mutate" class="level2">
-<h2 class="anchored" data-anchor-id="mutate"><code>mutate</code></h2>
-<p>We already went over <code>mutate</code>. This function is used to both create new columns and overwrite existing columns.</p>
+<h2 class="anchored" data-anchor-id="mutate"><code>mutate()</code></h2>
+<p>We already went over <code>mutate()</code>. This function is used to both create new columns and overwrite existing columns.</p>
 <p>We can overwrite an existing column like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_mutated <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df_unnested, <span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Having a numeric year is useful if, for example, we want to filter the data by years between 1960 and 1980. This is done with <code>filter</code>.</p>
+<p>Having a numeric year is useful if, for example, we want to filter the data by years between 1960 and 1980. This is done with <code>filter()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">filter</span>(df, <span class="dv">1960</span> <span class="sc">&lt;</span> year <span class="sc">&amp;</span> year <span class="sc">&lt;</span> <span class="dv">1980</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">&lt;-</span> <span class="fu">filter</span>(df_mutated, <span class="dv">1960</span> <span class="sc">&lt;</span> year <span class="sc">&amp;</span> year <span class="sc">&lt;</span> <span class="dv">1980</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="pumping-with" class="level2">
-<h2 class="anchored" data-anchor-id="pumping-with">Pumping with <code>%&gt;%</code></h2>
-<p>Notice that the examples in the function documentation for <code>mutate</code> (<a href="https://dplyr.tidyverse.org/reference/mutate.html" class="uri">https://dplyr.tidyverse.org/reference/mutate.html</a>) and <code>filter</code> use the symbol <code>%&gt;%</code>.</p>
-<p>The <code>%&gt;%</code> is very simple. It simply sends the left side to the right side. The other property to remember is that <code>%&gt;%</code> holds mathematical priority before brackets and exponents. So if you know BEDMASS, then you also know BE<code>%&gt;%</code>DMASS.</p>
+<section id="select" class="level2">
+<h2 class="anchored" data-anchor-id="select"><code>select()</code></h2>
+<p>We also briefly touched on <code>select()</code>. It is simple to select a few columns.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="sc">|&gt;</span> <span class="fu">select</span>(country, year, pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8 × 3
+  country      year pop     
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;   
+1 afghanistan  1962 10267083
+2 afghanistan  1967 11537966
+3 afghanistan  1972 13079460
+4 afghanistan  1977 14880372
+5 canada       1962 18985849
+6 canada       1967 20819767
+7 canada       1972 22284500
+8 canada       1977 23796400</code></pre>
+</div>
+</div>
+<p>When you need to do something more complicated, see the <a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code> documentation</a> or try using large-language-models.</p>
+</section>
+<section id="pumping-with-or-the-older" class="level2">
+<h2 class="anchored" data-anchor-id="pumping-with-or-the-older">Pumping with <code>|&gt;</code> or the older <code>%&gt;%</code></h2>
+<p>If you look at the examples in the <a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code> documentation</a>, you will see the symbol <code>%&gt;%</code>.</p>
+<p><code>%&gt;%</code> and <code>|&gt;</code> are called pipes. They are very simple. They simply send the left side to the right side. The <code>|&gt;</code> is newer and recommended because, where as the left side is an input, the right side is a function, and <code>|&gt;</code> requires you to write <code>()</code> after the function name. Since <code>|&gt;</code> enforces an explicit and safer style, let’s stick with it.</p>
+<p>The other property to remember is that the pipe holds mathematical priority before brackets and exponents. So if you know BEDMASS, then you also know BE<code>|&gt;</code>DMASS.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.236068</code></pre>
 </div>
 </div>
 <p>is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">%&gt;%</span> sqrt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.236068</code></pre>
 </div>
 </div>
 <p>But</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">%&gt;%</span> sqrt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11.18034</code></pre>
 </div>
 </div>
 <p>is not the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> sqrt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
 <p>For a more relevant example,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_mutated <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df_unnested, <span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_mutated <span class="ot">&lt;-</span> df_unnested <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>which is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> year <span class="sc">%&gt;%</span> as.numeric)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_mutated <span class="ot">&lt;-</span> df_unnested <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">year =</span> year <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="grouping-with-group" class="level2">
 <h2 class="anchored" data-anchor-id="grouping-with-group">Grouping with <code>group</code></h2>
-<p>Notice that the examples in the function documentation for <code>filter</code> (<a href="https://dplyr.tidyverse.org/reference/filter.html" class="uri">https://dplyr.tidyverse.org/reference/filter.html</a>) use the function <code>group_by</code>.</p>
-<p><code>group_by</code> groups the data for the function(s) that follow <code>group_by</code>.</p>
-<p>Let us create a simple example to demonstrate… (To be continued)</p>
-<!-- ```{r} -->
-<!-- ## USE A VERY SIMPLE EXAMPLE -->
-<!-- # df %>% filter(lifeExp > mean(lifeExp)) -->
-<!-- #  -->
-<!-- # df %>% group_by(country) %>% filter(year > mean(year)) -->
-<!-- ``` -->
+<p>You may have also noticed <code>group_by()</code> in the <a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code> documentation</a>.</p>
+<p><code>group_by()</code> groups the data for the function(s) that follow <code>group_by()</code>. It’s easiest to understand with an example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_mutated <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">max_year =</span> <span class="fu">max</span>(year)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, year, max_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 24 × 3
+# Groups:   country [2]
+   country      year max_year
+   &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+ 1 afghanistan  1952     2007
+ 2 afghanistan  1957     2007
+ 3 afghanistan  1962     2007
+ 4 afghanistan  1967     2007
+ 5 afghanistan  1972     2007
+ 6 afghanistan  1977     2007
+ 7 afghanistan  1982     2007
+ 8 afghanistan  1987     2007
+ 9 afghanistan  1992     2007
+10 afghanistan  1997     2007
+# ℹ 14 more rows</code></pre>
+</div>
+</div>
+<p>Notice how the functions like <code>group_by()</code> are on separate lines after the pumps. This is to improve readability as opposed to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_mutated <span class="sc">|&gt;</span> <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">max_year =</span> <span class="fu">max</span>(year)) <span class="sc">|&gt;</span> <span class="fu">select</span>(country, year, max_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
@@ -532,13 +581,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-opening-data.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Opening Data</span></span>
+      <a href="./03-finding-functions.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05-strings.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Strings</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Strings</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

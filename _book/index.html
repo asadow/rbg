@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Adam Sadowski">
-<meta name="dcterms.date" content="2025-01-10">
 
-<title>How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects</title>
+<title>R Beginner’s Guide (Best Practices)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-writing-reports.html" rel="next">
+<link href="./01-record-each-step.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -62,8 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <script src="site_libs/viz-1.8.2/viz.js"></script>
 <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
@@ -95,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects</a> 
+      <a href="./">R Beginner’s Guide (Best Practices)</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -113,52 +110,51 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-writing-reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Writing Reports</span></span></a>
+  <a href="./01-record-each-step.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Record (Each Step)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-file-naming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">File Naming</span></span></a>
+  <a href="./02-start-organized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Start (Organized)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-opening-the-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Opening the Data</span></span></a>
+  <a href="./03-learn-as-you-go.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Learn (As You Go)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-understanding-tidyverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Tidyverse Functions</span></span></a>
+  <a href="./04-stay-organized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-strings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Strings</span></span></a>
+  <a href="./05-text-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-avoiding-repetition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Avoiding Repetition</span></span></a>
+  <a href="./whats-possible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">What’s Possible</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./10-next-steps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Next Steps for This Guide</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -171,7 +167,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
   <ul class="collapse">
-  <li><a href="#why-this-book" id="toc-why-this-book" class="nav-link" data-scroll-target="#why-this-book">Why <em>This</em> Book?</a></li>
   <li><a href="#for-the-love-of-r" id="toc-for-the-love-of-r" class="nav-link" data-scroll-target="#for-the-love-of-r">For the Love of R</a></li>
   </ul></li>
   </ul>
@@ -182,26 +177,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How to Be an Rtist: A Beginner’s Guide to Beautiful, Intentional R Projects</h1>
+<h1 class="title">R Beginner’s Guide (Best Practices)</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Adam Sadowski </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 10, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -211,23 +194,14 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cover.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Book cover: Read about the <a href="https://en.wikipedia.org/wiki/Bob_Ross">painter “Bob Ross”</a></figcaption>
-</figure>
-</div>
-<section id="why-this-book" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-book">Why <em>This</em> Book?</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-932108f82db02c9bf781" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-932108f82db02c9bf781">{"x":{"diagram":"\n  digraph {\n    // Global node style\n    node [style = filled, shape = box] \n\n    // Define colors for specific nodes\n    \"Unorganized approach\" [fillcolor = lightblue]\n    \"Messy files & code\" [fillcolor = yellow]\n    \"Invalid code\" [fillcolor = orange]\n    \"Invalid output\" [fillcolor = yellow]\n    Frustration [fillcolor = red]\n\n    // Define edges\n    \"Unorganized approach\" -> \"Messy files & code\"\n    \"Messy files & code\" -> \"Invalid code\"\n    \"Invalid code\" -> \"Invalid output\" -> Frustration -> \"Invalid code\"\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
 <p>I taught my spouse how to program in R (she had no previous knowledge despite completing a degree in Statistics). She, like many of us, was often frustrated while learning. I emphasized the kindness and generosity of the R community who write free books and provide support on forums. But as I started recommending books alongside our personal lessons, I noticed there wasn’t a book meant for a specific audience: a complete beginner wishing not only to turn their analysis into a report, but to do it in a way that avoids future frustration.</p>
 <p>Simply put, this book is meant for beginners who wish to immediately apply best practices to their own projects.</p>
-</section>
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-278588d775d2ce964e3a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-278588d775d2ce964e3a">{"x":{"diagram":"\n  digraph {\n    // Global node style\n    node [style = filled, shape = box] \n\n    // Define colors for specific nodes\n    \"Unorganized approach\" [fillcolor = lightblue]\n    \"Messy files & code\" [fillcolor = yellow]\n    \"Invalid code\" [fillcolor = orange]\n    \"Invalid output\" [fillcolor = yellow]\n    Frustration [fillcolor = red]\n\n    // Define edges\n    \"Unorganized approach\" -> \"Messy files & code\"\n    \"Messy files & code\" -> \"Invalid code\"\n    \"Invalid code\" -> \"Invalid output\" -> Frustration -> \"Invalid code\"\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 <section id="for-the-love-of-r" class="level2">
 <h2 class="anchored" data-anchor-id="for-the-love-of-r">For the Love of R</h2>
 <p>Without a code- and project-oriented data science course, many beginner analysts know only mathematical or methodological knowledge and how to start a program. They are bound to write invalid code. The resulting invalid output is especially demotivating for analysts, as their task is to analyse the data. They may have been exposed to R in a Statistics courses, but these courses typically focus on methods and potentially mathematics; not work-flow, project-management, and coding. Furthermore, Statistics has a reputation for being hard, especially on those who are learning the subject only because it is required in a non-mathematical program.</p>
@@ -475,8 +449,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-writing-reports.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Writing Reports</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-record-each-step.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Record (Each Step)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
