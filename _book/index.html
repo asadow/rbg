@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
+<meta name="author" content="Adam Sadowski">
 <title>R Beginner’s Guide (Best Practices)</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,7 +19,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -39,8 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -59,21 +55,13 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
-<script src="site_libs/viz-1.8.2/viz.js"></script>
-<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+}</script><script src="site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><script src="site_libs/viz-1.8.2/viz.js"></script><link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
 <script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -84,15 +72,19 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Beginner’s Guide (Best Practices)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/asadow/rbg/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -102,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Preface</span></a>
@@ -140,8 +132,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-text-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
@@ -154,29 +146,25 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+<li>
+<a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
   <ul class="collapse">
-  <li><a href="#for-the-love-of-r" id="toc-for-the-love-of-r" class="nav-link" data-scroll-target="#for-the-love-of-r">For the Love of R</a></li>
-  </ul></li>
+<li><a href="#for-the-love-of-r" id="toc-for-the-love-of-r" class="nav-link" data-scroll-target="#for-the-love-of-r">For the Love of R</a></li>
   </ul>
-</nav>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/asadow/rbg/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/asadow/rbg/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">R Beginner’s Guide (Best Practices)</h1>
 </div>
 
@@ -190,29 +178,21 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header>
-
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>I taught my spouse how to program in R (she had no previous knowledge despite completing a degree in Statistics). She, like many of us, was often frustrated while learning. I emphasized the kindness and generosity of the R community who write free books and provide support on forums. But as I started recommending books alongside our personal lessons, I noticed there wasn’t a book meant for a specific audience: a complete beginner wishing not only to turn their analysis into a report, but to do it in a way that avoids future frustration.</p>
-<p>Simply put, this book is meant for beginners who wish to immediately apply best practices to their own projects.</p>
+</header><section id="preface" class="level1 unnumbered"><h1 class="unnumbered">Preface</h1>
+<p>I taught my spouse how to program in R (she had no previous knowledge despite completing a degree in Statistics). She, like many of us, was often frustrated while learning. I emphasized the kindness and generosity of the R community who write free books and provide support on forums. But as I started recommending books alongside our personal lessons, I noticed there wasn’t a book meant for a specific audience: a complete beginner who wishes to learn by doing and in a way that avoids future frustration.</p>
+<p>Simply put, this book is a hands-on guide for your very first R projects.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-278588d775d2ce964e3a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-278588d775d2ce964e3a">{"x":{"diagram":"\n  digraph {\n    // Global node style\n    node [style = filled, shape = box] \n\n    // Define colors for specific nodes\n    \"Unorganized approach\" [fillcolor = lightblue]\n    \"Messy files & code\" [fillcolor = yellow]\n    \"Invalid code\" [fillcolor = orange]\n    \"Invalid output\" [fillcolor = yellow]\n    Frustration [fillcolor = red]\n\n    // Define edges\n    \"Unorganized approach\" -> \"Messy files & code\"\n    \"Messy files & code\" -> \"Invalid code\"\n    \"Invalid code\" -> \"Invalid output\" -> Frustration -> \"Invalid code\"\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e9fa1425b8d18cb38706" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e9fa1425b8d18cb38706">{"x":{"diagram":"\n  digraph {\n    // Global node style\n    node [style = filled, shape = box] \n\n    // Define colors for specific nodes\n    \"Unorganized approach\" [fillcolor = lightblue]\n    \"Messy files & code\" [fillcolor = yellow]\n    \"Invalid code\" [fillcolor = orange]\n    \"Invalid output\" [fillcolor = yellow]\n    Frustration [fillcolor = red]\n\n    // Define edges\n    \"Unorganized approach\" -> \"Messy files & code\"\n    \"Messy files & code\" -> \"Invalid code\"\n    \"Invalid code\" -> \"Invalid output\" -> Frustration -> \"Invalid code\"\n  }\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<section id="for-the-love-of-r" class="level2">
-<h2 class="anchored" data-anchor-id="for-the-love-of-r">For the Love of R</h2>
+<section id="for-the-love-of-r" class="level2"><h2 class="anchored" data-anchor-id="for-the-love-of-r">For the Love of R</h2>
 <p>Without a code- and project-oriented data science course, many beginner analysts know only mathematical or methodological knowledge and how to start a program. They are bound to write invalid code. The resulting invalid output is especially demotivating for analysts, as their task is to analyse the data. They may have been exposed to R in a Statistics courses, but these courses typically focus on methods and potentially mathematics; not work-flow, project-management, and coding. Furthermore, Statistics has a reputation for being hard, especially on those who are learning the subject only because it is required in a non-mathematical program.</p>
 <p>As a result, R has two completely different reputations. Among students in Statistics courses, it is often despised. Among those who use the tool for work, it is usually <em>loved</em>. The difference may be caused by students paying to learn R, and employees being paid. But employees also realize, once they use R day-to-day, that there is an amazing community of others who help each other. This book is also meant to play a small part in that community.</p>
 
 
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -444,9 +424,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
       <a href="./01-record-each-step.html" class="pagination-link">
@@ -455,23 +433,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2025, Adam Sadowski</div>   
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">R Beginner’s Guide was written by Adam Sadowski.</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-      <i class="bi bi-github" role="img">
-</i> 
-  </li>  
-</ul>
-    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 </body></html>

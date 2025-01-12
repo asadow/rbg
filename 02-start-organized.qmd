@@ -1,6 +1,6 @@
 # Start (Organized)
 
-## Name Files {#name-files}
+## Name Files {#sec-name-files}
 
 ```{r}
 #| echo: false
@@ -53,7 +53,7 @@ on-ruby_lesson-1_2022-02-20.qmd
 
 Consistency helps you visually process the files you see on your file explorer. It also helps when telling your computer how to process the files. We named the files using separators so that numeric information can be represented. That is, the phrase before the first `_` is the first characteristic, the phrase before the second `_` is the second characteristic and so on.
 
-To process the file names in a way that splits these characteristics, we can use a function `str_split` from an R package called stringr. File names are strings. Strings are character elements that cannot directly be treated numerically (they need to be converted into numeric elements first for that).
+To process the file names in a way that splits these characteristics, we can use a function `str_split()` from an R package called `stringr`. File names are strings. Strings are character elements that cannot directly be treated numerically (they need to be converted into numeric elements first for that).
 
 To use a function from a package, we first install the package by running
 
@@ -263,7 +263,45 @@ df <- mutate(df, country = str_to_title(country))
 df
 ```
 
-It would be quite the task for this book to cover every method of checking and cleaning data. The next best is to describe what to do next in the remaining chapter and how to discover data validating and cleaning methods in the following @sec-learn-as-you-go. The most difficult data to clean is text data. Please see @sec-text-data to prepare for it.
+It would be quite the task for this book to cover every method of checking and cleaning data. We covered the best-case scenario: the country column above was systematically unclean. Next, we show the worst-case scenario: manually entered text data. Later we show how to discover data validating and cleaning methods in @sec-learn-as-you-go. 
+
+The next section is only for demonstrative purposes. Please see @sec-text-data to prepare for actual text data methods.
+
+## Check With Your Team
+
+Suppose people answered a survey that included questions on how much time their children spend doing X on a typical day. These questions have two text boxes:
+
+Unique responses to the first box of the first question:
+
+```{r}
+n <- c("5", NA, "3", "4", "2", "",  "1", "6", "8", "60",  "30",  "45",  "7", "20", "9", "35",  "3 ",  "1.5", "4-5", "2 ",  "40", "Day care", "3 to 4", "10",  "48",  "4hrs",  "15",  "90", "?", "12")
+n
+```
+
+Unique responses to the second box which allows selection of the units:
+
+```{r}
+units <- c("Minutes", "Hours")
+units
+```
+
+Evidently this data needs to be cleaned before we do `as.numeric()` which turns non-numeric strings into `NA`.
+
+First, we might think, let's deal with the interval responses like `4-5`. We note there's also a response `3 to 4`. We can turn these responses into proper numbers like so:
+
+```{r}
+#| warning: false
+## Don't worry about understanding the code here
+n1 <- as.numeric(str_replace(n, "^(.*?)(-|to).*", "\\1"))
+n2 <- as.numeric(str_replace(n, "^.*(-|to)(.*?)", "\\2"))
+ifelse(str_detect(n, "-|to"), (n1+n2)/2, n)
+```
+
+Next we might think, let's turn `4hrs` into `4`. But wouldn't you want to know first that the units aren't missing from the second box? And what's `Day care` about? Does that mean "duration of day care"? 
+
+Before we start cleaning this data, converting units using the unit selected and slapping a pretty name like `avg_day_play_time_hrs`... human error needs to be considered. What if someone selected the wrong units? What sort of limits should we impose on plausible responses: e.g. is 16 hours the upper limit of a child's active play time? After conversion to hours, do we then screen for `> 16` and turn those responses into minutes?
+
+These are some of the questions one can ask before deciding to commit fully to cleaning this data. Holding off on cleaning to communicate with your team might be best practice. It may turn out that better methods of collecting data are enforced.
 
 ## Remove Data
 

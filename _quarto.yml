@@ -1,37 +1,43 @@
 project:
   type: book
   
-number-depth: 1
+number-depth: 2
+prefer-html: true
 
 book:
   title: "R Beginner's Guide (Best Practices)"
   page-navigation: true
+  reader-mode: true
   page-footer: 
     # border: false
     # background: light
-    left: "Copyright 2025, Adam Sadowski" 
-    right:
-      - icon: github
-        # href: https://github.com/asadow
-      # - icon: twitter 
-      #   href: https://twitter.com/ 
+    left: |
+      R Beginner's Guide was written by Adam Sadowski.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  site-url: https://adams.quarto.pub/rbg/
+  repo-url: https://github.com/asadow/rbg/
+  repo-branch: main
+  repo-actions: [edit, issue]
   chapters:
     - index.qmd
+    
     - 01-record-each-step.qmd
     - 02-start-organized.qmd
     - 03-learn-as-you-go.qmd
     - 04-stay-organized.qmd
+    
   appendices:
     - 05-text-data.qmd
     - whats-possible.qmd
 
-bibliography: references.bib
-
 format:
   html:
-    theme: cosmo
-  pdf:
-    documentclass: scrreprt
-  epub:
-    cover-image: cover.jpg
+    theme: 
+      - cosmo
+      - rbg.scss
+    code-link: true
+
+    author-meta: "Adam Sadowski"
+    callout-appearance: simple
 

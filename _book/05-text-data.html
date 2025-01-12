@@ -196,9 +196,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#patterns-and-regular-expressions-regexes" id="toc-patterns-and-regular-expressions-regexes" class="nav-link active" data-scroll-target="#patterns-and-regular-expressions-regexes">Patterns and Regular Expressions (regexes)</a></li>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#understanding-representations" id="toc-understanding-representations" class="nav-link" data-scroll-target="#understanding-representations">Understanding Representations</a></li>
+  <li><a href="#patterns-and-regular-expressions-regexes" id="toc-patterns-and-regular-expressions-regexes" class="nav-link active" data-scroll-target="#patterns-and-regular-expressions-regexes"><span class="header-section-number">A.1</span> Patterns and Regular Expressions (regexes)</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">A.2</span> Motivation</a></li>
+  <li><a href="#understanding-representations" id="toc-understanding-representations" class="nav-link" data-scroll-target="#understanding-representations"><span class="header-section-number">A.3</span> Understanding Representations</a></li>
   </ul>
 </nav>
     </div>
@@ -222,14 +222,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="patterns-and-regular-expressions-regexes" class="level2">
-<h2 class="anchored" data-anchor-id="patterns-and-regular-expressions-regexes">Patterns and Regular Expressions (regexes)</h2>
+<section id="patterns-and-regular-expressions-regexes" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="patterns-and-regular-expressions-regexes"><span class="header-section-number">A.1</span> Patterns and Regular Expressions (regexes)</h2>
 <p>Short for regular expressions, regex (pronounced reg-ex) is a language for describing patterns in strings.</p>
 <p>Like any language, regex will appear foreign and difficult to understand without constantly looking up definitions for symbols. A good dictionary is the regex cheat sheet; search for “Regular Expressions” in <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. The important definitions are in the left and bottom boxes.</p>
 <p>Why learn this language? When do you need a language for describing patterns in strings?</p>
 </section>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<section id="motivation" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="motivation"><span class="header-section-number">A.2</span> Motivation</h2>
 <p>The first definition under heading “Character Classes” in the <a href="https://rstudio.github.io/cheatsheets/regex.pdf">regex cheatsheet</a> is</p>
 <pre><code>[[:digit:]] or \\d  Digits; [0-9]</code></pre>
 <p>This tells us that to represent digits in patterns, we can write <code>"[[:digit:]]"</code> or <code>"\\d"</code>.</p>
@@ -338,8 +338,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>There are no rows where month is greater than 12.</p>
 </section>
-<section id="understanding-representations" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-representations">Understanding Representations</h2>
+<section id="understanding-representations" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="understanding-representations"><span class="header-section-number">A.3</span> Understanding Representations</h2>
 <p>If data contains characters like quotes and backslashes, R cannot directly represent them in a string. We can try to write each of these directly in a string and see what happens.</p>
 <p><em>Quotes:</em></p>
 <div class="cell">

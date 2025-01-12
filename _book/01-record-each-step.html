@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>R Beginner’s Guide and Best Practices - 1&nbsp; Record (Each Step)</title>
+<meta name="author" content="Adam Sadowski">
+<title>R Beginner’s Guide (Best Practices) - 1&nbsp; Record (Each Step)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -95,16 +91,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -115,15 +106,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R Beginner’s Guide and Best Practices</a> 
+      <a href="./">R Beginner’s Guide (Best Practices)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/asadow/rbg/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -133,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -171,8 +166,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-text-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
@@ -185,36 +180,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#lines-and-lists" id="toc-lines-and-lists" class="nav-link active" data-scroll-target="#lines-and-lists">Lines and Lists</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a>
+<li><a href="#lines-and-lists" id="toc-lines-and-lists" class="nav-link active" data-scroll-target="#lines-and-lists"><span class="header-section-number">1.1</span> Lines and Lists</a></li>
+  <li>
+<a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">1.2</span> Code</a>
   <ul class="collapse">
-  <li><a href="#declaring-with-single-back-ticks" id="toc-declaring-with-single-back-ticks" class="nav-link" data-scroll-target="#declaring-with-single-back-ticks">Declaring With Single Back-Ticks</a></li>
+<li><a href="#declaring-with-single-back-ticks" id="toc-declaring-with-single-back-ticks" class="nav-link" data-scroll-target="#declaring-with-single-back-ticks">Declaring With Single Back-Ticks</a></li>
   <li><a href="#declaring-with-multiple-back-ticks" id="toc-declaring-with-multiple-back-ticks" class="nav-link" data-scroll-target="#declaring-with-multiple-back-ticks">Declaring With Multiple Back-Ticks</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  </ul></li>
-  <li><a href="#errors" id="toc-errors" class="nav-link" data-scroll-target="#errors">Errors</a></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
-  <li><a href="#keyboard-shortcuts" id="toc-keyboard-shortcuts" class="nav-link" data-scroll-target="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
   </ul>
-</nav>
+</li>
+  <li><a href="#errors" id="toc-errors" class="nav-link" data-scroll-target="#errors"><span class="header-section-number">1.3</span> Errors</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links"><span class="header-section-number">1.4</span> Links</a></li>
+  <li><a href="#keyboard-shortcuts" id="toc-keyboard-shortcuts" class="nav-link" data-scroll-target="#keyboard-shortcuts"><span class="header-section-number">1.5</span> Keyboard Shortcuts</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/asadow/rbg/edit/main/01-record-each-step.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/asadow/rbg/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Record (Each Step)</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Record (Each Step)</span>
+</h1>
 </div>
 
 
@@ -227,13 +220,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header>
-
-<p>Data work will involve the preparation of data and data reports. In fact, you may want to report on the preparation of data. Since the code that prepares a report can also prepare the data, you could work in a way that both gets the job done and reports on getting it done. That’s a win-win!</p>
+</header><p>Data work will involve the preparation of data and data reports. In fact, you may want to report on the preparation of data. Since the code that prepares a report can also prepare the data, you could work in a way that both gets the job done and reports on getting it done. That’s a win-win!</p>
 <p>Reports are great client-facing examples of your work (and how you work if you report on data preparation). Before employment, they can be presented to potential employers. After employment, they can be presented to your collaborators during data preparation; maybe there will be decisions that need to be made about the data, and the best way to show why decisions are needed will be through a report.</p>
 <p>For these reasons, this book starts with the fundamentals of writing reports. The files that make reports are called .qmd files. To start a .qmd file, open RStudio. In the top menu, click File then New File and finally “Quarto Document…”. When you see the pop-up, name the file what you like. Then, in the file, select all (shortcut <code>command-A</code> or <code>Ctrl-A</code>) and hit <code>Delete</code>. Render (i.e.&nbsp;prepare) the document by the shortcut <code>command-Shift-K</code> (or <code>Ctrl-Shift-K</code>). You will see a document that is empty. That is because we have no lines. Let’s get started by writing lines then!</p>
-<section id="lines-and-lists" class="level2">
-<h2 class="anchored" data-anchor-id="lines-and-lists">Lines and Lists</h2>
+<section id="lines-and-lists" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="lines-and-lists">
+<span class="header-section-number">1.1</span> Lines and Lists</h2>
 <p>On your left in Rstudio (what is called the code source), you have numbers like below that represent lines of text or code:</p>
 <pre><code>1   Some text
 2
@@ -264,7 +255,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Start of my list
 <ul>
 <li>List within my list</li>
-</ul></li>
+</ul>
+</li>
 </ol>
 <p>–</p>
 <p>A list is broken if there is an empty line and a subsequent line that is not indented twice.</p>
@@ -281,19 +273,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Start of my list
 <ul>
 <li>List within my list</li>
-</ul></li>
+</ul>
+</li>
 </ol>
 <p>This line breaks the list - Some line indented twice in my code source</p>
-</section>
-<section id="code" class="level2">
-<h2 class="anchored" data-anchor-id="code">Code</h2>
+</section><section id="code" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="code">
+<span class="header-section-number">1.2</span> Code</h2>
 <p>Code cannot be written on lines like text. For example</p>
 <pre><code>1   some_code
 2   
 3</code></pre>
 <p>will not work. Code has to be declared in one of two ways.</p>
-<section id="declaring-with-single-back-ticks" class="level3">
-<h3 class="anchored" data-anchor-id="declaring-with-single-back-ticks">Declaring With Single Back-Ticks</h3>
+<section id="declaring-with-single-back-ticks" class="level3"><h3 class="anchored" data-anchor-id="declaring-with-single-back-ticks">Declaring With Single Back-Ticks</h3>
 <p>You can insert code into your document using a single back-tick (the ` symbol) before and after:</p>
 <pre><code>1   Here's `some_code` to be shown.
 2   
@@ -307,12 +298,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2
 3</code></pre>
 <p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;3&nbsp;will&nbsp;show&nbsp;in&nbsp;your&nbsp;document&nbsp;as:</em></sub></p>
-<p>This report was made on 2025-01-11.</p>
+<p>This report was made on 2025-01-12.</p>
 <!-- To see an Rmd document within R, go to R's menu: Tools - Global Options; select R Markdown from the left, find the line "Show output preview in: " and select Viewer -->
 <!-- Explain why this is not greyed out: ` -->
-</section>
-<section id="declaring-with-multiple-back-ticks" class="level3">
-<h3 class="anchored" data-anchor-id="declaring-with-multiple-back-ticks">Declaring With Multiple Back-Ticks</h3>
+</section><section id="declaring-with-multiple-back-ticks" class="level3"><h3 class="anchored" data-anchor-id="declaring-with-multiple-back-ticks">Declaring With Multiple Back-Ticks</h3>
 <p>You can insert multiple lines of code into your document using multiple back-ticks before and after:</p>
 <pre><code>10    ```{r}
 11    some_code
@@ -334,29 +323,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 13    ```</code></pre>
 <p>The following will be the result of the above chunk in our document:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-01-11"</code></pre>
+<pre><code>[1] "2025-01-12"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-01-11"</code></pre>
+<pre><code>[1] "2025-01-12"</code></pre>
 </div>
 </div>
 <p>When declaring code with chunks (multiple back-ticks), the document will show both the code and the result of the code and this can be customized. When declaring code with single back-ticks, the document will show only the result of the code and this cannot be customized.</p>
 <p>Since the back-ticks take effort to write, there is a shortcut to writing an empty code chunk: <code>command-Shift-I</code> on Mac or <code>ctrl-Shift-I</code> on Windows.</p>
-</section>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+</section><section id="summary" class="level3"><h3 class="anchored" data-anchor-id="summary">Summary</h3>
 <p>To summarize, compared to declaring code with single back-ticks,</p>
 <ul>
 <li>Chunks can contain multiple lines.</li>
 <li>Chunks can show both the code and the result of the code. This is great for showing your work or explaining your code to readers. This flexible property lets you decide whether the chunk shows the code and the result, only one of the two, or neither.</li>
-</ul>
-</section>
-</section>
-<section id="errors" class="level2">
-<h2 class="anchored" data-anchor-id="errors">Errors</h2>
+</ul></section></section><section id="errors" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="errors">
+<span class="header-section-number">1.3</span> Errors</h2>
 <p>When code is not written correctly, errors and probably some frustration will follow. R errors are not known for being <em>friendly</em>; they are not kind enough to tell you what is wrong in a way that is easy to understand. When there is an error, you will see it in red text within the Console, which is a box on the bottom left quarter of RStudio (its default layout). The Console is where the code is processed and the result printed.</p>
 <p>There are symbols we need to know to understand the Console:</p>
 <pre><code>&gt; means the line of code processed
@@ -368,9 +352,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When first learning R, the best way to understand errors is usually not through R’s error messages. The best way is by paying close attention to the code and every little detail: misspelling, capitalization, and punctuation.</p>
 <p>For this reason we want to practice good strategies of writing code. Writing involves naming our own objects and functions. But before that, we should also name our files using a good strategy. For a quick guide on naming files, <a href="https://style.tidyverse.org/files.html">click here</a>.</p>
 <!-- ## Explain to look at Render box for render errors -->
-</section>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
+</section><section id="links" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="links">
+<span class="header-section-number">1.4</span> Links</h2>
 <p>To add a clickable link that sends the user to a website, place the website address within inequality symbols &lt; … &gt;. For example: <code>&lt;http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf</code>&gt; gives us <a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf" class="uri">http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf</a></p>
 <p>To make this a hyperlink, that is, a shorter, clickable link, write the clickable text (the text you want to the reader to see) in square brackets and the website address in round brackets like so <code>[text-seen-by-reader](link)</code>. For example</p>
 <pre><code>1   [File Naming Presentation by Jenny Bryan](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf)
@@ -378,28 +361,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3</code></pre>
 <p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;3&nbsp;will&nbsp;show&nbsp;as:</em></sub></p>
 <p><a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf">File Naming Presentation by Jenny Bryan</a></p>
-</section>
-<section id="keyboard-shortcuts" class="level2">
-<h2 class="anchored" data-anchor-id="keyboard-shortcuts">Keyboard Shortcuts</h2>
+</section><section id="keyboard-shortcuts" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="keyboard-shortcuts">
+<span class="header-section-number">1.5</span> Keyboard Shortcuts</h2>
 <p>Remember, if you are using Windows, use</p>
 <ul>
-<li><code>Ctrl</code> instead of <code>command</code></li>
-<li><code>Alt</code> instead of <code>option</code></li>
+<li>
+<code>Ctrl</code> instead of <code>command</code>
+</li>
+<li>
+<code>Alt</code> instead of <code>option</code>
+</li>
 </ul>
 <p><strong>Shortcuts:</strong></p>
 <ul>
-<li><code>command-Z</code>: Undo (go back)</li>
-<li><code>command-shift-Z</code>: Redo (go forward)</li>
-<li><code>command-Enter</code>: Process line of code where <code>|</code> is blinking (consistently appearing and disappearing)</li>
-<li><code>command-option-C</code>: Process current chunk</li>
-<li><code>option-shift-arrow_key</code>: Highlight all to the direction of the arrow</li>
+<li>
+<code>command-Z</code>: Undo (go back)</li>
+<li>
+<code>command-shift-Z</code>: Redo (go forward)</li>
+<li>
+<code>command-Enter</code>: Process line of code where <code>|</code> is blinking (consistently appearing and disappearing)</li>
+<li>
+<code>command-option-C</code>: Process current chunk</li>
+<li>
+<code>option-shift-arrow_key</code>: Highlight all to the direction of the arrow</li>
 </ul>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -631,9 +619,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
@@ -645,23 +631,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2025, Adam Sadowski</div>   
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">R Beginner’s Guide was written by Adam Sadowski.</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-      <i class="bi bi-github" role="img">
-</i> 
-  </li>  
-</ul>
-    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 </body></html>

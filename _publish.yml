@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 4fe32d28-a8a8-41d4-817c-69e5f58a21da
+      url: 'https://adams.quarto.pub/rbg'

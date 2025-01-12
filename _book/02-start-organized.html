@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>R Beginner’s Guide and Best Practices - 2&nbsp; Start (Organized)</title>
+<meta name="author" content="Adam Sadowski">
+<title>R Beginner’s Guide (Best Practices) - 2&nbsp; Start (Organized)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -95,16 +91,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -115,15 +106,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">R Beginner’s Guide and Best Practices</a> 
+      <a href="./">R Beginner’s Guide (Best Practices)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/asadow/rbg/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -133,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -171,8 +166,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-text-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
@@ -185,41 +180,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#name-files" id="toc-name-files" class="nav-link active" data-scroll-target="#name-files">Name Files</a></li>
-  <li><a href="#bring-files-into-r" id="toc-bring-files-into-r" class="nav-link" data-scroll-target="#bring-files-into-r">Bring Files Into R</a></li>
-  <li><a href="#bring-data-into-r" id="toc-bring-data-into-r" class="nav-link" data-scroll-target="#bring-data-into-r">Bring Data Into R</a></li>
-  <li><a href="#check-data" id="toc-check-data" class="nav-link" data-scroll-target="#check-data">Check Data</a></li>
-  <li><a href="#clean-data" id="toc-clean-data" class="nav-link" data-scroll-target="#clean-data">Clean Data</a></li>
-  <li><a href="#remove-data" id="toc-remove-data" class="nav-link" data-scroll-target="#remove-data">Remove Data</a>
+<li><a href="#sec-name-files" id="toc-sec-name-files" class="nav-link active" data-scroll-target="#sec-name-files"><span class="header-section-number">2.1</span> Name Files</a></li>
+  <li><a href="#bring-files-into-r" id="toc-bring-files-into-r" class="nav-link" data-scroll-target="#bring-files-into-r"><span class="header-section-number">2.2</span> Bring Files Into R</a></li>
+  <li><a href="#bring-data-into-r" id="toc-bring-data-into-r" class="nav-link" data-scroll-target="#bring-data-into-r"><span class="header-section-number">2.3</span> Bring Data Into R</a></li>
+  <li><a href="#check-data" id="toc-check-data" class="nav-link" data-scroll-target="#check-data"><span class="header-section-number">2.4</span> Check Data</a></li>
+  <li><a href="#clean-data" id="toc-clean-data" class="nav-link" data-scroll-target="#clean-data"><span class="header-section-number">2.5</span> Clean Data</a></li>
+  <li><a href="#check-with-your-team" id="toc-check-with-your-team" class="nav-link" data-scroll-target="#check-with-your-team"><span class="header-section-number">2.6</span> Check With Your Team</a></li>
+  <li>
+<a href="#remove-data" id="toc-remove-data" class="nav-link" data-scroll-target="#remove-data"><span class="header-section-number">2.7</span> Remove Data</a>
   <ul class="collapse">
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter()</code></a></li>
+<li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter()</code></a></li>
   <li><a href="#distinct" id="toc-distinct" class="nav-link" data-scroll-target="#distinct"><code>distinct()</code></a></li>
-  </ul></li>
-  <li><a href="#code-concisely" id="toc-code-concisely" class="nav-link" data-scroll-target="#code-concisely">Code Concisely</a>
-  <ul class="collapse">
-  <li><a href="#and" id="toc-and" class="nav-link" data-scroll-target="#and"><code>|&gt;</code> and <code>%&gt;%</code></a></li>
-  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><code>summarize()</code></a></li>
-  </ul></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#code-concisely" id="toc-code-concisely" class="nav-link" data-scroll-target="#code-concisely"><span class="header-section-number">2.8</span> Code Concisely</a>
+  <ul class="collapse">
+<li><a href="#and" id="toc-and" class="nav-link" data-scroll-target="#and"><code>|&gt;</code> and <code>%&gt;%</code></a></li>
+  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><code>summarize()</code></a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/asadow/rbg/edit/main/02-start-organized.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/asadow/rbg/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Start (Organized)</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Start (Organized)</span>
+</h1>
 </div>
 
 
@@ -232,28 +228,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header>
-
-<section id="name-files" class="level2">
-<h2 class="anchored" data-anchor-id="name-files">Name Files</h2>
+</header><section id="sec-name-files" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="sec-name-files">
+<span class="header-section-number">2.1</span> Name Files</h2>
 <p>Now that we have covered how to write lines, we can start writing lines about the data, right? Not yet. Let’s make sure our files have the best names possible as that will help in later writing about the data.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container">
 <p>File naming is useful even if you only have one file of data. Apart from its clarity, it prepares you for the future possibility of having multiples files of data. Data sent to an analyst is often updated and re-sent, at which time you may want to keep records of the old and new.</p>
+</div>
 </div>
 </div>
 <p><strong>Definitions:</strong></p>
 <ol type="1">
-<li><code>_</code> is called underscore.</li>
-<li><code>-</code> is called dash.</li>
+<li>
+<code>_</code> is called underscore.</li>
+<li>
+<code>-</code> is called dash.</li>
 </ol>
 <p>Use <code>_</code> as a separator, that is, to separate different characteristics of the file. Use <code>-</code> to separate parts within characteristics. For example,</p>
 <pre><code>lesson-1_on-qmd_2022-02-18.qmd</code></pre>
@@ -273,10 +266,10 @@ on-qmd_lesson-2_2022-02-19.qmd
 on-qmd_lesson-3_2022-02-20.qmd
 on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <p>Consistency helps you visually process the files you see on your file explorer. It also helps when telling your computer how to process the files. We named the files using separators so that numeric information can be represented. That is, the phrase before the first <code>_</code> is the first characteristic, the phrase before the second <code>_</code> is the second characteristic and so on.</p>
-<p>To process the file names in a way that splits these characteristics, we can use a function <code>str_split</code> from an R package called stringr. File names are strings. Strings are character elements that cannot directly be treated numerically (they need to be converted into numeric elements first for that).</p>
+<p>To process the file names in a way that splits these characteristics, we can use a function <code><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split()</a></code> from an R package called <code>stringr</code>. File names are strings. Strings are character elements that cannot directly be treated numerically (they need to be converted into numeric elements first for that).</p>
 <p>To use a function from a package, we first install the package by running</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"stringr"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Delete this line once you are done, as you will have no need to rerun (re-process) it.</p>
 <p>We use a colon (the symbol <code>:</code>) twice to use a function from a package. If you write</p>
@@ -286,23 +279,18 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <p>you will see a drop-down menu of all the functions from stringr. <code>str</code> stands for string. Many function names start with <code>str_</code>. The drop-down menu from writing <code>stringr::</code> adjusts when you add <code>str_</code>. For every function whose name starts with <code>str_</code>, the general purpose is the processing of strings. Similar to our file names above, the general part of the name comes first, then the <code>_</code>, and then the more specific purpose.</p>
 <p>There are a few exceptions; some functions in stringr do not start with <code>str_</code>. But most start with <code>str_</code> because <code>str_</code> makes it clear what the function will process. This is important as we can avoid the need to write out <code>stringr::</code>. We avoid this by loading the package: making the function names in the package available. To load the package, run the following</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org">stringr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now when we only write <code>str_</code>, we still get a drop-down menu. To use a <code>str_</code> function, we need some input strings.</p>
-</section>
-<section id="bring-files-into-r" class="level2">
-<h2 class="anchored" data-anchor-id="bring-files-into-r">Bring Files Into R</h2>
-<p>Let’s get our consistent file names into R. We will use a function called <code>file.choose()</code>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+</section><section id="bring-files-into-r" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="bring-files-into-r">
+<span class="header-section-number">2.2</span> Bring Files Into R</h2>
+<p>Let’s get our consistent file names into R. We will use a function called <code><a href="https://rdrr.io/r/base/file.choose.html">file.choose()</a></code>.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container">
 <p>When referring to a function, <code>()</code> makes it crystal clear that the object has arguments, or in other words, inputs. <code>()</code> means either</p>
 <ol type="1">
 <li>the function is used with its default arguments, or</li>
@@ -310,28 +298,29 @@ Note
 </ol>
 </div>
 </div>
-<p><code>file.choose()</code> causes a pop-up that allows you to interactively search your computer files. If you are using Windows, this pop-up may unfortunately pop-up behind RStudio. You will need to Alt-Tab to find the pop-up. Once you see the pop-up, find the folder with your files and double click on (any) one of the files. The function will print the file path (the computer’s representation of where the file exists). Below we assign the file path to the object <code>file_path</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="fu">file.choose</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We will now use a function <code>path_dir()</code> from the package fs. <code>path_dir()</code> will get the path of the directory from the file path. We will assign the result to the object <code>directory_path</code>.</p>
+<p><code><a href="https://rdrr.io/r/base/file.choose.html">file.choose()</a></code> causes a pop-up that allows you to interactively search your computer files. If you are using Windows, this pop-up may unfortunately pop-up behind RStudio. You will need to Alt-Tab to find the pop-up. Once you see the pop-up, find the folder with your files and double click on (any) one of the files. The function will print the file path (the computer’s representation of where the file exists). Below we assign the file path to the object <code>file_path</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>directory_path <span class="ot">&lt;-</span> <span class="fu">path_dir</span>(file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.choose.html">file.choose</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To get a list of .csv files in this directory, we will use a <code>list.files()</code> function. This function has what are called two arguments. The first is the path to the folder that contains our files. The second is the pattern that is unique to the files we want.</p>
+<p>We will now use a function <code><a href="https://fs.r-lib.org/reference/path_file.html">path_dir()</a></code> from the package fs. <code><a href="https://fs.r-lib.org/reference/path_file.html">path_dir()</a></code> will get the path of the directory from the file path. We will assign the result to the object <code>directory_path</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(directory_path, <span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://fs.r-lib.org">fs</a></span><span class="op">)</span></span>
+<span><span class="va">directory_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://fs.r-lib.org/reference/path_file.html">path_dir</a></span><span class="op">(</span><span class="va">file_path</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To get a list of .csv files in this directory, we will use a <code><a href="https://rdrr.io/r/base/list.files.html">list.files()</a></code> function. This function has what are called two arguments. The first is the path to the folder that contains our files. The second is the pattern that is unique to the files we want.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="va">directory_path</span>, pattern <span class="op">=</span> <span class="st">"csv"</span><span class="op">)</span></span>
+<span><span class="va">files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "gapminder_afganistan_2022-02-21.csv" 
 [2] "gapminder_afghanistan_2022-02-21.csv"
 [3] "gapminder_canada_2022-02-21.csv"     </code></pre>
 </div>
 </div>
-<p>Now we use <code>str_split()</code> which will split our strings. For example,</p>
+<p>Now we use <code><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split()</a></code> which will split our strings. For example,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="va">files</span>, <span class="st">"_"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "gapminder"      "afganistan"     "2022-02-21.csv"
@@ -346,7 +335,7 @@ Note
 <p>This result is what is called a list. A list can contain anything. The [[1]] and [[2]] represent the first and second element of the list. The [1] indicates that the element to its very right is the first element.</p>
 <p>To also separate the file type (.qmd) at the end, preceded by the period, we can adjust our function to separate by <code>_</code> as well as <code>.</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"_."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="va">files</span>, <span class="st">"_."</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "gapminder"     "fganistan"     "022-02-21.csv"
@@ -358,9 +347,9 @@ Note
 [1] "gapminder"     "anada"         "022-02-21.csv"</code></pre>
 </div>
 </div>
-<p>What happened? This is not what we want, and it is because <code>.</code> is a special (i.e.&nbsp;meta) character. Special characters mean more to R than the literal symbol itself. The special character <code>.</code> represents any character. Hence we told <code>str_split()</code> to use <code>_.</code> as a separator which meant that <code>_A</code> was used as the first separator, and <code>_2</code> as the second separator. We need to use different special characters to overcome this challenge: <code>[</code> and <code>]</code>. These square brackets can be used to surround the distinct characters that <code>str_split</code> will use as separators: <code>[_.]</code> will tell <code>str_split()</code> to use either a <code>_</code> or a literal <code>.</code> as the separator.</p>
+<p>What happened? This is not what we want, and it is because <code>.</code> is a special (i.e.&nbsp;meta) character. Special characters mean more to R than the literal symbol itself. The special character <code>.</code> represents any character. Hence we told <code><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split()</a></code> to use <code>_.</code> as a separator which meant that <code>_A</code> was used as the first separator, and <code>_2</code> as the second separator. We need to use different special characters to overcome this challenge: <code>[</code> and <code>]</code>. These square brackets can be used to surround the distinct characters that <code>str_split</code> will use as separators: <code>[_.]</code> will tell <code><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split()</a></code> to use either a <code>_</code> or a literal <code>.</code> as the separator.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"[_.]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="va">files</span>, <span class="st">"[_.]"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "gapminder"  "afganistan" "2022-02-21" "csv"       
@@ -372,9 +361,9 @@ Note
 [1] "gapminder"  "canada"     "2022-02-21" "csv"       </code></pre>
 </div>
 </div>
-<p>We can have a cleaner result using <code>str_split_fixed()</code>. It is called “fixed” as we can fix the number of splits or pieces. We will split our strings into 4 pieces.</p>
+<p>We can have a cleaner result using <code><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split_fixed()</a></code>. It is called “fixed” as we can fix the number of splits or pieces. We will split our strings into 4 pieces.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split_fixed</span>(files, <span class="st">"[_.]"</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split_fixed</a></span><span class="op">(</span><span class="va">files</span>, <span class="st">"[_.]"</span>, <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1]        [,2]          [,3]         [,4] 
 [1,] "gapminder" "afganistan"  "2022-02-21" "csv"
@@ -384,11 +373,11 @@ Note
 </div>
 <p>This result is what is called a matrix. Let’s assign it to the object m.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">str_split_fixed</span>(files, <span class="st">"[_.]"</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split_fixed</a></span><span class="op">(</span><span class="va">files</span>, <span class="st">"[_.]"</span>, <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can see the matrix just by processing</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">m</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1]        [,2]          [,3]         [,4] 
 [1,] "gapminder" "afganistan"  "2022-02-21" "csv"
@@ -396,10 +385,10 @@ Note
 [3,] "gapminder" "canada"      "2022-02-21" "csv"</code></pre>
 </div>
 </div>
-<p>Let’s add informative names to the columns of the matrix. To do this, we use a function called <code>colnames()</code>. This function will be placed on the left of <code>&lt;-</code> as it is a replacement function. We replace the null (i.e.&nbsp;undefined) column names of our matrix with our list of characteristics.</p>
+<p>Let’s add informative names to the columns of the matrix. To do this, we use a function called <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code>. This function will be placed on the left of <code>&lt;-</code> as it is a replacement function. We replace the null (i.e.&nbsp;undefined) column names of our matrix with our list of characteristics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"source"</span>, <span class="st">"country"</span>, <span class="st">"date"</span>, <span class="st">"file_type"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"source"</span>, <span class="st">"country"</span>, <span class="st">"date"</span>, <span class="st">"file_type"</span><span class="op">)</span></span>
+<span><span class="va">m</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     source      country       date         file_type
 [1,] "gapminder" "afganistan"  "2022-02-21" "csv"    
@@ -407,11 +396,11 @@ Note
 [3,] "gapminder" "canada"      "2022-02-21" "csv"    </code></pre>
 </div>
 </div>
-<p>Let’s create an object named df with a function called <code>as_tibble()</code> from the package <code>tibble</code>. What is a tibble? It is an R word for table. Remember to install tibble before running</p>
+<p>Let’s create an object named df with a function called <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble()</a></code> from the package <code>tibble</code>. What is a tibble? It is an R word for table. Remember to install tibble before running</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(m)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span>
+<span><span class="va">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   source    country     date       file_type
@@ -427,33 +416,32 @@ Note
 <!-- file_paths <- glue("{directory_path}/{files}") -->
 <!-- file_paths -->
 <!-- ``` -->
-<p>We now need the file path for each of our files. To list the files in our directory, use the function <code>dir_ls()</code>. Assign the result to object <code>file_paths</code>.</p>
+<p>We now need the file path for each of our files. To list the files in our directory, use the function <code><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls()</a></code>. Assign the result to object <code>file_paths</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">dir_ls</span>(directory_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">file_paths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="va">directory_path</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We will now change our tibble so that there is a new column called <code>file_path</code> that contains our <code>file_paths</code>. To do this, we will use a function from the package <code>dplyr</code> (pronounced “data plier”). The function we will use is named after another word for change: <code>mutate()</code>. This function has two arguments. The first is the tibble. The second is the name of the new column, an equal sign, and the values we want in that column.</p>
+<p>We will now change our tibble so that there is a new column called <code>file_path</code> that contains our <code>file_paths</code>. To do this, we will use a function from the package <code>dplyr</code> (pronounced “data plier”). The function we will use is named after another word for change: <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>. This function has two arguments. The first is the tibble. The second is the name of the new column, an equal sign, and the values we want in that column.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">file_path =</span> file_paths)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">df</span>, file_path <span class="op">=</span> <span class="va">file_paths</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="bring-data-into-r" class="level2">
-<h2 class="anchored" data-anchor-id="bring-data-into-r">Bring Data Into R</h2>
+</section><section id="bring-data-into-r" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="bring-data-into-r">
+<span class="header-section-number">2.3</span> Bring Data Into R</h2>
 <p>We can read in the data related to each file with the help of the <code>file_path</code> column. Not only that, we can read in the data so that it is organized inside our tibble. In each row of our tibble, we will add each file’s data hidden in a little box or “nest”. These nests will go under a column called <code>data</code>.</p>
-<p>To change our tibble so that there is a new column, we will again use <code>mutate()</code>. The first argument is the tibble, just like above. The second is the name of the new column (<code>data</code>), an equal sign, and the values we want in that column.</p>
+<p>To change our tibble so that there is a new column, we will again use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>. The first argument is the tibble, just like above. The second is the name of the new column (<code>data</code>), an equal sign, and the values we want in that column.</p>
 <p>Since the values in this column will be data sets, we need to put these data sets in containers. Where we see <code>"csv"</code> 3 times under <code>file_type</code> in our tibble, we will see <code>"&lt;S3: spec_tbl_df&gt;"</code> 3 times under <code>data</code>. The <code>&lt;</code> and <code>&gt;</code> mean container. The <code>S3: spec_tbl_df</code> means data frame (another word for data set).</p>
-<p>We need to use a special function inside <code>mutate()</code> when creating our <code>data</code> column so that the values of the <code>data</code> column are containers. This special function is called <code>map()</code> from the package <code>purrr</code>. <code>purrr</code> is pronounced like a cat’s purr (the low vibrating sound of happiness) and it refers to purposeful programming with R.</p>
+<p>We need to use a special function inside <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> when creating our <code>data</code> column so that the values of the <code>data</code> column are containers. This special function is called <code>map()</code> from the package <code>purrr</code>. <code>purrr</code> is pronounced like a cat’s purr (the low vibrating sound of happiness) and it refers to purposeful programming with R.</p>
 <p>The result of <code>map()</code> will always be containers. The number of containers will always be the same as the length of the first argument to <code>map()</code>. The second argument of <code>map()</code> is the function that will be applied to the first argument. To create the <code>data</code> column, the first argument will be the <code>file_path</code>, and the second argument will be a custom read function.</p>
-<p>The read function below, <code>read_csv_c()</code>, uses a function called <code>read_csv()</code> from the package <code>readr</code>. <code>read_csv()</code> reads .csv files and determines what kind of columns are in the data (e.g.&nbsp;numeric or character). We will decide the kind of columns ourselves, so we need to prevent the function from doing so. <code>col_types</code> is the argument inside of <code>read_csv()</code> with a <code>.default</code>. We need to set the <code>.default</code> to be <code>"c"</code>. <code>"c"</code> stands for character. Character is a safe default as it is the original format of the .csv data.</p>
+<p>The read function below, <code>read_csv_c()</code>, uses a function called <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> from the package <code>readr</code>. <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> reads .csv files and determines what kind of columns are in the data (e.g.&nbsp;numeric or character). We will decide the kind of columns ourselves, so we need to prevent the function from doing so. <code>col_types</code> is the argument inside of <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> with a <code>.default</code>. We need to set the <code>.default</code> to be <code>"c"</code>. <code>"c"</code> stands for character. Character is a safe default as it is the original format of the .csv data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>read_csv_c <span class="ot">&lt;-</span> <span class="cf">function</span>(csv_file_path) <span class="fu">read_csv</span>(csv_file_path, <span class="at">col_types =</span> <span class="fu">c</span>(<span class="at">.default =</span> <span class="st">"c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">read_csv_c</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">csv_file_path</span><span class="op">)</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">csv_file_path</span>, col_types <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>.default <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we use our new function to read in our data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">data =</span> <span class="fu">map</span>(file_path, read_csv_c))</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">df</span>, data <span class="op">=</span> <span class="fu">map</span><span class="op">(</span><span class="va">file_path</span>, <span class="va">read_csv_c</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 6
   source    country     date       file_type file_path                data      
@@ -463,15 +451,15 @@ Note
 3 gapminder canada      2022-02-21 csv       …r_canada_2022-02-21.csv &lt;spc_tbl_&gt;</code></pre>
 </div>
 </div>
-<p>We no longer need the <code>file_path</code> column so we will select it to be removed by using the <code>select()</code> function.</p>
+<p>We no longer need the <code>file_path</code> column so we will select it to be removed by using the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">select</span>(df, <span class="sc">-</span> file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">df</span>, <span class="op">-</span> <span class="va">file_path</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can open our containers or “nests” in <code>data</code> using the function <code>unnest()</code> from the package <code>tidyr</code>.</p>
+<p>We can open our containers or “nests” in <code>data</code> using the function <code><a href="https://tidyr.tidyverse.org/reference/unnest.html">unnest()</a></code> from the package <code>tidyr</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">unnest</span>(df, data)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html">unnest</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">data</span><span class="op">)</span></span>
+<span><span class="va">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 9
    source    country     date  file_type continent year  lifeExp pop   gdpPercap
@@ -489,32 +477,30 @@ Note
 # ℹ 14 more rows</code></pre>
 </div>
 </div>
-<p>This data looks clean but looks can be deceiving. Remember that we set the <code>df</code> object to be a tibble with <code>as_tibble()</code>? A tibble is not only a table in R, but a cleaner kind of table. It shows only 10 rows, and as many columns that can comfortably be displayed. The sizing of the table surrounds the data, like the header (top line) <code># A tibble: 24 x 9</code> tells you how many rows (24) and columns (9) there are. The footer (bottom line) tells you what is missing from the display.</p>
+<p>This data looks clean but looks can be deceiving. Remember that we set the <code>df</code> object to be a tibble with <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble()</a></code>? A tibble is not only a table in R, but a cleaner kind of table. It shows only 10 rows, and as many columns that can comfortably be displayed. The sizing of the table surrounds the data, like the header (top line) <code># A tibble: 24 x 9</code> tells you how many rows (24) and columns (9) there are. The footer (bottom line) tells you what is missing from the display.</p>
 <p>Even though this data is small (24 rows by 9 columns can be evaluated using our eyes), it is always best to practice techniques that are generalizable to both small and large data. Let’s check the data with code.</p>
-</section>
-<section id="check-data" class="level2">
-<h2 class="anchored" data-anchor-id="check-data">Check Data</h2>
+</section><section id="check-data" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="check-data">
+<span class="header-section-number">2.4</span> Check Data</h2>
 <p>The simplest way to start evaluating data is to check that the values under each column meet expectations. Since we created the first 4 columns using our file names, we can be sure that these 4 columns are clean. For the next column, <code>continent</code>, we expect values to be continents, capitalized, and spelled correctly. Instead of reading each line with our eyes, we can read each line with our computers. Or a combination of the two. That is exactly how we will start.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">continent</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Asia"     "Americas"</code></pre>
 </div>
 </div>
 <p>These unique values are perfect. Which means every value is perfect, as these unique values represent them. But what if they were not capitalized, for example? That is in fact the case with our country column: the values are not capitalized because the values came from our file-naming, and it is good practice not to capitalize when file-naming.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">country</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "afghanistan" "canada"     </code></pre>
 </div>
 </div>
-</section>
-<section id="clean-data" class="level2">
-<h2 class="anchored" data-anchor-id="clean-data">Clean Data</h2>
-<p>To capitalize the values in a column, you can use a function called <code>str_to_title()</code>.</p>
+</section><section id="clean-data" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="clean-data">
+<span class="header-section-number">2.5</span> Clean Data</h2>
+<p>To capitalize the values in a column, you can use a function called <code><a href="https://stringr.tidyverse.org/reference/case.html">str_to_title()</a></code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">country =</span> <span class="fu">str_to_title</span>(country))</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">df</span>, country <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/case.html">str_to_title</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 9
    source    country     date  file_type continent year  lifeExp pop   gdpPercap
@@ -532,17 +518,57 @@ Note
 # ℹ 14 more rows</code></pre>
 </div>
 </div>
-<p>It would be quite the task for this book to cover every method of checking and cleaning data. The next best is to describe what to do next in the remaining chapter and how to discover data validating and cleaning methods in the following <a href="03-learn-as-you-go.html"><span>Chapter&nbsp;3</span></a>. The most difficult data to clean is text data. Please see <a href="05-text-data.html"><span>Appendix&nbsp;A</span></a> to prepare for it.</p>
-</section>
-<section id="remove-data" class="level2">
-<h2 class="anchored" data-anchor-id="remove-data">Remove Data</h2>
-<section id="filter" class="level3">
-<h3 class="anchored" data-anchor-id="filter"><code>filter()</code></h3>
-<p>If we decide, after cleaning, that we don’t need parts of the data, should we remove files or edit the raw data? It’s often a better idea to keep a record of changes, with both code and comments. For example, to remove all but data on Asia, we can use <code>filter()</code>.</p>
+<p>It would be quite the task for this book to cover every method of checking and cleaning data. We covered the best-case scenario: the country column above was systematically unclean. Next, we show the worst-case scenario: manually entered text data. Later we show how to discover data validating and cleaning methods in <a href="03-learn-as-you-go.html"><span>Chapter&nbsp;3</span></a>.</p>
+<p>The next section is only for demonstrative purposes. Please see <a href="05-text-data.html"><span>Appendix&nbsp;A</span></a> to prepare for actual text data methods.</p>
+</section><section id="check-with-your-team" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="check-with-your-team">
+<span class="header-section-number">2.6</span> Check With Your Team</h2>
+<p>Suppose people answered a survey that included questions on how much time their children spend doing X on a typical day. These questions have two text boxes:</p>
+<p>Unique responses to the first box of the first question:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Analysis is only on Asia</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">&lt;-</span> <span class="fu">filter</span>(df, continent <span class="sc">==</span> <span class="st">"Asia"</span>)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"5"</span>, <span class="cn">NA</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"2"</span>, <span class="st">""</span>,  <span class="st">"1"</span>, <span class="st">"6"</span>, <span class="st">"8"</span>, <span class="st">"60"</span>,  <span class="st">"30"</span>,  <span class="st">"45"</span>,  <span class="st">"7"</span>, <span class="st">"20"</span>, <span class="st">"9"</span>, <span class="st">"35"</span>,  <span class="st">"3 "</span>,  <span class="st">"1.5"</span>, <span class="st">"4-5"</span>, <span class="st">"2 "</span>,  <span class="st">"40"</span>, <span class="st">"Day care"</span>, <span class="st">"3 to 4"</span>, <span class="st">"10"</span>,  <span class="st">"48"</span>,  <span class="st">"4hrs"</span>,  <span class="st">"15"</span>,  <span class="st">"90"</span>, <span class="st">"?"</span>, <span class="st">"12"</span><span class="op">)</span></span>
+<span><span class="va">n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "5"        NA         "3"        "4"        "2"        ""        
+ [7] "1"        "6"        "8"        "60"       "30"       "45"      
+[13] "7"        "20"       "9"        "35"       "3 "       "1.5"     
+[19] "4-5"      "2 "       "40"       "Day care" "3 to 4"   "10"      
+[25] "48"       "4hrs"     "15"       "90"       "?"        "12"      </code></pre>
+</div>
+</div>
+<p>Unique responses to the second box which allows selection of the units:</p>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">units</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Minutes"</span>, <span class="st">"Hours"</span><span class="op">)</span></span>
+<span><span class="va">units</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Minutes" "Hours"  </code></pre>
+</div>
+</div>
+<p>Evidently this data needs to be cleaned before we do <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> which turns non-numeric strings into <code>NA</code>.</p>
+<p>First, we might think, let’s deal with the interval responses like <code>4-5</code>. We note there’s also a response <code>3 to 4</code>. We can turn these responses into proper numbers like so:</p>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Don't worry about understanding the code here</span></span>
+<span><span class="va">n1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">n</span>, <span class="st">"^(.*?)(-|to).*"</span>, <span class="st">"\\1"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">n2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace</a></span><span class="op">(</span><span class="va">n</span>, <span class="st">"^.*(-|to)(.*?)"</span>, <span class="st">"\\2"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">n</span>, <span class="st">"-|to"</span><span class="op">)</span>, <span class="op">(</span><span class="va">n1</span><span class="op">+</span><span class="va">n2</span><span class="op">)</span><span class="op">/</span><span class="fl">2</span>, <span class="va">n</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "5"        NA         "3"        "4"        "2"        ""        
+ [7] "1"        "6"        "8"        "60"       "30"       "45"      
+[13] "7"        "20"       "9"        "35"       "3 "       "1.5"     
+[19] "4.5"      "2 "       "40"       "Day care" "3.5"      "10"      
+[25] "48"       "4hrs"     "15"       "90"       "?"        "12"      </code></pre>
+</div>
+</div>
+<p>Next we might think, let’s turn <code>4hrs</code> into <code>4</code>. But wouldn’t you want to know first that the units aren’t missing from the second box? And what’s <code>Day care</code> about? Does that mean “duration of day care”?</p>
+<p>Before we start cleaning this data, converting units using the unit selected and slapping a pretty name like <code>avg_day_play_time_hrs</code>… human error needs to be considered. What if someone selected the wrong units? What sort of limits should we impose on plausible responses: e.g.&nbsp;is 16 hours the upper limit of a child’s active play time? After conversion to hours, do we then screen for <code>&gt; 16</code> and turn those responses into minutes?</p>
+<p>These are some of the questions one can ask before deciding to commit fully to cleaning this data. Holding off on cleaning to communicate with your team might be best practice. It may turn out that better methods of collecting data are enforced.</p>
+</section><section id="remove-data" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="remove-data">
+<span class="header-section-number">2.7</span> Remove Data</h2>
+<section id="filter" class="level3"><h3 class="anchored" data-anchor-id="filter"><code>filter()</code></h3>
+<p>If we decide, after cleaning, that we don’t need parts of the data, should we remove files or edit the raw data? It’s often a better idea to keep a record of changes, with both code and comments. For example, to remove all but data on Asia, we can use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Analysis is only on Asia</span></span>
+<span><span class="va">df_filtered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">continent</span> <span class="op">==</span> <span class="st">"Asia"</span><span class="op">)</span></span>
+<span><span class="va">df_filtered</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 9
    source    country     date  file_type continent year  lifeExp pop   gdpPercap
@@ -561,12 +587,10 @@ Note
 12 gapminder Afghanistan 2022… csv       Asia      2007  43.828  3188… 974.5803…</code></pre>
 </div>
 </div>
-</section>
-<section id="distinct" class="level3">
-<h3 class="anchored" data-anchor-id="distinct"><code>distinct()</code></h3>
-<p>We can keep only unique (i.e.&nbsp;distinct) values under the a column using <code>distinct()</code>. It produces a tibble with only the distinct rows for the column(s) you choose. The argument <code>.keep_all</code>, if set to <code>TRUE</code>, keeps all columns. This can be seen in the help page: <code>?distinct</code>.</p>
+</section><section id="distinct" class="level3"><h3 class="anchored" data-anchor-id="distinct"><code>distinct()</code></h3>
+<p>We can keep only unique (i.e.&nbsp;distinct) values under the a column using <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct()</a></code>. It produces a tibble with only the distinct rows for the column(s) you choose. The argument <code>.keep_all</code>, if set to <code>TRUE</code>, keeps all columns. This can be seen in the help page: <code><a href="https://dplyr.tidyverse.org/reference/distinct.html">?distinct</a></code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distinct</span>(<span class="fu">select</span>(df, country, continent), continent, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">df</span>, <span class="va">country</span>, <span class="va">continent</span><span class="op">)</span>, <span class="va">continent</span>, .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country     continent
@@ -575,15 +599,13 @@ Note
 2 Canada      Americas </code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="code-concisely" class="level2">
-<h2 class="anchored" data-anchor-id="code-concisely">Code Concisely</h2>
+</section></section><section id="code-concisely" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="code-concisely">
+<span class="header-section-number">2.8</span> Code Concisely</h2>
 <p>We can write the above in a more readable way using a special symbol.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, continent) <span class="sc">|&gt;</span> </span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(continent, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">country</span>, <span class="va">continent</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">continent</span>, .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country     continent
@@ -593,57 +615,56 @@ Note
 </div>
 </div>
 <p>How did that work?</p>
-<section id="and" class="level3">
-<h3 class="anchored" data-anchor-id="and"><code>|&gt;</code> and <code>%&gt;%</code></h3>
+<section id="and" class="level3"><h3 class="anchored" data-anchor-id="and">
+<code>|&gt;</code> and <code>%&gt;%</code>
+</h3>
 <p><code>|&gt;</code> and <code>%&gt;%</code> are called pipes and are used like so: <code>left_side |&gt; right_side()</code>. They send the left side to the right side. The <code>|&gt;</code> is newer and recommended because, where as the left side is an input, the right side is a function, and <code>|&gt;</code> enforces the <code>()</code> after the function name. Since <code>|&gt;</code> enforces an explicit and safer style, let’s stick with it.</p>
 <p>The other property to remember is that the pipe holds mathematical priority before brackets and exponents. So if you know BEDMASS, then you also know BE<code>|&gt;</code>DMASS.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.236068</code></pre>
 </div>
 </div>
 <p>is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">5</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.236068</code></pre>
 </div>
 </div>
 <p>But</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">5</span> <span class="op">*</span> <span class="fl">5</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11.18034</code></pre>
 </div>
 </div>
 <p>is not the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="fl">5</span> <span class="op">*</span> <span class="fl">5</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
 <p>For a more relevant example,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">df</span>, year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>which is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">year =</span> year <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="va">year</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>|&gt;</code> is most useful to group together steps that accomplish a goal, e.g., summarizing data.</p>
-</section>
-<section id="summarize" class="level3">
-<h3 class="anchored" data-anchor-id="summarize"><code>summarize()</code></h3>
-<p>A few more functions allow for concise writing. <code>summarize()</code> is used to calculate a summary statistic.</p>
+</section><section id="summarize" class="level3"><h3 class="anchored" data-anchor-id="summarize"><code>summarize()</code></h3>
+<p>A few more functions allow for concise writing. <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code> is used to calculate a summary statistic.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the max year per country</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">max_year =</span> <span class="fu">max</span>(year), <span class="at">.by =</span> country) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Find the max year per country</span></span>
+<span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>max_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>, .by <span class="op">=</span> <span class="va">country</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country     max_year
@@ -654,11 +675,11 @@ Note
 </div>
 <p>It’s a short form for a number of other functions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the max year per country</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span> </span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">max_year =</span> <span class="fu">max</span>(year)) <span class="sc">|&gt;</span> </span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(country, max_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Find the max year per country</span></span>
+<span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>max_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">country</span>, <span class="va">max_year</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
 # Groups:   country [2]
@@ -668,12 +689,11 @@ Note
 2 Canada          2007</code></pre>
 </div>
 </div>
-<p>We have not covered <code>group_by()</code> but we can see how it groups the data for the function(s) that follow it. Notice how the above data has a group.</p>
-<section id="count" class="level4">
-<h4 class="anchored" data-anchor-id="count"><code>count()</code></h4>
-<p>The last short form we will cover is <code>count()</code>. Instead of</p>
+<p>We have not covered <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> but we can see how it groups the data for the function(s) that follow it. Notice how the above data has a group.</p>
+<section id="count" class="level4"><h4 class="anchored" data-anchor-id="count"><code>count()</code></h4>
+<p>The last short form we will cover is <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code>. Instead of</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">.by =</span> country) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>, .by <span class="op">=</span> <span class="va">country</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country         n
@@ -684,7 +704,7 @@ Note
 </div>
 <p>you can write</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">count</span>(country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country         n
@@ -695,12 +715,7 @@ Note
 </div>
 
 
-</section>
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -932,9 +947,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./01-record-each-step.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Record (Each Step)</span></span>
       </a>          
@@ -946,23 +959,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2025, Adam Sadowski</div>   
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">R Beginner’s Guide was written by Adam Sadowski.</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-      <i class="bi bi-github" role="img">
-</i> 
-  </li>  
-</ul>
-    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 </body></html>
