@@ -186,7 +186,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#optimal-file-folder-structure-explicit" id="toc-optimal-file-folder-structure-explicit" class="nav-link active" data-scroll-target="#optimal-file-folder-structure-explicit"><span class="header-section-number">4.1</span> Optimal File-Folder Structure (Explicit)</a></li>
+  <li>
+<a href="#optimal-reports-fast-renderability" id="toc-optimal-reports-fast-renderability" class="nav-link" data-scroll-target="#optimal-reports-fast-renderability"><span class="header-section-number">4.2</span> Optimal Reports (Fast Renderability)</a>
+  <ul class="collapse">
+<li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a></li>
+  </ul>
+</li>
+  <li><a href="#optimal-data-access-reliable" id="toc-optimal-data-access-reliable" class="nav-link" data-scroll-target="#optimal-data-access-reliable"><span class="header-section-number">4.3</span> Optimal Data Access (Reliable)</a></li>
+  <li>
+<a href="#optimal-code-maintanable" id="toc-optimal-code-maintanable" class="nav-link" data-scroll-target="#optimal-code-maintanable"><span class="header-section-number">4.4</span> Optimal Code (Maintanable)</a>
+  <ul class="collapse">
+<li><a href="#making-your-own-functions" id="toc-making-your-own-functions" class="nav-link" data-scroll-target="#making-your-own-functions">Making Your Own Functions</a></li>
+  <li><a href="#compare-your-functions-to-others" id="toc-compare-your-functions-to-others" class="nav-link" data-scroll-target="#compare-your-functions-to-others">Compare Your Functions to Others</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/asadow/rbg/edit/main/04-stay-organized.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/asadow/rbg/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -205,7 +224,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p>Let’s say we need to read data in again, and we have named your files as per <a href="02-start-organized.html#sec-name-files"><span>Section&nbsp;2.1</span></a>. To summarize, the file names have phrases with words separated by -, and multiple phrases are separated by _.</p>
+</header><p>Staying organized means keeping project complexity in check as it expands. Each of these checks below help to avoid unnecessary and common frustrations. They address how to optimize the organization of your files, the speed and focus of your reports, the reliability of data access, and code readability.</p>
+<section id="optimal-file-folder-structure-explicit" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="optimal-file-folder-structure-explicit">
+<span class="header-section-number">4.1</span> Optimal File-Folder Structure (Explicit)</h2>
+<p>We discussed how to optimally name data files in <a href="02-start-organized.html#sec-name_files"><span>Section&nbsp;2.1</span></a>. We discussed how to write a Quarto report (a <code>.qmd</code> file) in <a href="01-record-each-step.html"><span>Chapter&nbsp;1</span></a>. Should these sit in the same folder? For a small project, that can be adequate. However, it’s best to organize different kinds of files into different folders. This will help prevent confusion if and when our projects become large. It can also dramatically speed up the rendering of our reports, which is covered in the next section.</p>
+<p>Generally, project files should be organized into the below folders:</p>
+<ul>
+<li>
+<code>data-raw</code> (raw data files)</li>
+<li>
+<code>data</code> (<code>.R</code> files that process raw data and create clean subsets)</li>
+<li>
+<code>R_analysis</code> (<code>.R</code> files that create analytic results)</li>
+</ul>
+<p>If reporting, you should also have the following:</p>
+<ul>
+<li>
+<code>output</code> (outputs that will be shared or used in reports; the latter can be the final objects in R_analysis saved as <code>.rds</code>)</li>
+<li>
+<code>qmd</code> (<code>.qmd</code> files which are Quarto reports)</li>
+<li>
+<code>Rmd</code> (<code>.Rmd</code> files which are RMarkdown reports)</li>
+</ul>
+<p>Optionally:</p>
+<ul>
+<li>
+<code>prose</code> (references like Word documents, text files, etc.)</li>
+</ul></section><section id="optimal-reports-fast-renderability" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="optimal-reports-fast-renderability">
+<span class="header-section-number">4.2</span> Optimal Reports (Fast Renderability)</h2>
+<section id="motivation" class="level3"><h3 class="anchored" data-anchor-id="motivation">Motivation</h3>
+<p>In <a href="01-record-each-step.html"><span>Chapter&nbsp;1</span></a> we processed raw data in a Quarto document, which would go inside the <code>qmd</code> folder. Above we are saying that raw data should be processed in <code>.R</code> files inside of the <code>data</code> folder. Why the change?</p>
+<p>To be fair, many analysts start their R journey using Quarto (or RMarkdown), including me. For Python users likewise, they often start with Jupyter. The ability to combine prose (written text), code, and outputs is beginner-friendly. It’s not, however, always computer-friendly. If code that processes data takes a moderate time to run, the report render will take at least the same amount of time. If, instead, the code takes a short amount of time to run, because it does not process data beyond simply importing it, then the report render will be much, much faster.</p>
+</section><section id="method" class="level3"><h3 class="anchored" data-anchor-id="method">Method</h3>
+<p>If we want fast reports, we want to simply import data and plots. We take out the data processing parts of our <code>.qmd</code> file and place them into an <code>.R</code> file (or multiple <code>.R</code> files) inside a new <code>analysis</code> folder. We name these <code>.R</code> files with the same philosophy as in <a href="02-start-organized.html#sec-name_files"><span>Section&nbsp;2.1</span></a>: phrases separated by <code>_</code>, words in phrases separated by <code>-</code>. With several <code>.R</code> files, we add 0-padded numbers to the front of the file name. Here is an example:</p>
+<ul>
+<li><code>01_merge-data.R</code></li>
+<li><code>02_filter-data.R</code></li>
+<li><code>03_plot-data.R</code></li>
+<li><code>04_stat-analysis.R</code></li>
+</ul>
+<p>Any objects that we need for our report are saved using <code><a href="https://readr.tidyverse.org/reference/read_rds.html">readr::write_rds()</a></code>. The first two arguments are the object to write, and the file path (where to write it). The object can, for example, be a data file we want to display as a table in our report. The file path is going to refer to the new <code>output</code> folder. The best way to refer to files in this folder is to use the <code>here</code> package. <code><a href="https://here.r-lib.org//reference/here.html">here::here()</a></code> is the function, and its name comes from the idea: “Here, I’m in this project, so let’s start at the file path to our project folder, i.e.&nbsp;the root folder.” Knowing this, <code><a href="https://here.r-lib.org//reference/here.html">here::here()</a></code> simply takes strings that point to the location of any of our project’s files. For example, <code>here::here("output", "data_for_table.rds")</code> will create a file path to the <code>output</code> folder ending with <code>data_for_table.rds</code>.</p>
+<p>For example, we have a data file we want to display as a table, it will be saved somewhere in the above files with a line like <code>write_rds(data_for_table, here("output", "data_for_table.rds"))</code>.</p>
+<p>Then, in our <code>.qmd</code> file, we can simply add <code>data_for_table &lt;- read_rds(here("output", "data_for_table.rds"))</code>. Either load the <code>readr</code> library or prepend <code>read_rds()</code> with <code>readr::</code>.</p>
+<p>Finally, place the <code>.qmd</code> file into the <code>qmd</code> folder. Now we not only have a faster report, but our project is more organized.</p>
+</section></section><section id="optimal-data-access-reliable" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="optimal-data-access-reliable">
+<span class="header-section-number">4.3</span> Optimal Data Access (Reliable)</h2>
+<p>It’s a great idea to review how your getting raw data. If they are emailed .csv or .xlsx files, and especially if they have been manually edited or downloaded, there might be a better way to access data from the source. Accessing raw data from the source is more reliable and automatic. There’s less chance of a middle person between you and the data making a mistake and you having to re-run scripts with the corrections if the mistake even gets discovered! Also, you can get data without the limitations that come from waiting for a person to manage and deliver it.</p>
+<p>Reviewing your strategy and improving it to allow for direct access may take more up-front work, but it usually will reduce future work. Another benefit is that learning to directly access data will up-skill you and further your career. You can learn software (data) engineering concepts like databases, API’s (Application Programming Interfaces), and more. These topics are beyond the scope of this book, but this section is here to encourage you to ask questions and learn more. A good book or large-language model can help introduce you to these topics. Once you become familiar with the lingo, you can start to incorporate database concepts with the following packages:</p>
+<ul>
+<li>
+<code>dbplyr</code> for lazy loading and computation (i.e.&nbsp;using the database server instead of your computer to hold data in memory and perform work)</li>
+<li>
+<code>DBI</code> for reading and writing to databases</li>
+<li>
+<code>dm</code> for data models (tables in your database and their relationships to each other)</li>
+<li>
+<code>httr2</code> for data to and from API’s</li>
+</ul></section><section id="optimal-code-maintanable" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="optimal-code-maintanable">
+<span class="header-section-number">4.4</span> Optimal Code (Maintanable)</h2>
+<section id="making-your-own-functions" class="level3"><h3 class="anchored" data-anchor-id="making-your-own-functions">Making Your Own Functions</h3>
+<p>Let’s say we need to read data in again, and we have named your files as per <a href="02-start-organized.html#sec-name_files"><span>Section&nbsp;2.1</span></a>. To summarize, the file names have phrases with words separated by <code>-</code>, and multiple phrases are separated by <code>_</code>.</p>
 <p>Instead of copy-pasting the same code we used the previous time, we can avoid this repetition with a function. We can create this function by assigning <code>function()</code> to an object, and entering the inputs inside the <code>()</code> like so:</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sum</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span>
@@ -214,10 +292,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
-<p>The inputs of a function should be the parts of the function that change over repeated use. Since we want to repeat the code to read in data, but without being repetitive, our function will only contain inputs that are not repetitive. What part of reading our data is not repetitive now that we want to repeat the task for a set of different files.</p>
+<p>The inputs of a function should be the parts of the function that change over repeated use. Since we want to repeat the code to read in data, but without being repetitive, our function will only contain inputs that are not repetitive. What part of reading our data is not repetitive now that we want to repeat the task for a set of different files?</p>
 <p>For one, we can imagine that a new set of files might have a different number of phrases in the file names. So one input of our function can be <code>n_phrases</code>. Two, we can imagine that the phrases represent something different. Since we named them previously, let us call a second input of our function <code>names_phrases</code>.</p>
-<p>Lastly, we need to name our function. The function name should reflect the main behaviour. If it is hard to identify the main behaviour, then it is probably best to split the function into multiple functions. Naming the functions appropriately is important for readability.</p>
-<p>Let us start by listing the behaviours of our function or functions:</p>
+<p>Lastly, we need to name our function. The function name should reflect the main behavior. If it is hard to identify the main behavior, then it is probably best to split the function into multiple functions. Naming the functions appropriately is important for readability.</p>
+<p>Let us start by listing the behaviors of our function or functions:</p>
 <ul>
 <li>Choose a file</li>
 <li>Find the folder (directory) of this file</li>
@@ -226,11 +304,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Name the columns and turn the matrix into a tibble</li>
 <li>For each row representing a file, read its respective data into the tibble</li>
 </ul>
-<p>That is a lot for one name to represent. Hence it is more prudent to separate these behaviours into multiple functions.</p>
-<p>CONTINUE HERE</p>
-<p>Although we could place all the code needed to read in data inside our function and name the function <code>read_csv_in_df()</code>, this is not a good idea. First, it is inconsistent with the popular function <code>read_csv()</code>, which has more than two arguments, the first of which is a file path.</p>
-<p>With only two arguments, our function has the form <code>function(n_phrases, names_phrases){code}</code>. The code it will execute is in curly brackets <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>. Although curly brackets were not needed in <code>function(x, y) x + y</code>, it will be needed here as the code will have multiple lines.</p>
-<p>Although we could place all the code needed to read in data inside and name the function <code>read_csv_in_df()</code>, then we would be acting without much care.</p>
+<p>That is a lot for one name to represent. Hence it is more prudent to separate these behaviors into multiple functions.</p>
+</section><section id="compare-your-functions-to-others" class="level3"><h3 class="anchored" data-anchor-id="compare-your-functions-to-others">Compare Your Functions to Others</h3>
+<p>Although we could place all the code needed to read in data inside our function and name the function <code>read_csv_in_df()</code>, this is not a good idea. It is inconsistent with the popular function <code>read_csv()</code>, which has more than two arguments, the first of which is a file path. This could confuse future readers (including future you).</p>
+<p>With only two arguments, our function has the form <code>function(n_phrases, names_phrases){code}</code>. The code it will execute is in curly brackets <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>. For <code>function(x, y) x + y</code>, we did not need the <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code> curly brackets. For our new function, they will be needed as the code will have multiple lines.</p>
+<p>We could place all the code needed to read in data inside and name the function <code>read_csv_in_df()</code>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">read_csv_in_df</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n_phrases</span>, <span class="va">names_phrases</span><span class="op">)</span><span class="op">{</span></span>
 <span></span>
@@ -258,8 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -507,7 +584,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">R Beginner’s Guide was written by Adam Sadowski.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/asadow/rbg/edit/main/04-stay-organized.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/asadow/rbg/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

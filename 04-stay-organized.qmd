@@ -1,6 +1,61 @@
 # Review (to Stay Organized)
 
-Let's say we need to read data in again, and we have named your files as per @sec-name-files. To summarize, the file names have phrases with words separated by -, and multiple phrases are separated by \_.
+Staying organized means keeping project complexity in check as it expands. Each of these checks below help to avoid unnecessary and common frustrations. They address how to optimize the organization of your files, the speed and focus of your reports, the reliability of data access, and code readability.
+
+## Optimal File-Folder Structure (Explicit)
+We discussed how to optimally name data files in @sec-name_files. We discussed how to write a Quarto report (a `.qmd` file) in @sec-record. Should these sit in the same folder? For a small project, that can be adequate. However, it's best to organize different kinds of files into different folders. This will help prevent confusion if and when our projects become large. It can also dramatically speed up the rendering of our reports, which is covered in the next section.
+
+Generally, project files should be organized into the below folders:
+
+- `data-raw` (raw data files)
+- `data` (`.R` files that process raw data and create clean subsets)
+- `R_analysis` (`.R` files that create analytic results)
+
+If reporting, you should also have the following:
+
+- `output` (outputs that will be shared or used in reports; the latter can be the final objects in R_analysis saved as `.rds`)
+- `qmd` (`.qmd` files which are Quarto reports)
+- `Rmd` (`.Rmd` files which are RMarkdown reports)
+
+Optionally:
+
+- `prose` (references like Word documents, text files, etc.)
+
+## Optimal Reports (Fast Renderability)
+### Motivation
+In @sec-record we processed raw data in a Quarto document, which would go inside the `qmd` folder. Above we are saying that raw data should be processed in `.R` files inside of the `data` folder. Why the change?
+
+To be fair, many analysts start their R journey using Quarto (or RMarkdown), including me. For Python users likewise, they often start with Jupyter. The ability to combine prose (written text), code, and outputs is beginner-friendly. It's not, however, always computer-friendly. If code that processes data takes a moderate time to run, the report render will take at least the same amount of time. If, instead, the code takes a short amount of time to run, because it does not process data beyond simply importing it, then the report render will be much, much faster.
+
+### Method
+If we want fast reports, we want to simply import data and plots. We take out the data processing parts of our `.qmd` file and place them into an `.R` file (or multiple `.R` files) inside a new `analysis` folder. We name these `.R` files with the same philosophy as in @sec-name_files: phrases separated by `_`, words in phrases separated by `-`. With several `.R` files, we add 0-padded numbers to the front of the file name. Here is an example:
+
+- `01_merge-data.R`
+- `02_filter-data.R`
+- `03_plot-data.R`
+- `04_stat-analysis.R`
+
+Any objects that we need for our report are saved using `readr::write_rds()`. The first two arguments are the object to write, and the file path (where to write it). The object can, for example, be a data file we want to display as a table in our report. The file path is going to refer to the new `output` folder. The best way to refer to files in this folder is to use the `here` package. `here::here()` is the function, and its name comes from the idea: "Here, I'm in this project, so let's start at the file path to our project folder, i.e. the root folder." Knowing this, `here::here()` simply takes strings that point to the location of any of our project's files. For example, `here::here("output", "data_for_table.rds")` will create a file path to the `output` folder ending with `data_for_table.rds`.   
+
+For example, we have a data file we want to display as a table, it will be saved somewhere in the above files with a line like `write_rds(data_for_table, here("output", "data_for_table.rds"))`.
+
+Then, in our `.qmd` file, we can simply add `data_for_table <- read_rds(here("output", "data_for_table.rds"))`. Either load the `readr` library or prepend `read_rds()` with `readr::`.
+
+Finally, place the `.qmd` file into the `qmd` folder. Now we not only have a faster report, but our project is more organized.
+
+## Optimal Data Access (Reliable)
+It's a great idea to review how your getting raw data. If they are emailed .csv or .xlsx files, and especially if they have been manually edited or downloaded, there might be a better way to access data from the source. Accessing raw data from the source is more reliable and automatic. There's less chance of a middle person between you and the data making a mistake and you having to re-run scripts with the corrections if the mistake even gets discovered! Also, you can get data without the limitations that come from waiting for a person to manage and deliver it.
+
+Reviewing your strategy and improving it to allow for direct access may take more up-front work, but it usually will reduce future work. Another benefit is that learning to directly access data will up-skill you and further your career. You can learn software (data) engineering concepts like databases, API's (Application Programming Interfaces), and more. These topics are beyond the scope of this book, but this section is here to encourage you to ask questions and learn more. A good book or large-language model can help introduce you to these topics. Once you become familiar with the lingo, you can start to incorporate database concepts with the following packages:
+
+- `dbplyr` for lazy loading and computation (i.e. using the database server instead of your computer to hold data in memory and perform work)
+- `DBI` for reading and writing to databases 
+- `dm` for data models (tables in your database and their relationships to each other)
+- `httr2` for data to and from API's
+
+## Optimal Code (Maintanable)
+### Making Your Own Functions
+Let's say we need to read data in again, and we have named your files as per @sec-name_files. To summarize, the file names have phrases with words separated by `-`, and multiple phrases are separated by `_`.
 
 Instead of copy-pasting the same code we used the previous time, we can avoid this repetition with a function. We can create this function by assigning `function()` to an object, and entering the inputs inside the `()` like so:
 
@@ -9,13 +64,13 @@ sum <- function(x, y) x + y
 sum(2, 2)
 ```
 
-The inputs of a function should be the parts of the function that change over repeated use. Since we want to repeat the code to read in data, but without being repetitive, our function will only contain inputs that are not repetitive. What part of reading our data is not repetitive now that we want to repeat the task for a set of different files.
+The inputs of a function should be the parts of the function that change over repeated use. Since we want to repeat the code to read in data, but without being repetitive, our function will only contain inputs that are not repetitive. What part of reading our data is not repetitive now that we want to repeat the task for a set of different files?
 
 For one, we can imagine that a new set of files might have a different number of phrases in the file names. So one input of our function can be `n_phrases`. Two, we can imagine that the phrases represent something different. Since we named them previously, let us call a second input of our function `names_phrases`.
 
-Lastly, we need to name our function. The function name should reflect the main behaviour. If it is hard to identify the main behaviour, then it is probably best to split the function into multiple functions. Naming the functions appropriately is important for readability.
+Lastly, we need to name our function. The function name should reflect the main behavior. If it is hard to identify the main behavior, then it is probably best to split the function into multiple functions. Naming the functions appropriately is important for readability.
 
-Let us start by listing the behaviours of our function or functions:
+Let us start by listing the behaviors of our function or functions:
 
 -   Choose a file
 -   Find the folder (directory) of this file
@@ -24,15 +79,14 @@ Let us start by listing the behaviours of our function or functions:
 -   Name the columns and turn the matrix into a tibble
 -   For each row representing a file, read its respective data into the tibble
 
-That is a lot for one name to represent. Hence it is more prudent to separate these behaviours into multiple functions.
+That is a lot for one name to represent. Hence it is more prudent to separate these behaviors into multiple functions.
 
-CONTINUE HERE
+### Compare Your Functions to Others
+Although we could place all the code needed to read in data inside our function and name the function `read_csv_in_df()`, this is not a good idea. It is inconsistent with the popular function `read_csv()`, which has more than two arguments, the first of which is a file path. This could confuse future readers (including future you).
 
-Although we could place all the code needed to read in data inside our function and name the function `read_csv_in_df()`, this is not a good idea. First, it is inconsistent with the popular function `read_csv()`, which has more than two arguments, the first of which is a file path.
+With only two arguments, our function has the form `function(n_phrases, names_phrases){code}`. The code it will execute is in curly brackets `{}`. For `function(x, y) x + y`, we did not need the `{}` curly brackets. For our new function, they will be needed as the code will have multiple lines.
 
-With only two arguments, our function has the form `function(n_phrases, names_phrases){code}`. The code it will execute is in curly brackets `{}`. Although curly brackets were not needed in `function(x, y) x + y`, it will be needed here as the code will have multiple lines.
-
-Although we could place all the code needed to read in data inside and name the function `read_csv_in_df()`, then we would be acting without much care.
+We could place all the code needed to read in data inside and name the function `read_csv_in_df()`:
 
 ```{r}
 read_csv_in_df <- function(n_phrases, names_phrases){

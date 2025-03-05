@@ -1,4 +1,4 @@
-# Learn (As You Go) {#sec-learn-as-you-go}
+# Learn (As You Go) {#sec-learn_as_you_go}
 
 ```{r}
 #| echo: false

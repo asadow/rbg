@@ -1,4 +1,4 @@
-# Record (Each Step)
+# Record (Each Step) {#sec-record}
 
 Data work will involve the preparation of data and data reports. In fact, you may want to report on the preparation of data. Since the code that prepares a report can also prepare the data, you could work in a way that both gets the job done and reports on getting it done. That's a win-win!
 
