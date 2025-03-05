@@ -1,3 +1,11 @@
+```{r}
+#| echo: false
+library(tidyverse)
+library(here)
+library(cli)
+```
+
+
 # Review (to Stay Organized)
 
 Staying organized means keeping project complexity in check as it expands. Each of these checks below help to avoid unnecessary and common frustrations. They address how to optimize the organization of your files, the speed and focus of your reports, the reliability of data access, and code readability.
@@ -54,66 +62,230 @@ Reviewing your strategy and improving it to allow for direct access may take mor
 - `httr2` for data to and from API's
 
 ## Optimal Code (Maintanable)
-### Making Your Own Functions
-Let's say we need to read data in again, and we have named your files as per @sec-name_files. To summarize, the file names have phrases with words separated by `-`, and multiple phrases are separated by `_`.
+If you find yourself copy and pasting code, then it is time to use a function. In R, writing functions is simpler than in other languages. Functions do not require type-checking since R is not a type-checked language. We will go over types at the very end of the section.
 
-Instead of copy-pasting the same code we used the previous time, we can avoid this repetition with a function. We can create this function by assigning `function()` to an object, and entering the inputs inside the `()` like so:
+### Making Your Own Functions
+If, for example, you need to read another set of data with a similar naming structure to @sec-name_files, then a function will communicate your code more clearly. To recap, the code below imported and cleaned our multiple data files into a signle data frame:
+
+```{r}
+#| eval: false
+file_names <- directory_path |> list.files(pattern = "csv")
+file_paths <- directory_path |> dir_ls()
+
+split_matrix <- file_names |> str_split_fixed("[._]", n_phrases)
+colnames(split_matrix) <- names_phrases
+
+df <- split_matrix |>
+  as_tibble() |>
+  mutate(data = map(file_paths, read_csv))
+```
+
+For starters, a function is created by assigning `function()` to an object, and entering the inputs inside the `()`. The inputs of a function should be the parts of the function that change over repeated use. 
 
 ```{r}
 sum <- function(x, y) x + y
 sum(2, 2)
 ```
 
-The inputs of a function should be the parts of the function that change over repeated use. Since we want to repeat the code to read in data, but without being repetitive, our function will only contain inputs that are not repetitive. What part of reading our data is not repetitive now that we want to repeat the task for a set of different files?
+What part of our code is not repetitive now that we want to repeat the task for a set of different files?
 
-For one, we can imagine that a new set of files might have a different number of phrases in the file names. So one input of our function can be `n_phrases`. Two, we can imagine that the phrases represent something different. Since we named them previously, let us call a second input of our function `names_phrases`.
+For one, we can imagine that we are pointing to a different folder (`directory_path`). So the first input can be `file_path` (a folder itself is a file). A new set of files might have a different number of phrases in the file names (`n_phrases`). So another input of our function can be `n_phrases`. We can also imagine that the phrases represent something different (`names_phrases`). Let us call another input of our function `labels`.
 
-Lastly, we need to name our function. The function name should reflect the main behavior. If it is hard to identify the main behavior, then it is probably best to split the function into multiple functions. Naming the functions appropriately is important for readability.
+Lastly, we need to name our function. The function name should reflect its main behavior, and as a verb (since functions *do* something). If it is hard to identify a main behavior, then it is probably best to split the function into multiple functions. Naming functions appropriately is important for readability.
 
 Let us start by listing the behaviors of our function or functions:
 
--   Choose a file
--   Find the folder (directory) of this file
--   Find the names of the csv files in this folder
--   Get a matrix from splitting the phrases in each name
--   Name the columns and turn the matrix into a tibble
--   For each row representing a file, read its respective data into the tibble
+1.   Take a file path to a folder and get the names of its csv files
+2.   Get a matrix from splitting the phrases in each name
+3.   Name the columns and turn the matrix into a tibble
+4.   Where each row now represents a file, read its respective data into the tibble
+5.   The result is a nested data frame of imported data
 
 That is a lot for one name to represent. Hence it is more prudent to separate these behaviors into multiple functions.
 
-### Compare Your Functions to Others
-Although we could place all the code needed to read in data inside our function and name the function `read_csv_in_df()`, this is not a good idea. It is inconsistent with the popular function `read_csv()`, which has more than two arguments, the first of which is a file path. This could confuse future readers (including future you).
-
-With only two arguments, our function has the form `function(n_phrases, names_phrases){code}`. The code it will execute is in curly brackets `{}`. For `function(x, y) x + y`, we did not need the `{}` curly brackets. For our new function, they will be needed as the code will have multiple lines.
-
-We could place all the code needed to read in data inside and name the function `read_csv_in_df()`:
+Let us start with the behaviors dealing with file names. The first 3 behaviors do so. A good name for the combination of these behaviors is `describe_files_as_df()`.
 
 ```{r}
-read_csv_in_df <- function(n_phrases, names_phrases){
-
-  one_file_path <- file.choose()
-  directory_path <- one_file_path |> path_dir()
-  file_names <- directory_path |> list.files(pattern = "csv")
-  file_paths <- directory_path |> dir_ls()
-
+describe_files_as_df <- function(file_path, n_phrases, labels) {
+  file_names <- file_path |> list.files(pattern = "csv")
   split_matrix <- file_names |> str_split_fixed("[._]", n_phrases)
-  colnames(split_matrix) <- names_phrases
-
-  df <- split_matrix |>
-    as_tibble() |>
-    mutate(data = map(file_paths, read_csv))
-
-  df
-
+  colnames(split_matrix) <- labels
 }
 ```
 
-```{r}
-# read_csv_in_df
-```
+The last two behaviors concern reading in nested data. Hence `read_csv_file_paths()`
 
 ```{r}
-
-# read_csv_in_df(4, c("source", "country", "date" ,"file_type"))
-
+read_csv_file_paths <- function(df) {
+  df |>
+    as_tibble() |>
+    mutate(data = map(file_paths, read_csv))
+}
 ```
+
+Now our processing code can look like so:
+
+```{r}
+#| eval: false
+gapminder_nested <- here("data-raw", "gapminder") |> 
+  describe_files_as_df(n_phrases = 4, labels = c("source", "country", "date", "file_type")) |> 
+  read_csv_file_paths()
+
+other_data_nested <- here("data-raw", "other_data") |> 
+  describe_files_as_df(n_phrases = 2, labels = c("source", "country")) |> 
+  read_csv_file_paths()
+```
+
+Code like this is clear and concise. Each line acts as a single action (even if it is composed of multiple, smaller actions) and communicates that action to the reader.
+
+### Comparing Your Functions (and Other Objects) to Others
+<!-- Although we could place all the code needed to read in data inside our function and name the function `read_csv_in_df()`, this is not a good idea. It is inconsistent with the popular function `read_csv()`, which has more than two arguments, the first of which is a file path. This could confuse future readers (including future you). -->
+
+<!-- With only two arguments, our function has the form `function(n_phrases, labels){code}`. The code it will execute is in curly brackets `{}`. For `function(x, y) x + y`, we did not need the `{}` curly brackets. For our new function, they will be needed as the code will have multiple lines. -->
+
+<!-- We could place all the code needed to read in data inside and name the function `read_csv_in_df()`: -->
+
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- read_csv_in_df <- function(n_phrases, labels){ -->
+
+<!--   one_file_path <- file.choose() -->
+<!--   directory_path <- one_file_path |> path_dir() -->
+<!--   file_names <- directory_path |> list.files(pattern = "csv") -->
+<!--   file_paths <- directory_path |> dir_ls() -->
+
+<!--   split_matrix <- file_names |> str_split_fixed("[._]", n_phrases) -->
+<!--   colnames(split_matrix) <- labels -->
+
+<!--   df <- split_matrix |> -->
+<!--     as_tibble() |> -->
+<!--     mutate(data = map(file_paths, read_csv)) -->
+
+<!--   df -->
+
+<!-- } -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- # read_csv_in_df -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- # read_csv_in_df(4, c("source", "country", "date" ,"file_type")) -->
+<!-- ``` -->
+
+### Adding Function Checks
+
+Did you notice that `n_phrases` and the length of `labels` are the same (and should be)? What if they aren't? We will get an error. Even the error is clear in this situation, when functions become more complicated, the chance of an incomprehensible error increases. Hence it is best to be explicit about the requirements of any functions we create. We can improve `describe_files_as_df()` by checking for the above. If the check fails, we alert the user of the exact problem. For the alert, we use the `cli` package.
+
+```{r}
+describe_files_as_df <- function(file_path, n_phrases, labels) {
+  if (n_phrases != length(labels)) {
+    cli_abort(
+      "n_phrases must be the same length as labels.", 
+    )
+  }
+  
+  file_names <- file_path |> list.files(pattern = "csv")
+  split_matrix <- file_names |> str_split_fixed("[._]", n_phrases)
+  colnames(split_matrix) <- labels
+}
+```
+
+The error will then look this:
+
+```{r}
+#| error: true
+if (TRUE) {
+    cli_abort(
+      "n_phrases must be the same length as labels.", 
+    )
+  }
+```
+
+We can improve it further with `cli` tricks:
+
+```{r}
+#| error: true
+
+describe_files_as_df <- function(file_path, n_phrases, labels) {
+  if (n_phrases != length(labels)) {
+    cli_abort(
+      c(
+        "{.var n_phrases} must be the same length as {.var labels}.", 
+        "x" = "You've supplied {.var n_phrases} as {n_phrases} but {.var labels} has length {length(labels)}."
+      )
+    )
+  }
+  
+  file_names <- file_path |> list.files(pattern = "csv")
+  split_matrix <- file_names |> str_split_fixed("[._]", n_phrases)
+  colnames(split_matrix) <- labels
+}
+
+describe_files_as_df(here(), "5", c("test"))
+```
+
+Furthermore, we know n_phrases should be a number and labels should be a vector of strings. R is relaxed about numbers being portrayed as, for example, `"5"` or `5`. On the other hand, we can check for the labels type using `cli` again.
+
+```{r}
+#| error: true
+describe_files_as_df <- function(file_path, n_phrases, labels) {
+  if (class(labels) != "character") {
+    cli_abort(
+      c(
+        "{.var labels} must be a character vector.",
+        "x" = "You've supplied a {.cls {class(labels)}} vector."
+      )
+    )
+  }
+  
+  if (n_phrases != length(labels)) {
+    cli_abort(
+      c(
+        "{.var n_phrases} must be the same length as {.var labels}.", 
+        "x" = "You've supplied {.var n_phrases} as {n_phrases} but {.var labels} has length {length(labels)}."
+      )
+    )
+  }
+  
+  file_names <- file_path |> list.files(pattern = "csv")
+  split_matrix <- file_names |> str_split_fixed("[._]", n_phrases)
+  colnames(split_matrix) <- labels
+}
+
+describe_files_as_df(here(), 5, 0)
+```
+
+We can apply the same concepts to `read_csv_file_paths()`.
+
+```{r}
+#| error: true
+
+read_csv_file_paths <- function(df) {
+  if (class(df) != "data.frame") {
+    cli_abort(
+      c(
+        "{.var df} must be a data frame.",
+        "x" = "You've supplied something of class {.cls {class(df)}}."
+      )
+    )
+  }
+  
+  if (!"file_paths" %in% names(df)) {
+    cli_abort(
+      c(
+        "{.var df} must contain a column named {.var file_paths}.",
+        "x" = "You've supplied a data frame with columns {.var {colnames(df)}}."
+      )
+    )
+  }
+  
+  df |>
+    as_tibble() |>
+    mutate(data = map(file_paths, read_csv))
+}
+
+read_csv_file_paths(iris)
+```
+
