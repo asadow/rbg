@@ -11,9 +11,8 @@ I taught my spouse how to program in R (she had no previous knowledge despite co
 
 Simply put, this book is a hands-on guide for your very first R projects.
 
-```{r echo=FALSE}
-library(DiagrammeR)
-
+```{r}
+#| echo: false
 grViz("
   digraph {
     // Global node style

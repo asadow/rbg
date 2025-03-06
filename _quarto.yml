@@ -3,7 +3,8 @@ project:
   
 number-depth: 2
 prefer-html: true
-
+execute:
+  freeze: auto
 book:
   title: "R Beginner's Guide (Best Practices)"
   page-navigation: true
@@ -29,6 +30,7 @@ book:
     
   appendices:
     - 05-text-data.qmd
+
 format:
   html:
     theme: 

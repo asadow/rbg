@@ -57,24 +57,18 @@ To process the file names in a way that splits these characteristics, we can use
 
 To use a function from a package, we first install the package by running
 
-```{r install-stringr, eval = FALSE}
+```{r}
+#| eval: false
 install.packages("stringr")
 ```
 
 Delete this line once you are done, as you will have no need to rerun (re-process) it.
 
-We use a colon (the symbol `:`) twice to use a function from a package. If you write
+We use a colon (the symbol `:`) twice to use a function from a package. If you write `stringr::` you will see a drop-down menu of all the functions from `stringr`. `str` stands for string. Many function names start with `str_`. The drop-down menu from writing `stringr::` adjusts when you add `str_`. For every function whose name starts with `str_`, the general purpose is the processing of strings. Similar to our file names above, the general part of the name comes first, then the `_`, and then the more specific purpose.
 
-```{r show-stringr::, eval = FALSE}
-stringr::
+There are a few exceptions; some functions in `stringr` do not start with `str_`. But most start with `str_` because `str_` makes it clear what the function will process. This is important as we can avoid the need to write out `stringr::`. We avoid this by loading the package: making the function names in the package available. To load the package, run the following
 
-```
-
-you will see a drop-down menu of all the functions from stringr. `str` stands for string. Many function names start with `str_`. The drop-down menu from writing `stringr::` adjusts when you add `str_`. For every function whose name starts with `str_`, the general purpose is the processing of strings. Similar to our file names above, the general part of the name comes first, then the `_`, and then the more specific purpose.
-
-There are a few exceptions; some functions in stringr do not start with `str_`. But most start with `str_` because `str_` makes it clear what the function will process. This is important as we can avoid the need to write out `stringr::`. We avoid this by loading the package: making the function names in the package available. To load the package, run the following
-
-```{r show-library}
+```{r}
 library(stringr)
 ```
 
@@ -93,31 +87,33 @@ When referring to a function, `()` makes it crystal clear that the object has ar
 
 `file.choose()` causes a pop-up that allows you to interactively search your computer files. If you are using Windows, this pop-up may unfortunately pop-up behind RStudio. You will need to Alt-Tab to find the pop-up. Once you see the pop-up, find the folder with your files and double click on (any) one of the files. The function will print the file path (the computer's representation of where the file exists). Below we assign the file path to the object `file_path`.
 
-```{r file-paths, eval = FALSE}
+```{r}
+#| eval: false
 file_path <- file.choose()
 ```
 
-```{r here, echo = FALSE}
+```{r}
+#| echo: false
 file_path <- here::here("data", "raw")
 ```
 
 We will now use a function `path_dir()` from the package fs. `path_dir()` will get the path of the directory from the file path. We will assign the result to the object `directory_path`.
 
-```{r dir-path}
+```{r}
 library(fs)
 directory_path <- path_dir(file_path)
 ```
 
 To get a list of .csv files in this directory, we will use a `list.files()` function. This function has what are called two arguments. The first is the path to the folder that contains our files. The second is the pattern that is unique to the files we want.
 
-```{r files}
+```{r}
 files <- list.files(directory_path, pattern = "csv")
 files
 ```
 
 Now we use `str_split()` which will split our strings. For example,
 
-```{r split-files}
+```{r}
 str_split(files, "_")
 ```
 
@@ -125,45 +121,44 @@ This result is what is called a list. A list can contain anything. The \[\[1\]\]
 
 To also separate the file type (.qmd) at the end, preceded by the period, we can adjust our function to separate by `_` as well as `.`.
 
-```{r split-files-wrong}
+```{r}
 str_split(files, "_.")
-
 ```
 
 What happened? This is not what we want, and it is because `.` is a special (i.e. meta) character. Special characters mean more to R than the literal symbol itself. The special character `.` represents any character. Hence we told `str_split()` to use `_.` as a separator which meant that `_A` was used as the first separator, and `_2` as the second separator. We need to use different special characters to overcome this challenge: `[` and `]`. These square brackets can be used to surround the distinct characters that `str_split` will use as separators: `[_.]` will tell `str_split()` to use either a `_` or a literal `.` as the separator.
 
-```{r split-files-right}
+```{r}
 str_split(files, "[_.]")
 ```
 
 We can have a cleaner result using `str_split_fixed()`. It is called "fixed" as we can fix the number of splits or pieces. We will split our strings into 4 pieces.
 
-```{r split-files-fixed}
+```{r}
 str_split_fixed(files, "[_.]", 4)
 ```
 
 This result is what is called a matrix. Let's assign it to the object m.
 
-```{r as-matrix}
+```{r}
 m <- str_split_fixed(files, "[_.]", 4)
 ```
 
 Now we can see the matrix just by processing
 
-```{r print-matrix}
+```{r}
 m
 ```
 
 Let's add informative names to the columns of the matrix. To do this, we use a function called `colnames()`. This function will be placed on the left of `<-` as it is a replacement function. We replace the null (i.e. undefined) column names of our matrix with our list of characteristics.
 
-```{r assign-names}
+```{r}
 colnames(m) <- c("source", "country", "date", "file_type")
 m
 ```
 
 Let's create an object named df with a function called `as_tibble()` from the package `tibble`. What is a tibble? It is an R word for table. Remember to install tibble before running
 
-```{r tibble}
+```{r}
 library(tibble)
 df <- as_tibble(m)
 df
@@ -209,28 +204,28 @@ The result of `map()` will always be containers. The number of containers will a
 
 The read function below, `read_csv_c()`, uses a function called `read_csv()` from the package `readr`. `read_csv()` reads .csv files and determines what kind of columns are in the data (e.g. numeric or character). We will decide the kind of columns ourselves, so we need to prevent the function from doing so. `col_types` is the argument inside of `read_csv()` with a `.default`. We need to set the `.default` to be `"c"`. `"c"` stands for character. Character is a safe default as it is the original format of the .csv data.
 
-```{r read-custom}
+```{r}
 library(readr)
-
 read_csv_c <- function(csv_file_path) read_csv(csv_file_path, col_types = c(.default = "c"))
 ```
 
 Now we use our new function to read in our data.
 
-```{r read, message = FALSE}
+```{r}
+#| message: false
 df <- mutate(df, data = map(file_path, read_csv_c))
 df
 ```
 
 We no longer need the `file_path` column so we will select it to be removed by using the `select()` function.
 
-```{r select-remove}
+```{r}
 df <- select(df, - file_path)
 ```
 
 We can open our containers or "nests" in `data` using the function `unnest()` from the package `tidyr`.
 
-```{r unnest-data}
+```{r}
 library(tidyr)
 df <- unnest(df, data)
 df
@@ -263,9 +258,9 @@ df <- mutate(df, country = str_to_title(country))
 df
 ```
 
-It would be quite the task for this book to cover every method of checking and cleaning data. We covered the best-case scenario: the country column above was systematically unclean. Next, we show the worst-case scenario: manually entered text data. Later we show how to discover data validating and cleaning methods in @sec-learn-as-you-go. 
+It would be quite the task for this book to cover every method of checking and cleaning data. We covered the best-case scenario: the country column above was systematically unclean. Next, we show the worst-case scenario: manually entered text data. Later we show how to discover data validating and cleaning methods in @sec-learn_as_you_go. 
 
-The next section is only for demonstrative purposes. Please see @sec-text-data to prepare for actual text data methods.
+The next section is only for demonstrative purposes. Please see @sec-text_data to prepare for actual text data methods.
 
 ## Check With Your Team
 
@@ -314,6 +309,7 @@ If we decide, after cleaning, that we don't need parts of the data, should we re
 df_filtered <- filter(df, continent == "Asia")
 df_filtered
 ```
+
 ### `distinct()`
 
 We can keep only unique (i.e. distinct) values under the a column using `distinct()`. It produces a tibble with only the distinct rows for the column(s) you choose. The argument `.keep_all`, if set to `TRUE`, keeps all columns. This can be seen in the help page: `?distinct`. 
@@ -414,6 +410,7 @@ you can write
 df |> count(country)
 ```
 
-```{r export, echo = FALSE}
+```{r}
+#| echo: false
 write_rds(df, here::here("df.rds"))
 ```

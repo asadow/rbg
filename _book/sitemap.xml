@@ -1,39 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://r4ds.hadley.nz/02-start-organized.html</loc>
-    <lastmod>2025-01-12T19:05:35.962Z</lastmod>
-  </url>
-  <url>
-    <loc>https://.hadley.nz/02-start-organized.html</loc>
-    <lastmod>2025-01-12T19:05:38.275Z</lastmod>
-  </url>
-  <url>
-    <loc>https://adams.quarto.pub/rbg/02-start-organized.html</loc>
-    <lastmod>2025-03-05T13:58:36.062Z</lastmod>
-  </url>
-  <url>
-    <loc>https://adams.quarto.pub/rbg/04-stay-organized.html</loc>
-    <lastmod>2025-03-06T14:23:02.521Z</lastmod>
+    <loc>https://adams.quarto.pub/rbg/index.html</loc>
+    <lastmod>2025-03-06T19:59:01.469Z</lastmod>
   </url>
   <url>
     <loc>https://adams.quarto.pub/rbg/01-record-each-step.html</loc>
-    <lastmod>2025-03-05T15:14:45.077Z</lastmod>
+    <lastmod>2025-03-06T19:59:01.469Z</lastmod>
   </url>
   <url>
-    <loc>https://adams.quarto.pub/rbg/index.html</loc>
-    <lastmod>2025-03-05T13:58:36.046Z</lastmod>
-  </url>
-  <url>
-    <loc>https://adams.quarto.pub/rbg/whats-possible.html</loc>
-    <lastmod>2025-03-05T13:58:36.062Z</lastmod>
+    <loc>https://adams.quarto.pub/rbg/02-start-organized.html</loc>
+    <lastmod>2025-03-06T19:59:01.488Z</lastmod>
   </url>
   <url>
     <loc>https://adams.quarto.pub/rbg/03-learn-as-you-go.html</loc>
-    <lastmod>2025-03-05T18:34:59.269Z</lastmod>
+    <lastmod>2025-03-06T19:59:01.503Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adams.quarto.pub/rbg/04-stay-organized.html</loc>
+    <lastmod>2025-03-06T19:59:01.514Z</lastmod>
   </url>
   <url>
     <loc>https://adams.quarto.pub/rbg/05-text-data.html</loc>
-    <lastmod>2025-03-06T14:22:57.103Z</lastmod>
+    <lastmod>2025-03-06T19:59:01.522Z</lastmod>
   </url>
 </urlset>

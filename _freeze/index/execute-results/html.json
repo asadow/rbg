@@ -1,0 +1,18 @@
+{
+  "hash": "52b29e291a0afd42049beb847eab86a5",
+  "result": {
+    "markdown": "\n\n\n# Preface {.unnumbered}\n\nI taught my spouse how to program in R (she had no previous knowledge despite completing a degree in Statistics). She, like many of us, was often frustrated while learning. I emphasized the kindness and generosity of the R community who write free books and provide support on forums. But as I started recommending books alongside our personal lessons, I noticed there wasn't a book meant for a specific audience: a complete beginner who wishes to learn by doing and in a way that avoids future frustration.\n\nSimply put, this book is a hands-on guide for your very first R projects.\n\n\n::: {.cell}\n::: {.cell-output-display}\n```{=html}\n<div class=\"grViz html-widget html-fill-item\" id=\"htmlwidget-615f093bec611f3ca26e\" style=\"width:100%;height:464px;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-615f093bec611f3ca26e\">{\"x\":{\"diagram\":\"\\n  digraph {\\n    // Global node style\\n    node [style = filled, shape = box] \\n\\n    // Define colors for specific nodes\\n    \\\"Unorganized approach\\\" [fillcolor = lightblue]\\n    \\\"Messy files & code\\\" [fillcolor = yellow]\\n    \\\"Invalid code\\\" [fillcolor = orange]\\n    \\\"Invalid output\\\" [fillcolor = yellow]\\n    Frustration [fillcolor = red]\\n\\n    // Define edges\\n    \\\"Unorganized approach\\\" -> \\\"Messy files & code\\\"\\n    \\\"Messy files & code\\\" -> \\\"Invalid code\\\"\\n    \\\"Invalid code\\\" -> \\\"Invalid output\\\" -> Frustration -> \\\"Invalid code\\\"\\n  }\\n\",\"config\":{\"engine\":\"dot\",\"options\":null}},\"evals\":[],\"jsHooks\":[]}</script>\n```\n:::\n:::\n\n\n## For the Love of R\n\nWithout a code- and project-oriented data science course, many beginner analysts know only mathematical or methodological knowledge and how to start a program. They are bound to write invalid code. The resulting invalid output is especially demotivating for analysts, as their task is to analyse the data. They may have been exposed to R in a Statistics courses, but these courses typically focus on methods and potentially mathematics; not work-flow, project-management, and coding. Furthermore, Statistics has a reputation for being hard, especially on those who are learning the subject only because it is required in a non-mathematical program.\n\nAs a result, R has two completely different reputations. Among students in Statistics courses, it is often despised. Among those who use the tool for work, it is usually *loved*. The difference may be caused by students paying to learn R, and employees being paid. But employees also realize, once they use R day-to-day, that there is an amazing community of others who help each other. This book is also meant to play a small part in that community.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"site_libs/htmltools-fill-0.5.8.1/fill.css\" rel=\"stylesheet\" />\r\n<script src=\"site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\r\n<script src=\"site_libs/viz-1.8.2/viz.js\"></script>\r\n<link href=\"site_libs/DiagrammeR-styles-0.2/styles.css\" rel=\"stylesheet\" />\r\n<script src=\"site_libs/grViz-binding-1.0.11/grViz.js\"></script>\r\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
