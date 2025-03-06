@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
+<meta name="author" content="Adam Sadowski">
 <title>R Beginner’s Guide (Best Practices) - Appendix A — Prepare for Text Data</title>
 <style>
 code{white-space: pre-wrap;}
@@ -56,7 +54,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -74,8 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -95,16 +91,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -115,15 +106,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R Beginner’s Guide (Best Practices)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/asadow/rbg/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -133,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -171,8 +166,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-text-data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
@@ -185,29 +180,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#patterns-and-regular-expressions-regexes" id="toc-patterns-and-regular-expressions-regexes" class="nav-link active" data-scroll-target="#patterns-and-regular-expressions-regexes"><span class="header-section-number">A.1</span> Patterns and Regular Expressions (regexes)</a></li>
+<li><a href="#patterns-and-regular-expressions-regexes" id="toc-patterns-and-regular-expressions-regexes" class="nav-link active" data-scroll-target="#patterns-and-regular-expressions-regexes"><span class="header-section-number">A.1</span> Patterns and Regular Expressions (regexes)</a></li>
   <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">A.2</span> Motivation</a></li>
   <li><a href="#understanding-representations" id="toc-understanding-representations" class="nav-link" data-scroll-target="#understanding-representations"><span class="header-section-number">A.3</span> Understanding Representations</a></li>
-  </ul>
-</nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/asadow/rbg/edit/main/05-text-data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/asadow/rbg/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span id="sec-text-data" class="quarto-section-identifier">Appendix A — Prepare for Text Data</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-text_data" class="quarto-section-identifier">Appendix A — Prepare for Text Data</span></h1>
 </div>
 
 
@@ -220,16 +209,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header>
-
-<section id="patterns-and-regular-expressions-regexes" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="patterns-and-regular-expressions-regexes"><span class="header-section-number">A.1</span> Patterns and Regular Expressions (regexes)</h2>
+</header><section id="patterns-and-regular-expressions-regexes" class="level2" data-number="A.1"><h2 data-number="A.1" class="anchored" data-anchor-id="patterns-and-regular-expressions-regexes">
+<span class="header-section-number">A.1</span> Patterns and Regular Expressions (regexes)</h2>
 <p>Short for regular expressions, regex (pronounced reg-ex) is a language for describing patterns in strings.</p>
 <p>Like any language, regex will appear foreign and difficult to understand without constantly looking up definitions for symbols. A good dictionary is the regex cheat sheet; search for “Regular Expressions” in <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a>. The important definitions are in the left and bottom boxes.</p>
 <p>Why learn this language? When do you need a language for describing patterns in strings?</p>
-</section>
-<section id="motivation" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="motivation"><span class="header-section-number">A.2</span> Motivation</h2>
+</section><section id="motivation" class="level2" data-number="A.2"><h2 data-number="A.2" class="anchored" data-anchor-id="motivation">
+<span class="header-section-number">A.2</span> Motivation</h2>
 <p>The first definition under heading “Character Classes” in the <a href="https://rstudio.github.io/cheatsheets/regex.pdf">regex cheatsheet</a> is</p>
 <pre><code>[[:digit:]] or \\d  Digits; [0-9]</code></pre>
 <p>This tells us that to represent digits in patterns, we can write <code>"[[:digit:]]"</code> or <code>"\\d"</code>.</p>
@@ -242,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Before using this pattern, let us try to understand each symbol. The <code>\\</code> are needed to make sure that the pattern is not for the character “d” itself. Similarly, the <code>{</code> and <code>}</code> are needed to make sure that the pattern is not for the number “8” itself.</p>
 <p>If we try to use our pattern to filter for dates with 8 digits, we get the following</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">filter</span>(date <span class="sc">|&gt;</span> <span class="fu">str_detect</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">d{8}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">date</span> <span class="op">|&gt;</span> <span class="fu">str_detect</span><span class="op">(</span><span class="st">"\\d{8}"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 9
 # ℹ 9 variables: source &lt;chr&gt;, country &lt;chr&gt;, date &lt;chr&gt;, file_type &lt;chr&gt;,
@@ -252,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>0 rows in our date column have digits exactly 8 times. How can that be?</p>
 <p>Looking back at our date column, what do we see?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 9
    source    country     date  file_type continent  year lifeExp pop   gdpPercap
@@ -273,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>date</code> has 4 digits, followed by a <em>hyphen</em>, followed by 2 digits, followed by a <em>hyphen</em>, followed by 2 digits. Our pattern simply represents 8 digits, one after the other with nothing in between.</p>
 <p>If we alter our pattern to <code>"\\d{4}-\\d{2}-\\d{2}"</code>, we get the expected result:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">filter</span>(date <span class="sc">|&gt;</span> <span class="fu">str_detect</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">d{4}-</span><span class="sc">\\</span><span class="st">d{2}-</span><span class="sc">\\</span><span class="st">d{2}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">date</span> <span class="op">|&gt;</span> <span class="fu">str_detect</span><span class="op">(</span><span class="st">"\\d{4}-\\d{2}-\\d{2}"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 9
    source    country     date  file_type continent  year lifeExp pop   gdpPercap
@@ -295,40 +281,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We still have not confirmed that the <code>date</code> column is in YYYY-MM-DD format (year-month-day format). This is unfortunately impossible for some cases. We cannot determine whether 02-04 is February 4nd or April 2nd unless we know whether the date was entered as MM-DD or DD-MM. Fortunately we can check cases where the day is greater than the 12th. We do so by checking whether the month in YYYY-MM-DD is between 01 and 12.</p>
 <p>To do so we will adjust our pattern slightly so that month becomes a reference. To make a reference in a pattern, we surround the part we want to reference with round brackets: <code>(</code> and <code>)</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pattern <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">d{4}-(</span><span class="sc">\\</span><span class="st">d{2})-</span><span class="sc">\\</span><span class="st">d{2}"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="st">"\\d{4}-(\\d{2})-\\d{2}"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To extract the reference, we must refer to it by number. We need to use a number, as it is possible to have more than one reference group. Again we use <code>\\</code> to make sure the pattern is not for the number “1” itself.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>replacement <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">replacement</span> <span class="op">&lt;-</span> <span class="st">"\\1"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We now use our pattern and replacement in the function <code>str_replace()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>month <span class="ot">&lt;-</span> <span class="st">"2022-13-01"</span> <span class="sc">|&gt;</span> <span class="fu">str_replace</span>(pattern, replacement)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>month</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">month</span> <span class="op">&lt;-</span> <span class="st">"2022-13-01"</span> <span class="op">|&gt;</span> <span class="fu">str_replace</span><span class="op">(</span><span class="va">pattern</span>, <span class="va">replacement</span><span class="op">)</span></span>
+<span><span class="va">month</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "13"</code></pre>
 </div>
 </div>
 <p>We can treat this as numeric.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>month <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">month</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 13</code></pre>
 </div>
 </div>
 <p>And then check whether it is above 12.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>month <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>() <span class="sc">&gt;</span> <span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">month</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p>To do this for every row of our data frame, we will create a month column, treat it as numeric, and filter by values greater than 12:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> date <span class="sc">|&gt;</span> <span class="fu">str_replace</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">d{4}-(</span><span class="sc">\\</span><span class="st">d{2})-</span><span class="sc">\\</span><span class="st">d{2}"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>) <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>())</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">filter</span>(month <span class="sc">&gt;</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>month <span class="op">=</span> <span class="va">date</span> <span class="op">|&gt;</span> <span class="fu">str_replace</span><span class="op">(</span><span class="st">"\\d{4}-(\\d{2})-\\d{2}"</span>, <span class="st">"\\1"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">month</span> <span class="op">&gt;</span> <span class="fl">12</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 10
 # ℹ 10 variables: source &lt;chr&gt;, country &lt;chr&gt;, date &lt;chr&gt;, file_type &lt;chr&gt;,
@@ -337,15 +323,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>There are no rows where month is greater than 12.</p>
-</section>
-<section id="understanding-representations" class="level2" data-number="A.3">
-<h2 data-number="A.3" class="anchored" data-anchor-id="understanding-representations"><span class="header-section-number">A.3</span> Understanding Representations</h2>
+</section><section id="understanding-representations" class="level2" data-number="A.3"><h2 data-number="A.3" class="anchored" data-anchor-id="understanding-representations">
+<span class="header-section-number">A.3</span> Understanding Representations</h2>
 <p>If data contains characters like quotes and backslashes, R cannot directly represent them in a string. We can try to write each of these directly in a string and see what happens.</p>
 <p><em>Quotes:</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: &lt;text&gt;:1:3: unexpected INCOMPLETE_STRING
+<pre><code>Error in parse(text = input): &lt;text&gt;:1:3: unexpected INCOMPLETE_STRING
 1: """
       ^</code></pre>
 </div>
@@ -355,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="st">"</span><span class="sc">\"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error: &lt;text&gt;:1:1: unexpected INCOMPLETE_STRING
+<pre><code>Error in parse(text = input): &lt;text&gt;:1:1: unexpected INCOMPLETE_STRING
 1: "\"
     ^</code></pre>
 </div>
@@ -365,26 +350,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Since R cannot represent quotes and backslash directly, it must instead represent them indirectly with special sequences of characters. For quotes, the representative sequence in R is <code>\"</code>. For a backslash, the sequence is <code>\\</code>.</p>
 <p>When we place these sequences in strings, the output is not an error.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="st">"</span><span class="sc">\"</span><span class="st">"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"\""</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "\""</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="st">"</span><span class="sc">\\</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"\\"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "\\"</code></pre>
 </div>
 </div>
-<p>Further, we can see what each sequence represents by using the function <code>writeLines()</code>:</p>
+<p>Further, we can see what each sequence represents by using the function <code><a href="https://rdrr.io/r/base/writeLines.html">writeLines()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="st">"</span><span class="sc">\"</span><span class="st">"</span> <span class="sc">|&gt;</span> <span class="fu">writeLines</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"\""</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="st">"</span><span class="sc">\\</span><span class="st">"</span> <span class="sc">|&gt;</span> <span class="fu">writeLines</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"\\"</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>\</code></pre>
 </div>
@@ -392,12 +377,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Sequences <code>\"</code> and <code>\\</code> start with a backslash because a backslash has a specific behaviour: it prevents the normal interpretation of the next character. The backslash in the string<code>"\""</code> prevents the second quotes from being interpreted as the end of the string. As for the string <code>"\\"</code>, because of the first backslash the second backslash is not normally interpreted as “preventing the normal interpretation of the next character”. Yes you will likely have to re-read that.</p>
 <p><code>\"</code> and <code>\\</code> are called special characters. Special characters are called special because they hold a special property: they each represent <em>one</em> thing (a unique character that cannot be represented directly). <code>\"</code> represents quotes, and <code>\\</code> represents backslash. Scan the following list of special characters and what they represent.</p>
 <table class="table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th>Special Characters</th>
 <th>Represents</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>\n</td>
@@ -448,8 +431,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Notice how each has <em>one</em> backslash except for the case of <code>\\</code>. Again these special characters represent <em>one</em> thing. Representations of <em>multiple</em> things, however, have <em>multiple</em> backslashes (two to be exact). As an example, <code>\\d</code> represents multiple things because it represents any of the multiple digits from 0 to 9.</p>
 <p><code>\\</code> is a strange case. It is the only special character representing <em>one</em> thing with <em>multiple</em> backslashes. It is an even stranger case when used inside a pattern. We get an error:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pattern <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">"</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="st">"</span><span class="sc">\\</span><span class="st">"</span> <span class="sc">|&gt;</span> <span class="fu">str_detect</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pattern</span> <span class="op">&lt;-</span> <span class="st">"\\"</span></span>
+<span><span class="st">"\\"</span> <span class="op">|&gt;</span> <span class="fu">str_detect</span><span class="op">(</span><span class="st">"\\"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in stri_detect_regex(string, pattern, negate = negate, opts_regex = opts(pattern)): Unrecognized backslash escape sequence in pattern. (U_REGEX_BAD_ESCAPE_SEQUENCE, context=`\`)</code></pre>
 </div>
@@ -457,7 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>An error does not happen with any of the other special characters used in this way. The reason is that <code>\\</code> is already used in patterns like <code>\\d</code>. If the pattern to match the string <code>"\\"</code> was simply <code>"\\"</code>, representations like <code>\\d</code> would lose their meaning. For example, instead of matching digits, <code>\\d</code> would just match <code>\\</code> followed by a <code>d</code>.</p>
 <p>To match the string <code>"\\"</code> we must use the pattern <code>"\\\\"</code>. To remember this, consider how R views four backslashes:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="st">"</span><span class="sc">\\\\</span><span class="st">"</span> <span class="sc">|&gt;</span> <span class="fu">writeLines</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"\\\\"</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>\\</code></pre>
 </div>
@@ -504,10 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- These escaped letters can be found in the Special Metacharacters section of the cheatsheet. -->
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -739,9 +719,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./04-stay-organized.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span>
       </a>          
@@ -753,23 +731,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2025, Adam Sadowski</div>   
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">R Beginner’s Guide was written by Adam Sadowski.</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-      <i class="bi bi-github" role="img">
-</i> 
-  </li>  
-</ul>
-    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
-
 
 
 </body></html>

@@ -1,8 +1,11 @@
 ```{r}
 #| echo: false
+#| message: false
 library(tidyverse)
 library(here)
 library(cli)
+library(rlang)
+library(conflicted)
 ```
 
 
@@ -138,42 +141,6 @@ other_data_nested <- here("data-raw", "other_data") |>
 
 Code like this is clear and concise. Each line acts as a single action (even if it is composed of multiple, smaller actions) and communicates that action to the reader.
 
-### Comparing Your Functions (and Other Objects) to Others
-<!-- Although we could place all the code needed to read in data inside our function and name the function `read_csv_in_df()`, this is not a good idea. It is inconsistent with the popular function `read_csv()`, which has more than two arguments, the first of which is a file path. This could confuse future readers (including future you). -->
-
-<!-- With only two arguments, our function has the form `function(n_phrases, labels){code}`. The code it will execute is in curly brackets `{}`. For `function(x, y) x + y`, we did not need the `{}` curly brackets. For our new function, they will be needed as the code will have multiple lines. -->
-
-<!-- We could place all the code needed to read in data inside and name the function `read_csv_in_df()`: -->
-
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- read_csv_in_df <- function(n_phrases, labels){ -->
-
-<!--   one_file_path <- file.choose() -->
-<!--   directory_path <- one_file_path |> path_dir() -->
-<!--   file_names <- directory_path |> list.files(pattern = "csv") -->
-<!--   file_paths <- directory_path |> dir_ls() -->
-
-<!--   split_matrix <- file_names |> str_split_fixed("[._]", n_phrases) -->
-<!--   colnames(split_matrix) <- labels -->
-
-<!--   df <- split_matrix |> -->
-<!--     as_tibble() |> -->
-<!--     mutate(data = map(file_paths, read_csv)) -->
-
-<!--   df -->
-
-<!-- } -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- # read_csv_in_df -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- # read_csv_in_df(4, c("source", "country", "date" ,"file_type")) -->
-<!-- ``` -->
-
 ### Adding Function Checks
 
 Did you notice that `n_phrases` and the length of `labels` are the same (and should be)? What if they aren't? We will get an error. Even the error is clear in this situation, when functions become more complicated, the chance of an incomprehensible error increases. Hence it is best to be explicit about the requirements of any functions we create. We can improve `describe_files_as_df()` by checking for the above. If the check fails, we alert the user of the exact problem. For the alert, we use the `cli` package.
@@ -226,11 +193,20 @@ describe_files_as_df <- function(file_path, n_phrases, labels) {
 describe_files_as_df(here(), "5", c("test"))
 ```
 
-Furthermore, we know n_phrases should be a number and labels should be a vector of strings. R is relaxed about numbers being portrayed as, for example, `"5"` or `5`. On the other hand, we can check for the labels type using `cli` again.
+Furthermore, we know `file_path` should be a single string, `n_phrases` should be a number and `labels` should be a vector of strings. R is relaxed about numbers being portrayed as, for example, `"5"` or `5`. On the other hand, we can check for the types for `file_path` and `labels` using `cli` again and `rlang`.
 
 ```{r}
 #| error: true
 describe_files_as_df <- function(file_path, n_phrases, labels) {
+  if (!is_string(file_path)) {
+    cli_abort(
+      c(
+        "{.var file_path} must be a single string.",
+        "x" = "You've supplied a {.cls {class(file_path)}} vector with length {length(file_path)}."
+      )
+    )
+  }
+  
   if (class(labels) != "character") {
     cli_abort(
       c(
@@ -253,7 +229,7 @@ describe_files_as_df <- function(file_path, n_phrases, labels) {
   split_matrix <- file_names |> str_split_fixed("[._]", n_phrases)
   colnames(split_matrix) <- labels
 }
-
+describe_files_as_df(c(here(), here()), 5, 0)
 describe_files_as_df(here(), 5, 0)
 ```
 
@@ -288,4 +264,49 @@ read_csv_file_paths <- function(df) {
 
 read_csv_file_paths(iris)
 ```
+
+### Comparing Your Functions to Others
+
+When writing functions, it is important to be aware of other, already existing functions and objects.
+
+For example, `labels()` is actually a base R function. If we do not overwrite `labels`, it prints as:
+
+```{r}
+labels
+```
+
+In our `describe_files_as_df()`, we can get different results:
+
+```{r}
+describe_files_as_df <- function(file_path, n_phrases, labels) {
+  print(labels)
+  print(labels(labels))
+}
+
+describe_files_as_df(labels = "test")
+```
+Here `labels` is both the string `"test"` and the function name (the `labels` part) of `labels()`. There's no trouble in using both, unless it causes confusion. If you believe something like this will cause confusion, you can rename the `labels` argument in `describe_files_as_df()` as `labels_vector`.
+
+Where we need to be more careful is when a function with the same name as our *function* already exists. For example, if we were to create our own `labels()` function. Another example would be if `describe_files_as_df()` was already a function in some library we loaded. R will not, by default, warn or error on these conflicts. In this situation, it's best to directly refer to the source of the functions coming from packages or from base R:
+
+```{r}
+x <- "test"
+base::labels(x)
+labels <- function(x) colnames(x)
+labels(x)
+
+names(x) <- "an example"
+base::labels(x)
+labels(x)
+```
+
+<!-- Fortunately, the packaged `conflicted` will. -->
+
+<!-- After loading `conflicted`, -->
+
+<!-- ```{r} -->
+<!-- #| error: true -->
+<!-- labels <- function(x) {names(x)} -->
+<!-- labels("test") -->
+<!-- ``` -->
 
