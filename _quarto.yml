@@ -29,8 +29,6 @@ book:
     
   appendices:
     - 05-text-data.qmd
-    - whats-possible.qmd
-
 format:
   html:
     theme: 
