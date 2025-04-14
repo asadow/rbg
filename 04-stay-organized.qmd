@@ -7,8 +7,7 @@ library(cli)
 library(rlang)
 ```
 
-
-# Review (to Stay Organized)
+# Optimize (To Go Fast)
 
 Staying organized means keeping project complexity in check as it expands. Each of these checks below help to avoid unnecessary and common frustrations. They address how to optimize the organization of your files, the speed and focus of your reports, the reliability of data access, and code readability.
 

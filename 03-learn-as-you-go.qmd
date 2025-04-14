@@ -34,13 +34,9 @@ This is a simple example. Most of the time it can be difficult to write in Engli
 
 Speaking of breaking down something complicated so that a search engine like Google can understand it, this is also necessary for others to understand it. For learning R, allowing others to understand your challenge or need is valuable as the R community is not only willing, but also quickly able to help. R users mainly help each other through [Stack Overflow](stackoverflow.com). It is a website that easily allows users to ask or answer questions with code, have their code formatted (look nice), and receive feedback.
 
-The main draw of Stack Overflow is that the person asking the question has one main responsibility, and that is to produce what is called a minimally reproducible example: an example that can be used (reproduced) by someone else seeing the question, and that does not have unnecessary detail irrelevant to the question (minimal).
+The main draw of Stack Overflow is that the person asking the question has one main responsibility, and that is to produce what is called a minimally reproducible example: an example that can be used (reproduced) by someone else seeing the question, and that does not have unnecessary detail irrelevant to the question (minimal). [Here's a short example](https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th).
 
-Describe example
-
-[EXAMPLE HERE](https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th)
-
-Knowing how to make an example is the majority of the work involved in asking a question on Stack Overflow.
+Knowing how to make a reprex (minimally reproducible example) is the majority of the work involved in asking a question on Stack Overflow.
 
 #### Creating Minimally Reproducible Examples
 
@@ -160,9 +156,9 @@ The *Arguments* tell us more about the inputs in case the *Usage* is not enough.
 
 ### Stack Overflow
 
-Another way to understand functions is to be presented with answers from others on Stack Overflow. These answers don't need to be answers to the questions you have posted on Stack Overflow; they can be answers to questions posted by others.
+Another way to understand functions is to be presented with answers from others on Stack Overflow. These answers don't need to be answers to the questions you have posted on Stack Overflow; they can be answers to questions posted by others. 
 
-For example, here is a question dated from 2019: https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th
+[Here is an example from 2019](https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th). 
 
 There are three separate answers that have up votes (positive feedback represented by the digit on the top left of an answer): 1 using the `data.table` package; 1 using `base R` (R without packages); and 1 using `tidyr`.
 

@@ -1,0 +1,587 @@
+```{r}
+#| echo: false
+#| message: false
+```
+
+# Make (Yourself Look Good)
+
+If you are part of a team that does code, then you already know the value of good documentation.
+
+If you part of a team that does not code, then you may know the value of good documentation.
+
+Apart from improving communication and avoiding frustration, good documentation makes you look good.
+
+## Mind Maps (Architecture Overview)
+
+A mind map is a diagram that shows the "from" and the "to", where we started and where we went. In data, it is often used for system architecture overviews: the eagle's eye look at the systems we use and how they interact. This is the data pipeline showcasing all its macro components (databases, Extract-Transfer-Load processes, APIs, cloud services, etc.).
+
+DiagrammeR is the package we will use to draw our diagrams. Fortunately the language it employs, DOT, is fairly self-explanatory. (The name, however is, not. DOT stands for DAG of Tomorrow. DAG stands for Directed Acyclic Graph: a graph going in one direction and which does not loop back on itself.) There are no set rules for the colors and shapes (except to make them accessible).
+
+```{r}
+DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = rectangle, style = filled, fillcolor = Linen]
+
+owner [label = 'Owner', shape = circle]
+db [label = 'Network Data Store', shape = cylinder]
+cloud [label = 'Cloud Data Service', shape = cylinder, fillcolor = lightblue]
+
+datashape = cylinder
+
+program [label = 'Application', fillcolor = pink]
+
+code [label = 'Code Files', fillcolor = Beige]
+file [label = 'Data Files']
+
+}")
+```
+
+For big projects, these can get quite complicated... Just have a glance at the below.
+
+```{r}
+#| echo: false
+example_complex <- DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = rectangle, style = filled, fillcolor = Linen]
+
+fm [label = 'FM', shape = circle]
+drive [label = 'Z Drive', shape = cylinder]
+lake [label = 'Cloud Data Lake', shape = cylinder, fillcolor = lightblue]
+cloud_etl [label = 'Cloud ETL Provider', shape = cylinder, fillcolor = lightblue]
+
+network_api [label = 'Network API', shape = cylinder, fillcolor = lightblue]
+
+datashape = cylinder
+
+cad [label = 'AutoCAD', fillcolor = pink]
+program [label = 'AutoLISP Script Writer', fillcolor = pink]
+
+cs [label = 'CS', shape = circle]
+op [label = 'OP', shape = circle]
+tech [label = 'Tech.', shape = circle]
+
+etl_shapes [label = 'Shapes ETL', fillcolor = Beige]
+lisp [label =  'AutoLISP Script', fillcolor = Beige]
+etl_wifi [label = 'Network ETL', fillcolor = Beige]
+
+dxf [label =  '.dxf (Floor Plans)']
+elev [label = 'Elevations']
+
+dwg [label =  '.dwg (Floor Plans)']
+drawings [label =  '.../Drawings', shape = folder]
+data [label =  '/data', shape = folder]
+logs [label = 'Network Logs']
+data_occ [label = 'Network Data']
+coord [label = 'Network Co-Ordinates']
+data_shapes [label = 'Shapes Data']
+data_app [label = 'App. Data']
+
+{ rank = same; dxf; elev; coord; etl_shapes; etl_wifi; logs}
+{ rank = same; dwg; cad; lisp}
+{ rank = same; tech; drive}
+{ rank = same; data_occ; data_shapes}
+{ rank = same; network_api; cloud_etl; lake}
+{ rank = same; cs; op}
+
+# edge definitions with the node IDs
+{fm} -> tech
+{fm} -> drive
+
+drive -> drawings -> dwg
+drive -> data -> elev 
+data -> program
+
+cloud_etl -> etl_wifi
+cloud_etl -> etl_shapes
+
+lake -> logs
+lake -> coord
+
+fm -> etl_shapes
+cs -> network_api
+cs -> logs
+op -> etl_wifi
+etl_wifi -> data_occ
+logs -> data_occ
+network_api -> coord
+
+cad -> dxf
+tech -> program
+tech -> dwg
+tech -> cad
+tech -> lisp
+lisp -> dxf
+program -> lisp
+drawings -> lisp
+tech -> elev
+dwg -> dxf
+
+cad -> dwg
+dxf -> data_shapes
+elev -> data_shapes
+etl_shapes -> data_shapes
+coord -> data_shapes
+
+data_occ -> data_app
+data_shapes -> data_app
+}")
+```
+
+```{r}
+#| eval: false
+DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = rectangle, style = filled, fillcolor = Linen]
+
+fm [label = 'FM', shape = circle]
+drive [label = 'Z Drive', shape = cylinder]
+lake [label = 'Cloud Data Lake', shape = cylinder, fillcolor = lightblue]
+cloud_etl [label = 'Cloud ETL Provider', shape = cylinder, fillcolor = lightblue]
+
+network_api [label = 'Network API', shape = cylinder, fillcolor = lightblue]
+
+datashape = cylinder
+
+cad [label = 'AutoCAD', fillcolor = pink]
+program [label = 'AutoLISP Script Writer', fillcolor = pink]
+
+cs [label = 'CS', shape = circle]
+op [label = 'OP', shape = circle]
+tech [label = 'Tech.', shape = circle]
+
+etl_shapes [label = 'Shapes ETL', fillcolor = Beige]
+lisp [label =  'AutoLISP Script', fillcolor = Beige]
+etl_wifi [label = 'Network ETL', fillcolor = Beige]
+
+dxf [label =  '.dxf (Floor Plans)']
+elev [label = 'Elevations']
+
+dwg [label =  '.dwg (Floor Plans)']
+drawings [label =  '.../Drawings', shape = folder]
+data [label =  '/data', shape = folder]
+logs [label = 'Network Logs']
+data_occ [label = 'Network Data']
+coord [label = 'Network Co-Ordinates']
+data_shapes [label = 'Shapes Data']
+data_app [label = 'App. Data']
+
+{ rank = same; dxf; elev; coord; etl_shapes; etl_wifi; logs}
+{ rank = same; dwg; cad; lisp}
+{ rank = same; tech; drive}
+{ rank = same; data_occ; data_shapes}
+{ rank = same; network_api; cloud_etl; lake}
+{ rank = same; cs; op}
+
+# edge definitions with the node IDs
+{fm} -> tech
+{fm} -> drive
+
+drive -> drawings -> dwg
+drive -> data -> elev 
+data -> program
+
+cloud_etl -> etl_wifi
+cloud_etl -> etl_shapes
+
+lake -> logs
+lake -> coord
+
+fm -> etl_shapes
+cs -> network_api
+cs -> logs
+op -> etl_wifi
+etl_wifi -> data_occ
+logs -> data_occ
+network_api -> coord
+
+cad -> dxf
+tech -> program
+tech -> dwg
+tech -> cad
+tech -> lisp
+lisp -> dxf
+program -> lisp
+drawings -> lisp
+tech -> elev
+dwg -> dxf
+
+cad -> dwg
+dxf -> data_shapes
+elev -> data_shapes
+etl_shapes -> data_shapes
+coord -> data_shapes
+
+data_occ -> data_app
+data_shapes -> data_app
+}")
+```
+
+```{r}
+#| echo: false
+#| column: margin
+legend <- DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = rectangle, style = filled, fillcolor = Linen]
+
+owner [label = 'Owner', shape = circle]
+db [label = 'Network Data Store', shape = cylinder]
+cloud [label = 'Cloud Data Service', shape = cylinder, fillcolor = lightblue]
+
+datashape = cylinder
+
+program [label = 'Application', fillcolor = pink]
+
+code [label = 'Code Files', fillcolor = Beige]
+file [label = 'Data Files']
+
+}")
+legend
+```
+
+```{r}
+#| echo: false
+example_complex
+```
+
+Phew, unless you need to join this project, you may not want to study this graph. But notice how the code is just the same amount of complicated? That's the beauty of the DOT language. Another beauty of this language is that it allows you to communicate a complicated system without sounding like the expert and single point-of-failure on the team. Finally, the complicated nature communicates the need for simplification and more support: E.g. why is there data that isn't in the lake? Why are there so many owners? These show the viewer that there are unoptimal systems in play and many players involved.
+
+Below is a more sane example representing a completely automated system. Before you look, note:
+
+- Qualtrics is a survey-creation and distribution software. 
+- RStudio Server is the RStudio IDE on a server, rather than a desktop computer. 
+- ES is an owner in the Environmental Safety department - they will design and send out the surveys. 
+- CS is an owner in the Computing Services department - they will arrange permissions for the Microsoft Graph API which allows us to send emails using code.
+
+```{r}
+#| echo: false
+example_simple <- DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = rectangle, style = filled, fillcolor = Linen]
+
+drive [label = 'Z Drive', shape = cylinder]
+server [label = 'Server', shape = cylinder]
+db [label = 'Database', shape = cylinder]
+
+wa [label = 'Work API', shape = cylinder, fillcolor = lightblue]
+graph_api [label = 'Microsoft Graph API', shape = cylinder, fillcolor = lightblue]
+qt_api [label = 'Qualtrics API', shape = cylinder, fillcolor = lightblue]
+
+datashape = cylinder
+
+qualtrics [label = 'Qualtrics', fillcolor = pink]
+rstudio [label = 'RStudio Server', fillcolor = pink]
+
+email [label = 'Email', fillcolor = lightblue]
+
+es [label = 'ES', shape = circle]
+da [label = 'Data Analyst', shape = circle]
+it [label = 'Server Analyst', shape = circle]
+cs [label = 'CS', shape = circle]
+
+etl_workhours [label = 'Work-Hours ETL', fillcolor = Beige]
+etl_inspections [label = 'Inspections ETL', fillcolor = Beige]
+
+data [label =  '/data', shape = folder]
+workhours [label =  '/work-hours', shape = folder]
+workorder [label =  '/work-orders', shape = folder]
+workhours_logs [label = 'Work-Hours ETL Logs']
+
+
+cs -> graph_api
+rstudio -> etl_workhours -> wa
+da -> server -> rstudio
+it -> server
+etl_workhours -> workhours_logs
+
+es -> qualtrics -> qt_api
+
+qt_api -> graph_api -> email
+wa -> graph_api
+rstudio -> etl_inspections -> wa
+etl_inspections -> qt_api
+data -> workhours
+data -> workorder
+wa -> drive -> data
+wa -> db
+server -> db
+}")
+```
+
+```{r}
+#| eval: false
+DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR]
+
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = rectangle, style = filled, fillcolor = Linen]
+
+drive [label = 'Z Drive', shape = cylinder]
+server [label = 'Server', shape = cylinder]
+db [label = 'Database', shape = cylinder]
+
+wa [label = 'Work API', shape = cylinder, fillcolor = lightblue]
+graph_api [label = 'Microsoft Graph API', shape = cylinder, fillcolor = lightblue]
+qt_api [label = 'Qualtrics API', shape = cylinder, fillcolor = lightblue]
+
+datashape = cylinder
+
+qualtrics [label = 'Qualtrics', fillcolor = pink]
+rstudio [label = 'RStudio Server', fillcolor = pink]
+
+email [label = 'Email', fillcolor = lightblue]
+
+es [label = 'ES', shape = circle]
+da [label = 'Data Analyst', shape = circle]
+it [label = 'Server Analyst', shape = circle]
+cs [label = 'CS', shape = circle]
+
+etl_workhours [label = 'Work-Hours ETL', fillcolor = Beige]
+etl_inspections [label = 'Inspections ETL', fillcolor = Beige]
+
+data [label =  '/data', shape = folder]
+workhours [label =  '/work-hours', shape = folder]
+workorder [label =  '/work-orders', shape = folder]
+workhours_logs [label = 'Work-Hours ETL Logs']
+
+
+cs -> graph_api
+rstudio -> etl_workhours -> wa
+da -> server -> rstudio
+it -> server
+etl_workhours -> workhours_logs
+
+es -> qualtrics -> qt_api
+
+qt_api -> graph_api -> email
+wa -> graph_api
+rstudio -> etl_inspections -> wa
+etl_inspections -> qt_api
+data -> workhours
+data -> workorder
+wa -> drive -> data
+wa -> db
+server -> db
+}")
+```
+
+```{r}
+#| echo: false
+#| column: margin
+legend
+```
+```{r}
+#| echo: false
+example_simple
+```
+
+## Table Relationship Diagrams (AKA Entity Relationship Diagrams)
+
+If you are working with multiple tables that relate to each other, you can improve communication with a diagram showing their primary and foreign keys.
+
+Primary keys are columns that identify the unique rows. Foreign keys are columns that connect to primary keys in other tables.
+
+For example, imagine you are working on a project that involves web-scraping countries' GDP per capita, life expectancy, corruption score, and more. Every measure is from a different web-page, meaning that you need to create tables for every measure: one table for GDP per capita, one for life expectancy, and so on. Finally, you want to compare this data based on when a country signed a human rights convention. This will be web-scraped from a United Nations web page. The ERD (Entity Relationship Diagram), or Data Model, will look like so:
+
+```{r}
+library(tibble)
+library(dm)
+
+## Creating fake, empty data
+corruption <- tibble(
+  country = NA,
+  year = NA,
+  corruption_score = NA
+)
+
+democracy <- tibble(
+  country = NA,
+  year = NA,
+  democracy_score = NA
+)
+
+freedom <- tibble(
+  country = NA,
+  year = NA,
+  freedom_index = NA
+)
+
+gdp <- tibble(
+  country = NA,
+  year = NA,
+  gdp_per_capita = NA
+)
+
+safety <- tibble(
+  country = NA,
+  year = NA,
+  safety_index = NA,
+  crime_index = NA
+)
+
+unemployment <- tibble(
+  country = NA,
+  year = NA,
+  unemployment_rate = NA
+)
+
+life_exp <- tibble(
+  country = NA,
+  year = NA,
+  life_expectancy = NA
+)
+
+culture <- tibble(
+  country = NA,
+  year = NA,
+  individualism = NA,
+  indulgence = NA,
+  power_distance = NA
+)
+
+un <- tibble(
+  country = NA,
+  date_signed_convention = NA
+)
+
+data_by_year <- tibble(
+  country = NA,
+  year = NA,
+  corruption_score = NA,
+  democracy_score = NA,
+  freedom_index = NA,
+  gdp_per_capita = NA,
+  safety_index = NA,
+  crime_index = NA,
+  unemployment_rate = NA,
+  life_expectancy = NA,
+  individualism = NA,
+  indulgence = NA,
+  power_distance = NA
+)
+
+dm_one <- dm(
+  corruption, 
+  democracy,
+  freedom,
+  gdp,
+  life_exp,
+  safety,
+  unemployment,
+  culture,
+  un
+)
+
+dm_by_source <- dm_one |> 
+  ## Primary keys
+  dm_add_pk(un, country) |> 
+  dm_add_pk(corruption, c(country, year)) |> 
+  dm_add_pk(democracy, c(country, year)) |> 
+  dm_add_pk(gdp, c(country, year)) |> 
+  dm_add_pk(life_exp, c(country, year)) |> 
+  dm_add_pk(safety, c(country, year)) |> 
+  dm_add_pk(unemployment, c(country, year)) |> 
+  dm_add_pk(culture, c(country, year)) |> 
+  dm_add_pk(freedom, c(country, year)) |> 
+  ## Foreign keys
+  dm_add_fk(corruption, country, un) |>
+  dm_add_fk(democracy, country, un) |>
+  dm_add_fk(gdp, country, un) |>
+  dm_add_fk(life_exp, country, un) |>
+  dm_add_fk(safety, country, un) |>
+  dm_add_fk(unemployment, country, un) |>
+  dm_add_fk(culture, country, un) |>
+  dm_add_fk(freedom, country, un) |>
+  ## Colors
+  dm_set_colors(
+    darkred = corruption,
+    blue = freedom,
+    gold = gdp,
+    yellow = life_exp,
+    darkgreen = safety, 
+    brown = unemployment,
+    
+    whitesmoke = culture,
+    pink = un
+    ) |> 
+  ## Draw from bottom to top
+  dm_draw(view_type = "all", rankdir = "BT")
+
+dm_by_source
+```
+
+Each year-dependent measure is in its own table, and its columns that identify unique rows are `country` and `year`. For the United Nations table, `country` is only needed to identify unique rows. All tables are thus connected by `country`.
+
+We can join the bottom tables by country and year, to get us:
+
+```{r}
+dm(un, data_by_year) |> 
+  ## Primary keys
+  dm_add_pk(un, country) |> 
+  dm_add_pk(data_by_year, c(country, year)) |> 
+  ## Foreign keys
+  dm_add_fk(data_by_year, country, un) |>
+  dm_set_colors(
+    darkred = data_by_year,
+    pink = un
+    ) |> 
+  dm_draw(view_type = "all")
+```
+
+Furthermore, for added flair, we can re-arrange the data model based on whether higher values represent higher or lower quality of life:
+
+```{r}
+library(dplyr)
+positive_qol <- Reduce(
+  \(x,y) full_join(x, y, by = join_by(country, year)),
+  list(freedom, democracy, gdp, life_exp, safety)
+  ) |> 
+  select(- crime_index)
+
+negative_qol <- full_join(corruption, unemployment,
+                          by = join_by(country, year))
+negative_qol$crime_index <- NA
+
+dm(positive_qol, negative_qol, un) |> 
+  dm_add_pk(un, country) |> 
+  dm_add_pk(negative_qol, c(country, year)) |> 
+  dm_add_pk(positive_qol, c(country, year)) |> 
+  dm_add_fk(negative_qol, country, un) |>
+  dm_add_fk(positive_qol, country, un) |>
+  dm_set_colors(
+    darkred = negative_qol,
+    blue = positive_qol,
+    pink = un
+  ) |> 
+  dm_draw(view_type = "all", rankdir = "BT")
+
+```
+
+
+
+We can include the above code in a `.qmd` file and call it a day. But we can also create the diagram in a `.R` file (script) instead, export the diagram, and import the diagram in our `.qmd` file.
+
+```{r}
+#| eval: false
+## In the .R file:
+DiagrammeRsvg::export_svg(dm_by_source) |> write("output/documentation/dm_by_source.svg")
+
+## In the .qmd file:
+knitr::include_graphics("output/documentation/dm_by_source.svg")
+```
+

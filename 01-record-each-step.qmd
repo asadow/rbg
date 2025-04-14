@@ -4,7 +4,7 @@ Data work will involve the preparation of data and data reports. In fact, you ma
 
 Reports are great client-facing examples of your work (and how you work if you report on data preparation). Before employment, they can be presented to potential employers. After employment, they can be presented to your collaborators during data preparation; maybe there will be decisions that need to be made about the data, and the best way to show why decisions are needed will be through a report.
 
-For these reasons, this book starts with the fundamentals of writing reports. The files that make reports are called .qmd files. To start a .qmd file, open RStudio. In the top menu, click File then New File and finally "Quarto Document...". When you see the pop-up, name the file what you like. Then, in the file, select all (shortcut `command-A` or `Ctrl-A`) and hit `Delete`. Render (i.e. prepare) the document by the shortcut `command-Shift-K` (or `Ctrl-Shift-K`). You will see a document that is empty. That is because we have no lines. Let's get started by writing lines then!
+For these reasons, this book starts with the fundamentals of writing reports. The files that make reports are called `.qmd` files. To start a `.qmd` file, open RStudio. In the top menu, click File then New File and finally "Quarto Document...". When you see the pop-up, name the file what you like. Then, in the file, select all (shortcut `command-A` or `Ctrl-A`) and hit `Delete`. Render (i.e. prepare) the document by the shortcut `command-Shift-K` (or `Ctrl-Shift-K`). You will see a document that is empty. That is because we have no lines. Let's get started by writing lines then!
 
 ## Lines and Lists
 
