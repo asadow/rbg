@@ -168,8 +168,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./04-look-good.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Make (Yourself Look Good)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./04-stay-organized.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimize (To Go Fast)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -185,12 +191,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./05-text-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./whats-possible.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">What’s Possible</span></span></a>
   </div>
 </li>
       </ul>
@@ -223,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Record (Each Step)</span></h1>
+<h1 class="title"><span id="sec-record" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Record (Each Step)</span></span></h1>
 </div>
 
 
@@ -240,7 +240,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Data work will involve the preparation of data and data reports. In fact, you may want to report on the preparation of data. Since the code that prepares a report can also prepare the data, you could work in a way that both gets the job done and reports on getting it done. That’s a win-win!</p>
 <p>Reports are great client-facing examples of your work (and how you work if you report on data preparation). Before employment, they can be presented to potential employers. After employment, they can be presented to your collaborators during data preparation; maybe there will be decisions that need to be made about the data, and the best way to show why decisions are needed will be through a report.</p>
-<p>For these reasons, this book starts with the fundamentals of writing reports. The files that make reports are called .qmd files. To start a .qmd file, open RStudio. In the top menu, click File then New File and finally “Quarto Document…”. When you see the pop-up, name the file what you like. Then, in the file, select all (shortcut <code>command-A</code> or <code>Ctrl-A</code>) and hit <code>Delete</code>. Render (i.e.&nbsp;prepare) the document by the shortcut <code>command-Shift-K</code> (or <code>Ctrl-Shift-K</code>). You will see a document that is empty. That is because we have no lines. Let’s get started by writing lines then!</p>
+<p>For these reasons, this book starts with the fundamentals of writing reports. The files that make reports are called <code>.qmd</code> files. To start a <code>.qmd</code> file, open RStudio. In the top menu, click File then New File and finally “Quarto Document…”. When you see the pop-up, name the file what you like. Then, in the file, select all (shortcut <code>command-A</code> or <code>Ctrl-A</code>) and hit <code>Delete</code>. Render (i.e.&nbsp;prepare) the document by the shortcut <code>command-Shift-K</code> (or <code>Ctrl-Shift-K</code>). You will see a document that is empty. That is because we have no lines. Let’s get started by writing lines then!</p>
 <section id="lines-and-lists" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="lines-and-lists"><span class="header-section-number">1.1</span> Lines and Lists</h2>
 <p>On your left in Rstudio (what is called the code source), you have numbers like below that represent lines of text or code:</p>
@@ -316,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2
 3</code></pre>
 <p><sub><em>Lines&nbsp;1&nbsp;to&nbsp;3&nbsp;will&nbsp;show&nbsp;in&nbsp;your&nbsp;document&nbsp;as:</em></sub></p>
-<p>This report was made on 2025-12-21.</p>
+<p>This report was made on 2025-04-14.</p>
 <!-- To see an Rmd document within R, go to R's menu: Tools - Global Options; select R Markdown from the left, find the line "Show output preview in: " and select Viewer -->
 <!-- Explain why this is not greyed out: ` -->
 </section>
@@ -345,11 +345,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-12-21"</code></pre>
+<pre><code>[1] "2025-04-14"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.Date</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2025-12-21"</code></pre>
+<pre><code>[1] "2025-04-14"</code></pre>
 </div>
 </div>
 <p>When declaring code with chunks (multiple back-ticks), the document will show both the code and the result of the code and this can be customized. When declaring code with single back-ticks, the document will show only the result of the code and this cannot be customized.</p>

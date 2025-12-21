@@ -8,7 +8,7 @@
 
 <meta name="author" content="Adam Sadowski">
 
-<title>R Beginner’s Guide (Best Practices) - 4&nbsp; Review (to Stay Organized)</title>
+<title>R Beginner’s Guide (Best Practices) - 5&nbsp; Optimize (To Go Fast)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./05-text-data.html" rel="next">
-<link href="./03-learn-as-you-go.html" rel="prev">
+<link href="./04-look-good.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-stay-organized.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-stay-organized.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimize (To Go Fast)</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,8 +168,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./04-look-good.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Make (Yourself Look Good)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./04-stay-organized.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimize (To Go Fast)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -187,12 +193,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./whats-possible.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">What’s Possible</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -201,14 +201,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#optimal-file-folder-structure-explicit" id="toc-optimal-file-folder-structure-explicit" class="nav-link active" data-scroll-target="#optimal-file-folder-structure-explicit"><span class="header-section-number">5.1</span> Optimal File-Folder Structure (Explicit)</a></li>
+  <li><a href="#optimal-reports-fast-renderability" id="toc-optimal-reports-fast-renderability" class="nav-link" data-scroll-target="#optimal-reports-fast-renderability"><span class="header-section-number">5.2</span> Optimal Reports (Fast Renderability)</a>
+  <ul class="collapse">
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a></li>
+  </ul></li>
+  <li><a href="#optimal-data-access-reliable" id="toc-optimal-data-access-reliable" class="nav-link" data-scroll-target="#optimal-data-access-reliable"><span class="header-section-number">5.3</span> Optimal Data Access (Reliable)</a></li>
+  <li><a href="#optimal-code-maintanable" id="toc-optimal-code-maintanable" class="nav-link" data-scroll-target="#optimal-code-maintanable"><span class="header-section-number">5.4</span> Optimal Code (Maintanable)</a>
+  <ul class="collapse">
+  <li><a href="#making-your-own-functions" id="toc-making-your-own-functions" class="nav-link" data-scroll-target="#making-your-own-functions">Making Your Own Functions</a></li>
+  <li><a href="#adding-function-checks" id="toc-adding-function-checks" class="nav-link" data-scroll-target="#adding-function-checks">Adding Function Checks</a></li>
+  <li><a href="#comparing-your-functions-to-others" id="toc-comparing-your-functions-to-others" class="nav-link" data-scroll-target="#comparing-your-functions-to-others">Comparing Your Functions to Others</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/asadow/rbg/edit/main/04-stay-organized.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/asadow/rbg/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimize (To Go Fast)</span></h1>
 </div>
 
 
@@ -223,59 +241,319 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Let’s say we need to read data in again, and we have named your files as per <a href="02-start-organized.html#sec-name-files"><span>Section&nbsp;2.1</span></a>. To summarize, the file names have phrases with words separated by -, and multiple phrases are separated by _.</p>
-<p>Instead of copy-pasting the same code we used the previous time, we can avoid this repetition with a function. We can create this function by assigning <code>function()</code> to an object, and entering the inputs inside the <code>()</code> like so:</p>
+<p>Staying organized means keeping project complexity in check as it expands. Each of these checks below help to avoid unnecessary and common frustrations. They address how to optimize the organization of your files, the speed and focus of your reports, the reliability of data access, and code readability.</p>
+<section id="optimal-file-folder-structure-explicit" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="optimal-file-folder-structure-explicit"><span class="header-section-number">5.1</span> Optimal File-Folder Structure (Explicit)</h2>
+<p>We discussed how to optimally name data files in <a href="02-start-organized.html#sec-name_files"><span>Section&nbsp;2.1</span></a>. We discussed how to write a Quarto report (a <code>.qmd</code> file) in <a href="01-record-each-step.html"><span>Chapter&nbsp;1</span></a>. Should these sit in the same folder? For a small project, that can be adequate. However, it’s best to organize different kinds of files into different folders. This will help prevent confusion if and when our projects become large. It can also dramatically speed up the rendering of our reports, which is covered in the next section.</p>
+<p>Generally, project files should be organized into the below folders:</p>
+<ul>
+<li><code>data-raw</code> (raw data files)</li>
+<li><code>data</code> (<code>.R</code> files that process raw data and create clean subsets)</li>
+<li><code>R_analysis</code> (<code>.R</code> files that create analytic results)</li>
+</ul>
+<p>If reporting, you should also have the following:</p>
+<ul>
+<li><code>output</code> (outputs that will be shared or used in reports; the latter can be the final objects in R_analysis saved as <code>.rds</code>)</li>
+<li><code>qmd</code> (<code>.qmd</code> files which are Quarto reports)</li>
+<li><code>Rmd</code> (<code>.Rmd</code> files which are RMarkdown reports)</li>
+</ul>
+<p>Optionally:</p>
+<ul>
+<li><code>prose</code> (references like Word documents, text files, etc.)</li>
+</ul>
+</section>
+<section id="optimal-reports-fast-renderability" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="optimal-reports-fast-renderability"><span class="header-section-number">5.2</span> Optimal Reports (Fast Renderability)</h2>
+<section id="motivation" class="level3">
+<h3 class="anchored" data-anchor-id="motivation">Motivation</h3>
+<p>In <a href="01-record-each-step.html"><span>Chapter&nbsp;1</span></a> we processed raw data in a Quarto document, which would go inside the <code>qmd</code> folder. Above we are saying that raw data should be processed in <code>.R</code> files inside of the <code>data</code> folder. Why the change?</p>
+<p>To be fair, many analysts start their R journey using Quarto (or RMarkdown), including me. For Python users likewise, they often start with Jupyter. The ability to combine prose (written text), code, and outputs is beginner-friendly. It’s not, however, always computer-friendly. If code that processes data takes a moderate time to run, the report render will take at least the same amount of time. If, instead, the code takes a short amount of time to run, because it does not process data beyond simply importing it, then the report render will be much, much faster.</p>
+</section>
+<section id="method" class="level3">
+<h3 class="anchored" data-anchor-id="method">Method</h3>
+<p>If we want fast reports, we want to simply import data and plots. We take out the data processing parts of our <code>.qmd</code> file and place them into an <code>.R</code> file (or multiple <code>.R</code> files) inside a new <code>analysis</code> folder. We name these <code>.R</code> files with the same philosophy as in <a href="02-start-organized.html#sec-name_files"><span>Section&nbsp;2.1</span></a>: phrases separated by <code>_</code>, words in phrases separated by <code>-</code>. With several <code>.R</code> files, we add 0-padded numbers to the front of the file name. Here is an example:</p>
+<ul>
+<li><code>01_merge-data.R</code></li>
+<li><code>02_filter-data.R</code></li>
+<li><code>03_plot-data.R</code></li>
+<li><code>04_stat-analysis.R</code></li>
+</ul>
+<p>Any objects that we need for our report are saved using <code>readr::write_rds()</code>. The first two arguments are the object to write, and the file path (where to write it). The object can, for example, be a data file we want to display as a table in our report. The file path is going to refer to the new <code>output</code> folder. The best way to refer to files in this folder is to use the <code>here</code> package. <code>here::here()</code> is the function, and its name comes from the idea: “Here, I’m in this project, so let’s start at the file path to our project folder, i.e.&nbsp;the root folder.” Knowing this, <code>here::here()</code> simply takes strings that point to the location of any of our project’s files. For example, <code>here::here("output", "data_for_table.rds")</code> will create a file path to the <code>output</code> folder ending with <code>data_for_table.rds</code>.</p>
+<p>For example, we have a data file we want to display as a table, it will be saved somewhere in the above files with a line like <code>write_rds(data_for_table, here("output", "data_for_table.rds"))</code>.</p>
+<p>Then, in our <code>.qmd</code> file, we can simply add <code>data_for_table &lt;- read_rds(here("output", "data_for_table.rds"))</code>. Either load the <code>readr</code> library or prepend <code>read_rds()</code> with <code>readr::</code>.</p>
+<p>Finally, place the <code>.qmd</code> file into the <code>qmd</code> folder. Now we not only have a faster report, but our project is more organized.</p>
+</section>
+</section>
+<section id="optimal-data-access-reliable" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="optimal-data-access-reliable"><span class="header-section-number">5.3</span> Optimal Data Access (Reliable)</h2>
+<p>It’s a great idea to review how your getting raw data. If they are emailed .csv or .xlsx files, and especially if they have been manually edited or downloaded, there might be a better way to access data from the source. Accessing raw data from the source is more reliable and automatic. There’s less chance of a middle person between you and the data making a mistake and you having to re-run scripts with the corrections if the mistake even gets discovered! Also, you can get data without the limitations that come from waiting for a person to manage and deliver it.</p>
+<p>Reviewing your strategy and improving it to allow for direct access may take more up-front work, but it usually will reduce future work. Another benefit is that learning to directly access data will up-skill you and further your career. You can learn software (data) engineering concepts like databases, API’s (Application Programming Interfaces), and more. These topics are beyond the scope of this book, but this section is here to encourage you to ask questions and learn more. A good book or large-language model can help introduce you to these topics. Once you become familiar with the lingo, you can start to incorporate database concepts with the following packages:</p>
+<ul>
+<li><code>dbplyr</code> for lazy loading and computation (i.e.&nbsp;using the database server instead of your computer to hold data in memory and perform work)</li>
+<li><code>DBI</code> for reading and writing to databases</li>
+<li><code>dm</code> for data models (tables in your database and their relationships to each other)</li>
+<li><code>httr2</code> for data to and from API’s</li>
+</ul>
+</section>
+<section id="optimal-code-maintanable" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="optimal-code-maintanable"><span class="header-section-number">5.4</span> Optimal Code (Maintanable)</h2>
+<p>If you find yourself copy and pasting code, then it is time to use a function. In R, writing functions is simpler than in other languages. Functions do not require type-checking since R is not a type-checked language. We will go over types at the very end of the section.</p>
+<section id="making-your-own-functions" class="level3">
+<h3 class="anchored" data-anchor-id="making-your-own-functions">Making Your Own Functions</h3>
+<p>If, for example, you need to read another set of data with a similar naming structure to <a href="02-start-organized.html#sec-name_files"><span>Section&nbsp;2.1</span></a>, then a function will communicate your code more clearly. To recap, the code below imported and cleaned our multiple data files into a signle data frame:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) x <span class="sc">+</span> y</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>file_names <span class="ot">&lt;-</span> directory_path <span class="sc">|&gt;</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> directory_path <span class="sc">|&gt;</span> <span class="fu">dir_ls</span>()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>split_matrix <span class="ot">&lt;-</span> file_names <span class="sc">|&gt;</span> <span class="fu">str_split_fixed</span>(<span class="st">"[._]"</span>, n_phrases)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(split_matrix) <span class="ot">&lt;-</span> names_phrases</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> split_matrix <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">data =</span> <span class="fu">map</span>(file_paths, read_csv))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For starters, a function is created by assigning <code>function()</code> to an object, and entering the inputs inside the <code>()</code>. The inputs of a function should be the parts of the function that change over repeated use.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sum <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) x <span class="sc">+</span> y</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
-<p>The inputs of a function should be the parts of the function that change over repeated use. Since we want to repeat the code to read in data, but without being repetitive, our function will only contain inputs that are not repetitive. What part of reading our data is not repetitive now that we want to repeat the task for a set of different files.</p>
-<p>For one, we can imagine that a new set of files might have a different number of phrases in the file names. So one input of our function can be <code>n_phrases</code>. Two, we can imagine that the phrases represent something different. Since we named them previously, let us call a second input of our function <code>names_phrases</code>.</p>
-<p>Lastly, we need to name our function. The function name should reflect the main behaviour. If it is hard to identify the main behaviour, then it is probably best to split the function into multiple functions. Naming the functions appropriately is important for readability.</p>
-<p>Let us start by listing the behaviours of our function or functions:</p>
-<ul>
-<li>Choose a file</li>
-<li>Find the folder (directory) of this file</li>
-<li>Find the names of the csv files in this folder</li>
+<p>What part of our code is not repetitive now that we want to repeat the task for a set of different files?</p>
+<p>For one, we can imagine that we are pointing to a different folder (<code>directory_path</code>). So the first input can be <code>file_path</code> (a folder itself is a file). A new set of files might have a different number of phrases in the file names (<code>n_phrases</code>). So another input of our function can be <code>n_phrases</code>. We can also imagine that the phrases represent something different (<code>names_phrases</code>). Let us call another input of our function <code>labels</code>.</p>
+<p>Lastly, we need to name our function. The function name should reflect its main behavior, and as a verb (since functions <em>do</em> something). If it is hard to identify a main behavior, then it is probably best to split the function into multiple functions. Naming functions appropriately is important for readability.</p>
+<p>Let us start by listing the behaviors of our function or functions:</p>
+<ol type="1">
+<li>Take a file path to a folder and get the names of its csv files</li>
 <li>Get a matrix from splitting the phrases in each name</li>
 <li>Name the columns and turn the matrix into a tibble</li>
-<li>For each row representing a file, read its respective data into the tibble</li>
-</ul>
-<p>That is a lot for one name to represent. Hence it is more prudent to separate these behaviours into multiple functions.</p>
-<p>CONTINUE HERE</p>
-<p>Although we could place all the code needed to read in data inside our function and name the function <code>read_csv_in_df()</code>, this is not a good idea. First, it is inconsistent with the popular function <code>read_csv()</code>, which has more than two arguments, the first of which is a file path.</p>
-<p>With only two arguments, our function has the form <code>function(n_phrases, names_phrases){code}</code>. The code it will execute is in curly brackets <code>{}</code>. Although curly brackets were not needed in <code>function(x, y) x + y</code>, it will be needed here as the code will have multiple lines.</p>
-<p>Although we could place all the code needed to read in data inside and name the function <code>read_csv_in_df()</code>, then we would be acting without much care.</p>
+<li>Where each row now represents a file, read its respective data into the tibble</li>
+<li>The result is a nested data frame of imported data</li>
+</ol>
+<p>That is a lot for one name to represent. Hence it is more prudent to separate these behaviors into multiple functions.</p>
+<p>Let us start with the behaviors dealing with file names. The first 3 behaviors do so. A good name for the combination of these behaviors is <code>describe_files_as_df()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>read_csv_in_df <span class="ot">&lt;-</span> <span class="cf">function</span>(n_phrases, names_phrases){</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  one_file_path <span class="ot">&lt;-</span> <span class="fu">file.choose</span>()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  directory_path <span class="ot">&lt;-</span> one_file_path <span class="sc">|&gt;</span> <span class="fu">path_dir</span>()</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  file_names <span class="ot">&lt;-</span> directory_path <span class="sc">|&gt;</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  file_paths <span class="ot">&lt;-</span> directory_path <span class="sc">|&gt;</span> <span class="fu">dir_ls</span>()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  split_matrix <span class="ot">&lt;-</span> file_names <span class="sc">|&gt;</span> <span class="fu">str_split_fixed</span>(<span class="st">"[._]"</span>, n_phrases)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(split_matrix) <span class="ot">&lt;-</span> names_phrases</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> split_matrix <span class="sc">|&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">data =</span> <span class="fu">map</span>(file_paths, read_csv))</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  df</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>describe_files_as_df <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path, n_phrases, labels) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  file_names <span class="ot">&lt;-</span> file_path <span class="sc">|&gt;</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  split_matrix <span class="ot">&lt;-</span> file_names <span class="sc">|&gt;</span> <span class="fu">str_split_fixed</span>(<span class="st">"[._]"</span>, n_phrases)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(split_matrix) <span class="ot">&lt;-</span> labels</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The last two behaviors concern reading in nested data. Hence <code>read_csv_file_paths()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read_csv_in_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>read_csv_file_paths <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">data =</span> <span class="fu">map</span>(file_paths, read_csv))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Now our processing code can look like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read_csv_in_df(4, c("source", "country", "date" ,"file_type"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gapminder_nested <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data-raw"</span>, <span class="st">"gapminder"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe_files_as_df</span>(<span class="at">n_phrases =</span> <span class="dv">4</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"source"</span>, <span class="st">"country"</span>, <span class="st">"date"</span>, <span class="st">"file_type"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv_file_paths</span>()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>other_data_nested <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">"data-raw"</span>, <span class="st">"other_data"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe_files_as_df</span>(<span class="at">n_phrases =</span> <span class="dv">2</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"source"</span>, <span class="st">"country"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv_file_paths</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Code like this is clear and concise. Each line acts as a single action (even if it is composed of multiple, smaller actions) and communicates that action to the reader.</p>
+</section>
+<section id="adding-function-checks" class="level3">
+<h3 class="anchored" data-anchor-id="adding-function-checks">Adding Function Checks</h3>
+<p>Did you notice that <code>n_phrases</code> and the length of <code>labels</code> are the same (and should be)? What if they aren’t? We will get an error. Even the error is clear in this situation, when functions become more complicated, the chance of an incomprehensible error increases. Hence it is best to be explicit about the requirements of any functions we create. We can improve <code>describe_files_as_df()</code> by checking for the above. If the check fails, we alert the user of the exact problem. For the alert, we use the <code>cli</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>describe_files_as_df <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path, n_phrases, labels) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n_phrases <span class="sc">!=</span> <span class="fu">length</span>(labels)) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cli_abort</span>(</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">"n_phrases must be the same length as labels."</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  file_names <span class="ot">&lt;-</span> file_path <span class="sc">|&gt;</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  split_matrix <span class="ot">&lt;-</span> file_names <span class="sc">|&gt;</span> <span class="fu">str_split_fixed</span>(<span class="st">"[._]"</span>, n_phrases)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(split_matrix) <span class="ot">&lt;-</span> labels</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The error will then look this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="cn">TRUE</span>) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cli_abort</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>      <span class="st">"n_phrases must be the same length as labels."</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error:
+! n_phrases must be the same length as labels.</code></pre>
+</div>
+</div>
+<p>We can improve it further with <code>cli</code> tricks:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>describe_files_as_df <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path, n_phrases, labels) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n_phrases <span class="sc">!=</span> <span class="fu">length</span>(labels)) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cli_abort</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"{.var n_phrases} must be the same length as {.var labels}."</span>, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x"</span> <span class="ot">=</span> <span class="st">"You've supplied {.var n_phrases} as {n_phrases} but {.var labels} has length {length(labels)}."</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  file_names <span class="ot">&lt;-</span> file_path <span class="sc">|&gt;</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  split_matrix <span class="ot">&lt;-</span> file_names <span class="sc">|&gt;</span> <span class="fu">str_split_fixed</span>(<span class="st">"[._]"</span>, n_phrases)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(split_matrix) <span class="ot">&lt;-</span> labels</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_files_as_df</span>(<span class="fu">here</span>(), <span class="st">"5"</span>, <span class="fu">c</span>(<span class="st">"test"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `describe_files_as_df()`:
+! `n_phrases` must be the same length as `labels`.
+✖ You've supplied `n_phrases` as 5 but `labels` has length 1.</code></pre>
+</div>
+</div>
+<p>Furthermore, we know <code>file_path</code> should be a single string, <code>n_phrases</code> should be a number and <code>labels</code> should be a vector of strings. R is relaxed about numbers being portrayed as, for example, <code>"5"</code> or <code>5</code>. On the other hand, we can check for the types for <code>file_path</code> and <code>labels</code> using <code>cli</code> again and <code>rlang</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>describe_files_as_df <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path, n_phrases, labels) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is_string</span>(file_path)) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cli_abort</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"{.var file_path} must be a single string."</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x"</span> <span class="ot">=</span> <span class="st">"You've supplied a {.cls {class(file_path)}} vector with length {length(file_path)}."</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">class</span>(labels) <span class="sc">!=</span> <span class="st">"character"</span>) {</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cli_abort</span>(</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"{.var labels} must be a character vector."</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x"</span> <span class="ot">=</span> <span class="st">"You've supplied a {.cls {class(labels)}} vector."</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (n_phrases <span class="sc">!=</span> <span class="fu">length</span>(labels)) {</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cli_abort</span>(</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"{.var n_phrases} must be the same length as {.var labels}."</span>, </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x"</span> <span class="ot">=</span> <span class="st">"You've supplied {.var n_phrases} as {n_phrases} but {.var labels} has length {length(labels)}."</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  file_names <span class="ot">&lt;-</span> file_path <span class="sc">|&gt;</span> <span class="fu">list.files</span>(<span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  split_matrix <span class="ot">&lt;-</span> file_names <span class="sc">|&gt;</span> <span class="fu">str_split_fixed</span>(<span class="st">"[._]"</span>, n_phrases)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(split_matrix) <span class="ot">&lt;-</span> labels</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_files_as_df</span>(<span class="fu">c</span>(<span class="fu">here</span>(), <span class="fu">here</span>()), <span class="dv">5</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `describe_files_as_df()`:
+! `file_path` must be a single string.
+✖ You've supplied a &lt;character&gt; vector with length 2.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_files_as_df</span>(<span class="fu">here</span>(), <span class="dv">5</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `describe_files_as_df()`:
+! `labels` must be a character vector.
+✖ You've supplied a &lt;numeric&gt; vector.</code></pre>
+</div>
+</div>
+<p>We can apply the same concepts to <code>read_csv_file_paths()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>read_csv_file_paths <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">class</span>(df) <span class="sc">!=</span> <span class="st">"data.frame"</span>) {</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cli_abort</span>(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"{.var df} must be a data frame."</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x"</span> <span class="ot">=</span> <span class="st">"You've supplied something of class {.cls {class(df)}}."</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="st">"file_paths"</span> <span class="sc">%in%</span> <span class="fu">names</span>(df)) {</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cli_abort</span>(</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"{.var df} must contain a column named {.var file_paths}."</span>,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"x"</span> <span class="ot">=</span> <span class="st">"You've supplied a data frame with columns {.var {colnames(df)}}."</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">data =</span> <span class="fu">map</span>(file_paths, read_csv))</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv_file_paths</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `read_csv_file_paths()`:
+! `df` must contain a column named `file_paths`.
+✖ You've supplied a data frame with columns `Sepal.Length`, `Sepal.Width`,
+  `Petal.Length`, `Petal.Width`, and `Species`.</code></pre>
+</div>
+</div>
+</section>
+<section id="comparing-your-functions-to-others" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-your-functions-to-others">Comparing Your Functions to Others</h3>
+<p>When writing functions, it is important to be aware of other, already existing functions and objects.</p>
+<p>For example, <code>labels()</code> is actually a base R function. If we do not overwrite <code>labels</code>, it prints as:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (object, ...) 
+UseMethod("labels")
+&lt;bytecode: 0x00000155ed08bc40&gt;
+&lt;environment: namespace:base&gt;</code></pre>
+</div>
+</div>
+<p>In our <code>describe_files_as_df()</code>, we can get different results:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>describe_files_as_df <span class="ot">&lt;-</span> <span class="cf">function</span>(file_path, n_phrases, labels) {</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(labels)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">labels</span>(labels))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_files_as_df</span>(<span class="at">labels =</span> <span class="st">"test"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "test"
+[1] "1"</code></pre>
+</div>
+</div>
+<p>Here <code>labels</code> is both the string <code>"test"</code> and the function name (the <code>labels</code> part) of <code>labels()</code>. There’s no trouble in using both, unless it causes confusion. If you believe something like this will cause confusion, you can rename the <code>labels</code> argument in <code>describe_files_as_df()</code> as <code>labels_vector</code>.</p>
+<p>Where we need to be more careful is when a function with the same name as our <em>function</em> already exists. For example, if we were to create our own <code>labels()</code> function. Another example would be if <code>describe_files_as_df()</code> was already a function in some library we loaded. R will not, by default, warn or error on these conflicts. In this situation, it’s best to directly refer to the source of the functions coming from packages or from base R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"test"</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">labels</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "1"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">colnames</span>(x)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> <span class="st">"an example"</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">labels</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "an example"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<!-- Fortunately, the packaged `conflicted` will. -->
+<!-- After loading `conflicted`, -->
+<!-- ```{r} -->
+<!-- #| error: true -->
+<!-- labels <- function(x) {names(x)} -->
+<!-- labels("test") -->
+<!-- ``` -->
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -513,8 +791,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-learn-as-you-go.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Learn (As You Go)</span></span>
+      <a href="./04-look-good.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Make (Yourself Look Good)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -529,7 +807,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">R Beginner’s Guide was written by Adam Sadowski.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/asadow/rbg/edit/main/04-stay-organized.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/asadow/rbg/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

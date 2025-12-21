@@ -168,8 +168,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./04-look-good.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Make (Yourself Look Good)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./04-stay-organized.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimize (To Go Fast)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -187,12 +193,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./whats-possible.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">What’s Possible</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-name-files" id="toc-sec-name-files" class="nav-link active" data-scroll-target="#sec-name-files"><span class="header-section-number">2.1</span> Name Files</a></li>
+  <li><a href="#sec-name_files" id="toc-sec-name_files" class="nav-link active" data-scroll-target="#sec-name_files"><span class="header-section-number">2.1</span> Name Files</a></li>
   <li><a href="#bring-files-into-r" id="toc-bring-files-into-r" class="nav-link" data-scroll-target="#bring-files-into-r"><span class="header-section-number">2.2</span> Bring Files Into R</a></li>
   <li><a href="#bring-data-into-r" id="toc-bring-data-into-r" class="nav-link" data-scroll-target="#bring-data-into-r"><span class="header-section-number">2.3</span> Bring Data Into R</a></li>
   <li><a href="#check-data" id="toc-check-data" class="nav-link" data-scroll-target="#check-data"><span class="header-section-number">2.4</span> Check Data</a></li>
@@ -244,8 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="sec-name-files" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="sec-name-files"><span class="header-section-number">2.1</span> Name Files</h2>
+<section id="sec-name_files" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-name_files"><span class="header-section-number">2.1</span> Name Files</h2>
 <p>Now that we have covered how to write lines, we can start writing lines about the data, right? Not yet. Let’s make sure our files have the best names possible as that will help in later writing about the data.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -286,14 +286,10 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"stringr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Delete this line once you are done, as you will have no need to rerun (re-process) it.</p>
-<p>We use a colon (the symbol <code>:</code>) twice to use a function from a package. If you write</p>
+<p>We use a colon (the symbol <code>:</code>) twice to use a function from a package. If you write <code>stringr::</code> you will see a drop-down menu of all the functions from <code>stringr</code>. <code>str</code> stands for string. Many function names start with <code>str_</code>. The drop-down menu from writing <code>stringr::</code> adjusts when you add <code>str_</code>. For every function whose name starts with <code>str_</code>, the general purpose is the processing of strings. Similar to our file names above, the general part of the name comes first, then the <code>_</code>, and then the more specific purpose.</p>
+<p>There are a few exceptions; some functions in <code>stringr</code> do not start with <code>str_</code>. But most start with <code>str_</code> because <code>str_</code> makes it clear what the function will process. This is important as we can avoid the need to write out <code>stringr::</code>. We avoid this by loading the package: making the function names in the package available. To load the package, run the following</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>you will see a drop-down menu of all the functions from stringr. <code>str</code> stands for string. Many function names start with <code>str_</code>. The drop-down menu from writing <code>stringr::</code> adjusts when you add <code>str_</code>. For every function whose name starts with <code>str_</code>, the general purpose is the processing of strings. Similar to our file names above, the general part of the name comes first, then the <code>_</code>, and then the more specific purpose.</p>
-<p>There are a few exceptions; some functions in stringr do not start with <code>str_</code>. But most start with <code>str_</code> because <code>str_</code> makes it clear what the function will process. This is important as we can avoid the need to write out <code>stringr::</code>. We avoid this by loading the package: making the function names in the package available. To load the package, run the following</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now when we only write <code>str_</code>, we still get a drop-down menu. To use a <code>str_</code> function, we need some input strings.</p>
 </section>
@@ -316,17 +312,17 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p><code>file.choose()</code> causes a pop-up that allows you to interactively search your computer files. If you are using Windows, this pop-up may unfortunately pop-up behind RStudio. You will need to Alt-Tab to find the pop-up. Once you see the pop-up, find the folder with your files and double click on (any) one of the files. The function will print the file path (the computer’s representation of where the file exists). Below we assign the file path to the object <code>file_path</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="fu">file.choose</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="fu">file.choose</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will now use a function <code>path_dir()</code> from the package fs. <code>path_dir()</code> will get the path of the directory from the file path. We will assign the result to the object <code>directory_path</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>directory_path <span class="ot">&lt;-</span> <span class="fu">path_dir</span>(file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>directory_path <span class="ot">&lt;-</span> <span class="fu">path_dir</span>(file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To get a list of .csv files in this directory, we will use a <code>list.files()</code> function. This function has what are called two arguments. The first is the path to the folder that contains our files. The second is the pattern that is unique to the files we want.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(directory_path, <span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(directory_path, <span class="at">pattern =</span> <span class="st">"csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "gapminder_afganistan_2022-02-21.csv" 
 [2] "gapminder_afghanistan_2022-02-21.csv"
@@ -335,7 +331,7 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>Now we use <code>str_split()</code> which will split our strings. For example,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "gapminder"      "afganistan"     "2022-02-21.csv"
@@ -350,7 +346,7 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <p>This result is what is called a list. A list can contain anything. The [[1]] and [[2]] represent the first and second element of the list. The [1] indicates that the element to its very right is the first element.</p>
 <p>To also separate the file type (.qmd) at the end, preceded by the period, we can adjust our function to separate by <code>_</code> as well as <code>.</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"_."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"_."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "gapminder"     "fganistan"     "022-02-21.csv"
@@ -364,7 +360,7 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>What happened? This is not what we want, and it is because <code>.</code> is a special (i.e.&nbsp;meta) character. Special characters mean more to R than the literal symbol itself. The special character <code>.</code> represents any character. Hence we told <code>str_split()</code> to use <code>_.</code> as a separator which meant that <code>_A</code> was used as the first separator, and <code>_2</code> as the second separator. We need to use different special characters to overcome this challenge: <code>[</code> and <code>]</code>. These square brackets can be used to surround the distinct characters that <code>str_split</code> will use as separators: <code>[_.]</code> will tell <code>str_split()</code> to use either a <code>_</code> or a literal <code>.</code> as the separator.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"[_.]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(files, <span class="st">"[_.]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "gapminder"  "afganistan" "2022-02-21" "csv"       
@@ -378,7 +374,7 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>We can have a cleaner result using <code>str_split_fixed()</code>. It is called “fixed” as we can fix the number of splits or pieces. We will split our strings into 4 pieces.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split_fixed</span>(files, <span class="st">"[_.]"</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split_fixed</span>(files, <span class="st">"[_.]"</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1]        [,2]          [,3]         [,4] 
 [1,] "gapminder" "afganistan"  "2022-02-21" "csv"
@@ -388,11 +384,11 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>This result is what is called a matrix. Let’s assign it to the object m.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">str_split_fixed</span>(files, <span class="st">"[_.]"</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">str_split_fixed</span>(files, <span class="st">"[_.]"</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can see the matrix just by processing</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1]        [,2]          [,3]         [,4] 
 [1,] "gapminder" "afganistan"  "2022-02-21" "csv"
@@ -402,8 +398,8 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>Let’s add informative names to the columns of the matrix. To do this, we use a function called <code>colnames()</code>. This function will be placed on the left of <code>&lt;-</code> as it is a replacement function. We replace the null (i.e.&nbsp;undefined) column names of our matrix with our list of characteristics.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"source"</span>, <span class="st">"country"</span>, <span class="st">"date"</span>, <span class="st">"file_type"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(m) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"source"</span>, <span class="st">"country"</span>, <span class="st">"date"</span>, <span class="st">"file_type"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     source      country       date         file_type
 [1,] "gapminder" "afganistan"  "2022-02-21" "csv"    
@@ -413,9 +409,9 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>Let’s create an object named df with a function called <code>as_tibble()</code> from the package <code>tibble</code>. What is a tibble? It is an R word for table. Remember to install tibble before running</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(m)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(m)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   source    country     date       file_type
@@ -433,12 +429,12 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <!-- ``` -->
 <p>We now need the file path for each of our files. To list the files in our directory, use the function <code>dir_ls()</code>. Assign the result to object <code>file_paths</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">dir_ls</span>(directory_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">dir_ls</span>(directory_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will now change our tibble so that there is a new column called <code>file_path</code> that contains our <code>file_paths</code>. To do this, we will use a function from the package <code>dplyr</code> (pronounced “data plier”). The function we will use is named after another word for change: <code>mutate()</code>. This function has two arguments. The first is the tibble. The second is the name of the new column, an equal sign, and the values we want in that column.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">file_path =</span> file_paths)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">file_path =</span> file_paths)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="bring-data-into-r" class="level2" data-number="2.3">
@@ -450,16 +446,13 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <p>The result of <code>map()</code> will always be containers. The number of containers will always be the same as the length of the first argument to <code>map()</code>. The second argument of <code>map()</code> is the function that will be applied to the first argument. To create the <code>data</code> column, the first argument will be the <code>file_path</code>, and the second argument will be a custom read function.</p>
 <p>The read function below, <code>read_csv_c()</code>, uses a function called <code>read_csv()</code> from the package <code>readr</code>. <code>read_csv()</code> reads .csv files and determines what kind of columns are in the data (e.g.&nbsp;numeric or character). We will decide the kind of columns ourselves, so we need to prevent the function from doing so. <code>col_types</code> is the argument inside of <code>read_csv()</code> with a <code>.default</code>. We need to set the <code>.default</code> to be <code>"c"</code>. <code>"c"</code> stands for character. Character is a safe default as it is the original format of the .csv data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.4.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>read_csv_c <span class="ot">&lt;-</span> <span class="cf">function</span>(csv_file_path) <span class="fu">read_csv</span>(csv_file_path, <span class="at">col_types =</span> <span class="fu">c</span>(<span class="at">.default =</span> <span class="st">"c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>read_csv_c <span class="ot">&lt;-</span> <span class="cf">function</span>(csv_file_path) <span class="fu">read_csv</span>(csv_file_path, <span class="at">col_types =</span> <span class="fu">c</span>(<span class="at">.default =</span> <span class="st">"c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we use our new function to read in our data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">data =</span> <span class="fu">map</span>(file_path, read_csv_c))</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">data =</span> <span class="fu">map</span>(file_path, read_csv_c))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 6
   source    country     date       file_type file_path                data      
@@ -471,13 +464,13 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>We no longer need the <code>file_path</code> column so we will select it to be removed by using the <code>select()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">select</span>(df, <span class="sc">-</span> file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">select</span>(df, <span class="sc">-</span> file_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can open our containers or “nests” in <code>data</code> using the function <code>unnest()</code> from the package <code>tidyr</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">unnest</span>(df, data)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">unnest</span>(df, data)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 9
    source    country     date  file_type continent year  lifeExp pop   gdpPercap
@@ -502,14 +495,14 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <h2 data-number="2.4" class="anchored" data-anchor-id="check-data"><span class="header-section-number">2.4</span> Check Data</h2>
 <p>The simplest way to start evaluating data is to check that the values under each column meet expectations. Since we created the first 4 columns using our file names, we can be sure that these 4 columns are clean. For the next column, <code>continent</code>, we expect values to be continents, capitalized, and spelled correctly. Instead of reading each line with our eyes, we can read each line with our computers. Or a combination of the two. That is exactly how we will start.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Asia"     "Americas"</code></pre>
 </div>
 </div>
 <p>These unique values are perfect. Which means every value is perfect, as these unique values represent them. But what if they were not capitalized, for example? That is in fact the case with our country column: the values are not capitalized because the values came from our file-naming, and it is good practice not to capitalize when file-naming.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "afghanistan" "canada"     </code></pre>
 </div>
@@ -519,8 +512,8 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <h2 data-number="2.5" class="anchored" data-anchor-id="clean-data"><span class="header-section-number">2.5</span> Clean Data</h2>
 <p>To capitalize the values in a column, you can use a function called <code>str_to_title()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">country =</span> <span class="fu">str_to_title</span>(country))</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">country =</span> <span class="fu">str_to_title</span>(country))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 9
    source    country     date  file_type continent year  lifeExp pop   gdpPercap
@@ -546,8 +539,8 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <p>Suppose people answered a survey that included questions on how much time their children spend doing X on a typical day. These questions have two text boxes:</p>
 <p>Unique responses to the first box of the first question:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"5"</span>, <span class="cn">NA</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"2"</span>, <span class="st">""</span>,  <span class="st">"1"</span>, <span class="st">"6"</span>, <span class="st">"8"</span>, <span class="st">"60"</span>,  <span class="st">"30"</span>,  <span class="st">"45"</span>,  <span class="st">"7"</span>, <span class="st">"20"</span>, <span class="st">"9"</span>, <span class="st">"35"</span>,  <span class="st">"3 "</span>,  <span class="st">"1.5"</span>, <span class="st">"4-5"</span>, <span class="st">"2 "</span>,  <span class="st">"40"</span>, <span class="st">"Day care"</span>, <span class="st">"3 to 4"</span>, <span class="st">"10"</span>,  <span class="st">"48"</span>,  <span class="st">"4hrs"</span>,  <span class="st">"15"</span>,  <span class="st">"90"</span>, <span class="st">"?"</span>, <span class="st">"12"</span>)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"5"</span>, <span class="cn">NA</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="st">"2"</span>, <span class="st">""</span>,  <span class="st">"1"</span>, <span class="st">"6"</span>, <span class="st">"8"</span>, <span class="st">"60"</span>,  <span class="st">"30"</span>,  <span class="st">"45"</span>,  <span class="st">"7"</span>, <span class="st">"20"</span>, <span class="st">"9"</span>, <span class="st">"35"</span>,  <span class="st">"3 "</span>,  <span class="st">"1.5"</span>, <span class="st">"4-5"</span>, <span class="st">"2 "</span>,  <span class="st">"40"</span>, <span class="st">"Day care"</span>, <span class="st">"3 to 4"</span>, <span class="st">"10"</span>,  <span class="st">"48"</span>,  <span class="st">"4hrs"</span>,  <span class="st">"15"</span>,  <span class="st">"90"</span>, <span class="st">"?"</span>, <span class="st">"12"</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "5"        NA         "3"        "4"        "2"        ""        
  [7] "1"        "6"        "8"        "60"       "30"       "45"      
@@ -558,8 +551,8 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>Unique responses to the second box which allows selection of the units:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>units <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Minutes"</span>, <span class="st">"Hours"</span>)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>units</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>units <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Minutes"</span>, <span class="st">"Hours"</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>units</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Minutes" "Hours"  </code></pre>
 </div>
@@ -567,10 +560,10 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <p>Evidently this data needs to be cleaned before we do <code>as.numeric()</code> which turns non-numeric strings into <code>NA</code>.</p>
 <p>First, we might think, let’s deal with the interval responses like <code>4-5</code>. We note there’s also a response <code>3 to 4</code>. We can turn these responses into proper numbers like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Don't worry about understanding the code here</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_replace</span>(n, <span class="st">"^(.*?)(-|to).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>))</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_replace</span>(n, <span class="st">"^.*(-|to)(.*?)"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">2"</span>))</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">str_detect</span>(n, <span class="st">"-|to"</span>), (n1<span class="sc">+</span>n2)<span class="sc">/</span><span class="dv">2</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Don't worry about understanding the code here</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_replace</span>(n, <span class="st">"^(.*?)(-|to).*"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1"</span>))</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">str_replace</span>(n, <span class="st">"^.*(-|to)(.*?)"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">2"</span>))</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(<span class="fu">str_detect</span>(n, <span class="st">"-|to"</span>), (n1<span class="sc">+</span>n2)<span class="sc">/</span><span class="dv">2</span>, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "5"        NA         "3"        "4"        "2"        ""        
  [7] "1"        "6"        "8"        "60"       "30"       "45"      
@@ -589,9 +582,9 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <h3 class="anchored" data-anchor-id="filter"><code>filter()</code></h3>
 <p>If we decide, after cleaning, that we don’t need parts of the data, should we remove files or edit the raw data? It’s often a better idea to keep a record of changes, with both code and comments. For example, to remove all but data on Asia, we can use <code>filter()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Analysis is only on Asia</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">&lt;-</span> <span class="fu">filter</span>(df, continent <span class="sc">==</span> <span class="st">"Asia"</span>)</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Analysis is only on Asia</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">&lt;-</span> <span class="fu">filter</span>(df, continent <span class="sc">==</span> <span class="st">"Asia"</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>df_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 9
    source    country     date  file_type continent year  lifeExp pop   gdpPercap
@@ -615,7 +608,7 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <h3 class="anchored" data-anchor-id="distinct"><code>distinct()</code></h3>
 <p>We can keep only unique (i.e.&nbsp;distinct) values under the a column using <code>distinct()</code>. It produces a tibble with only the distinct rows for the column(s) you choose. The argument <code>.keep_all</code>, if set to <code>TRUE</code>, keeps all columns. This can be seen in the help page: <code>?distinct</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distinct</span>(<span class="fu">select</span>(df, country, continent), continent, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distinct</span>(<span class="fu">select</span>(df, country, continent), continent, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country     continent
@@ -630,9 +623,9 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <h2 data-number="2.8" class="anchored" data-anchor-id="code-concisely"><span class="header-section-number">2.8</span> Code Concisely</h2>
 <p>We can write the above in a more readable way using a special symbol.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, continent) <span class="sc">|&gt;</span> </span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(continent, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, continent) <span class="sc">|&gt;</span> </span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(continent, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country     continent
@@ -647,43 +640,43 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <p><code>|&gt;</code> and <code>%&gt;%</code> are called pipes and are used like so: <code>left_side |&gt; right_side()</code>. They send the left side to the right side. The <code>|&gt;</code> is newer and recommended because, where as the left side is an input, the right side is a function, and <code>|&gt;</code> enforces the <code>()</code> after the function name. Since <code>|&gt;</code> enforces an explicit and safer style, let’s stick with it.</p>
 <p>The other property to remember is that the pipe holds mathematical priority before brackets and exponents. So if you know BEDMASS, then you also know BE<code>|&gt;</code>DMASS.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.236068</code></pre>
 </div>
 </div>
 <p>is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.236068</code></pre>
 </div>
 </div>
 <p>But</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span> <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11.18034</code></pre>
 </div>
 </div>
 <p>is not the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span> <span class="sc">*</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
 </div>
 <p>For a more relevant example,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df, <span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>which is the same as</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">year =</span> year <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">year =</span> year <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>|&gt;</code> is most useful to group together steps that accomplish a goal, e.g., summarizing data.</p>
 </section>
@@ -691,8 +684,8 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <h3 class="anchored" data-anchor-id="summarize"><code>summarize()</code></h3>
 <p>A few more functions allow for concise writing. <code>summarize()</code> is used to calculate a summary statistic.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the max year per country</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">max_year =</span> <span class="fu">max</span>(year), <span class="at">.by =</span> country) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the max year per country</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">max_year =</span> <span class="fu">max</span>(year), <span class="at">.by =</span> country) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country     max_year
@@ -703,11 +696,11 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>It’s a short form for a number of other functions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the max year per country</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span> </span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">max_year =</span> <span class="fu">max</span>(year)) <span class="sc">|&gt;</span> </span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(country, max_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the max year per country</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span> </span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">max_year =</span> <span class="fu">max</span>(year)) <span class="sc">|&gt;</span> </span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(country, max_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
 # Groups:   country [2]
@@ -722,7 +715,7 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 <h4 class="anchored" data-anchor-id="count"><code>count()</code></h4>
 <p>The last short form we will cover is <code>count()</code>. Instead of</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">.by =</span> country) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">.by =</span> country) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country         n
@@ -733,7 +726,7 @@ on-ruby_lesson-1_2022-02-20.qmd</code></pre>
 </div>
 <p>you can write</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">count</span>(country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">count</span>(country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   country         n

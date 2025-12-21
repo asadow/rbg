@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04-stay-organized.html" rel="next">
+<link href="./04-look-good.html" rel="next">
 <link href="./02-start-organized.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -168,8 +168,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./04-look-good.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Make (Yourself Look Good)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./04-stay-organized.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Optimize (To Go Fast)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -185,12 +191,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./05-text-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Prepare for Text Data</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./whats-possible.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">What’s Possible</span></span></a>
   </div>
 </li>
       </ul>
@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-learn-as-you-go" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Learn (As You Go)</span></span></h1>
+<h1 class="title"><span id="sec-learn_as_you_go" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Learn (As You Go)</span></span></h1>
 </div>
 
 
@@ -241,14 +241,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'readr' was built under R version 4.4.3</code></pre>
-</div>
-</div>
 <section id="find-functions" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="find-functions"><span class="header-section-number">3.1</span> Find Functions</h2>
 <p>How would you discover functions for your specific needs?</p>
@@ -262,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="search-engines" class="level3">
 <h3 class="anchored" data-anchor-id="search-engines">Search Engines</h3>
-<p>Google is a great search engine that most R programmers use when learning the R language. If we search “r capitalize first letter” we see, on 2025-12-21, the following paragraph as the first result:</p>
+<p>Google is a great search engine that most R programmers use when learning the R language. If we search “r capitalize first letter” we see, on 2025-04-14, the following paragraph as the first result:</p>
 <blockquote class="blockquote">
 <p>Convert First letter of every word to Uppercase in R Programming – str_to_title() Function. str_to_title() Function in R Language is used to convert the first letter of every word of a string to Uppercase and the rest of the letters are converted to lower case.</p>
 </blockquote>
@@ -272,10 +264,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="stack-overflow" class="level3">
 <h3 class="anchored" data-anchor-id="stack-overflow">Stack Overflow</h3>
 <p>Speaking of breaking down something complicated so that a search engine like Google can understand it, this is also necessary for others to understand it. For learning R, allowing others to understand your challenge or need is valuable as the R community is not only willing, but also quickly able to help. R users mainly help each other through <a href="stackoverflow.com">Stack Overflow</a>. It is a website that easily allows users to ask or answer questions with code, have their code formatted (look nice), and receive feedback.</p>
-<p>The main draw of Stack Overflow is that the person asking the question has one main responsibility, and that is to produce what is called a minimally reproducible example: an example that can be used (reproduced) by someone else seeing the question, and that does not have unnecessary detail irrelevant to the question (minimal).</p>
-<p>Describe example</p>
-<p><a href="https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th">EXAMPLE HERE</a></p>
-<p>Knowing how to make an example is the majority of the work involved in asking a question on Stack Overflow.</p>
+<p>The main draw of Stack Overflow is that the person asking the question has one main responsibility, and that is to produce what is called a minimally reproducible example: an example that can be used (reproduced) by someone else seeing the question, and that does not have unnecessary detail irrelevant to the question (minimal). <a href="https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th">Here’s a short example</a>.</p>
+<p>Knowing how to make a reprex (minimally reproducible example) is the majority of the work involved in asking a question on Stack Overflow.</p>
 <section id="creating-minimally-reproducible-examples" class="level4">
 <h4 class="anchored" data-anchor-id="creating-minimally-reproducible-examples">Creating Minimally Reproducible Examples</h4>
 <p>If your question involves data frames, you need to learn how to build a data frame before asking your question on Stack Overflow. To build a data frame, you can use the <code>tibble()</code> function from package <code>tibble</code>.</p>
@@ -301,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>then the first part of your minimal example might look this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
       x     y
@@ -328,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>then the second part of your minimal example might look like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
       x mean_y
@@ -344,33 +334,33 @@ tibble(x = c(1, 2, 1, 2), y = c(3, 4, 2, 2))
 tibble(x = c(1, 2), mean_y = c(2.5, 2))</code></pre>
 <p>To make your question even better, you can format your code by using the <code>reprex</code> function from the reprex package. The curly brackets are needed to tell reprex that you have multiple lines of code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reprex)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">reprex</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(tibble)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reprex)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">reprex</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(tibble)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally your question looks friendly:</p>
 <pre><code>How can I transform the first tibble into the second tibble with a function?</code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 2</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       x     y</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1     3</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2     4</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     1     2</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     2     2</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 2</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       x mean_y</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1    2.5</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2    2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 2</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       x     y</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1     3</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2     4</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     1     2</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     2     2</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mean_y =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       x mean_y</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1    2.5</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     2    2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -408,7 +398,7 @@ tibble(x = c(1, 2), mean_y = c(2.5, 2))</code></pre>
 <section id="stack-overflow-1" class="level3">
 <h3 class="anchored" data-anchor-id="stack-overflow-1">Stack Overflow</h3>
 <p>Another way to understand functions is to be presented with answers from others on Stack Overflow. These answers don’t need to be answers to the questions you have posted on Stack Overflow; they can be answers to questions posted by others.</p>
-<p>For example, here is a question dated from 2019: https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th</p>
+<p><a href="https://stackoverflow.com/questions/58996293/transforming-a-dataframe-by-multiplying-a-columns-elements-by-the-names-of-th">Here is an example from 2019</a>.</p>
 <p>There are three separate answers that have up votes (positive feedback represented by the digit on the top left of an answer): 1 using the <code>data.table</code> package; 1 using <code>base R</code> (R without packages); and 1 using <code>tidyr</code>.</p>
 <p>Notice how the answer using <code>tidyr</code> is far more simple; it is one line of code. This word <code>tidy</code> keeps popping up, and for good reason: the functions in this package and more broadly in the <code>tidyverse</code> (the tidy universe) are designed to make coding short and simple.</p>
 <p>It is possible to add comments to the answers on Stack Overflow, with further questions about the functions if there is something you don’t understand. Fortunately the <code>tidyverse</code> functions are well documented because of their standardized webpages, and because of multiple, free books on using them for specific tasks.</p>
@@ -667,8 +657,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04-stay-organized.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Review (to Stay Organized)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-look-good.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Make (Yourself Look Good)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
